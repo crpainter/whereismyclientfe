@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { ProfilePage } from '../profile/profile';
 
 @Component({
     selector: 'page-register',
@@ -11,5 +12,8 @@ export class RegisterPage {
 
     }
 
+    navigatetoProfile() {
+        this.navCtrl.push(ProfilePage);
+      }
 
 }
