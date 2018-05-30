@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
 
 @Component({
@@ -8,10 +9,12 @@ import { HomePage } from '../home/home';
 })
 export class ProfilePage {
 
-    constructor(public navCtrl: NavController) {
-
+    constructor(public navCtrl: NavController, public navParams: NavParams) {
+        this.username = navParams.get('username');
     }
     
+    username: string;
+
     navigatetoHome() {
         this.navCtrl.push(HomePage);
       }

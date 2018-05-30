@@ -12,8 +12,12 @@ export class RegisterPage {
 
     }
 
+    username: string;
+
     navigatetoProfile() {
-        this.navCtrl.push(ProfilePage);
+        this.navCtrl.push(ProfilePage, {
+            username: this.username
+        });
       }
 
 }
