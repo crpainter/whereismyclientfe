@@ -12,12 +12,14 @@ export class CharityPage {
     constructor(public navCtrl: NavController, public navParams: NavParams) {
         this.name = navParams.get('name');
         this.description = navParams.get('description')
+        this.logourl = navParams.get('logourl')
     }
 
     username: string;
     charityInfo: object;
     name: string;
     description: string;
+    logourl: string;
 
     navigatetoProfile() {
         this.navCtrl.push(ProfilePage, {
