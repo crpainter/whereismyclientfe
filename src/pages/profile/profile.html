@@ -5,7 +5,8 @@
               box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); 
               padding: 20px;
               border-radius: 9px;
-              background-color: white;">
+              background-color: white;
+              position: relative;">
         <h1 style="text-align: center">Your Account</h1>
         <img style="width: 110px; height: 110px; margin: 0 auto; display: block;" src="https://thewellatsacstate.com/cache/ce-image/fitness/staff/tatiana-quintero/assets/images/default-profile-image_500_500_bor3_0fa195_all_250.png">
         <ion-item-group>
@@ -15,34 +16,34 @@
             <ion-item>
                 <ion-label>Your Charities:</ion-label>
             </ion-item>
-            <ion-scroll style="height: 205px">
-                <ion-list>
-                    <ion-item>
-                        <ion-thumbnail item-start>
-                            <img src={{charities[0].logourl}}>
-                        </ion-thumbnail>
-                        <h2>{{charities[0].name}}</h2>
-                        <p>$891 Given • 167 Treatments Provided</p>
-                        <button ion-button clear item-end (click)="navigateToCharity(charities[0]);">View</button>
-                    </ion-item>
-                    <ion-item>
-                        <ion-thumbnail item-start>
-                            <img src={{charities[1].logourl}}>
-                        </ion-thumbnail>
-                        <h2>{{charities[1].name}}</h2>
-                        <p>$1,074 Given • 347 Bed Nets Delivered</p>
-                        <button ion-button clear item-end (click)="navigateToCharity(charities[1]);">View</button>
-                    </ion-item>
-                    <ion-item>
-                        <ion-thumbnail item-start>
-                            <img src={{charities[2].logourl}}>
-                        </ion-thumbnail>
-                        <h2>{{charities[2].name}}</h2>
-                        <p>$200 Given • 7 Animals Helped</p>
-                        <button ion-button clear item-end (click)="navigateToCharity(charities[2]);">View</button>
-                    </ion-item>
-                </ion-list>
-            </ion-scroll>
+            <div style="overflow: auto; max-height: 200px; margin: 10px;">
+                    <ion-list>
+                        <ion-item>
+                            <ion-thumbnail item-start>
+                                <img src={{charities[0].logourl}}>
+                            </ion-thumbnail>
+                            <h2>{{charities[0].name}}</h2>
+                            <p>$891 Given • 167 Treatments Provided</p>
+                            <button ion-button clear item-end (click)="navigateToCharity(charities[0]);">View</button>
+                        </ion-item>
+                        <ion-item>
+                            <ion-thumbnail item-start>
+                                <img src={{charities[1].logourl}}>
+                            </ion-thumbnail>
+                            <h2>{{charities[1].name}}</h2>
+                            <p>$1,074 Given • 347 Bed Nets Delivered</p>
+                            <button ion-button clear item-end (click)="navigateToCharity(charities[1]);">View</button>
+                        </ion-item>
+                        <ion-item>
+                            <ion-thumbnail item-start>
+                                <img src={{charities[2].logourl}}>
+                            </ion-thumbnail>
+                            <h2>{{charities[2].name}}</h2>
+                            <p>$200 Given • 7 Animals Helped</p>
+                            <button ion-button clear item-end (click)="navigateToCharity(charities[2]);">View</button>
+                        </ion-item>
+                    </ion-list>
+            </div>
 
 
         </ion-item-group>
