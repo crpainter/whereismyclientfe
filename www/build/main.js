@@ -34,7 +34,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/Chris/Documents/goldenThread/src/pages/home/home.html"*/'\n\n<ion-content padding style="background-color: rgb(255, 203, 203)">\n    <div style="width:300px; height:200px; margin: 10% auto; \n    -moz-box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); \n    -webkit-box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); \n      box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); \n      padding: 20px;\n      border-radius: 9px;\n      align-content: center;\n      background-color: white;">\n  <h1>Welcome to DoneGood</h1>\n  <h5>have an account?</h5>\n  <br>\n  <button ion-button style="float: left" (click)="navigatetoRegister()" round>Register</button>\n  <button ion-button style="float: right" (click)="navigatetoLogin()" round>Sign In</button>\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/Chris/Documents/goldenThread/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/Users/Chris/Documents/goldenThread/src/pages/home/home.html"*/'\n\n<ion-content padding style="background-color: rgb(255, 203, 203)">\n    <div style="width:330px; height:180px; margin: 10% auto; \n    -moz-box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); \n    -webkit-box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); \n      box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); \n      padding: 20px;\n      border-radius: 9px;\n      align-content: center;\n      background-color: white;">\n  <h1>Welcome to DoneGood</h1>\n  <h5>have an account?</h5>\n  <br>\n  <button ion-button style="float: left" (click)="navigatetoRegister()" round>Register</button>\n  <button ion-button style="float: right" (click)="navigatetoLogin()" round>Sign In</button>\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/Chris/Documents/goldenThread/src/pages/home/home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]])
     ], HomePage);
@@ -87,6 +87,7 @@ webpackEmptyAsyncContext.id = 151;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profile_profile__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_ts_User__ = __webpack_require__(274);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -99,22 +100,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var LoginPage = /** @class */ (function () {
     function LoginPage(navCtrl) {
         this.navCtrl = navCtrl;
     }
     LoginPage.prototype.navigatetoProfile = function () {
+        var user = new __WEBPACK_IMPORTED_MODULE_3__models_ts_User__["a" /* User */]();
+        user.name = this.username;
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__profile_profile__["a" /* ProfilePage */], {
-            username: this.username
+            user: user
         });
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-login',template:/*ion-inline-start:"/Users/Chris/Documents/goldenThread/src/pages/login/login.html"*/'\n<ion-content padding style="background-color: rgb(255, 203, 203)">\n  <div style="width:340px; height:370px; margin: 10% auto; \n  -moz-box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); \n  -webkit-box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); \n    box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); \n    padding: 20px;\n    border-radius: 9px;\n    background-color: white;">\n    <ion-list>\n      <h1>Please Sign In</h1>\n      <h5>to continue</h5>\n\n      <ion-item>\n        <ion-label floating>Username</ion-label>\n        <ion-input type="text" value="" [(ngModel)]="username"></ion-input>\n      </ion-item>\n\n      <ion-item>\n        <ion-label floating>Password</ion-label>\n        <ion-input type="password"></ion-input>\n      </ion-item>\n      <br>\n      <ion-item>\n        <ion-label style="size:3">Remember Me</ion-label>\n        <ion-checkbox color="dark" checked="false"></ion-checkbox>\n      </ion-item>\n    </ion-list>\n    <a style="size: 9; margin-right: 50px; margin-left: 20px" href="nonexistent.com"> Forgot Password?</a>\n    <button ion-button (click)="navigatetoProfile()" color="blue" round>Submit</button>\n\n\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/Chris/Documents/goldenThread/src/pages/login/login.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]) === "function" && _a || Object])
     ], LoginPage);
     return LoginPage;
+    var _a;
 }());
 
 //# sourceMappingURL=login.js.map
@@ -155,7 +160,7 @@ var CharityPage = /** @class */ (function () {
     };
     CharityPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'charityInfo-login',template:/*ion-inline-start:"/Users/Chris/Documents/goldenThread/src/pages/charityInfo/charityInfo.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-title>\n            {{charity.name}}\n        </ion-title>\n    </ion-navbar>\n</ion-header>\n<ion-content text-center padding style="background-color: rgb(255, 203, 203)">\n    <div style="position: relative; width:900px; height:800px; margin: 1% auto; \n        -moz-box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); \n        -webkit-box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); \n          box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); \n          padding: 20px;\n          border-radius: 9px;\n          background-color: white;">\n        <br>\n        <h1>{{charity.name}}</h1>\n        <img src={{charity.logourl}} width="400px" height="400px">\n        <h4 style="text-align: left">{{charity.description}}</h4>\n        <div style="position: relative; margin: 140px">\n            <a href={{charity.siteurl}}>\n                <button ion-button round>Visit Site</button>\n            </a>\n        </div>\n    </div>\n</ion-content>'/*ion-inline-end:"/Users/Chris/Documents/goldenThread/src/pages/charityInfo/charityInfo.html"*/
+            selector: 'charityInfo-login',template:/*ion-inline-start:"/Users/Chris/Documents/goldenThread/src/pages/charityInfo/charityInfo.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-title>\n            {{charity.name}}\n        </ion-title>\n    </ion-navbar>\n</ion-header>\n<ion-content text-center padding style="background-color: rgb(255, 203, 203)">\n    <div style="position: relative; width:900px; height:800px; margin: 1% auto; \n        -moz-box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); \n        -webkit-box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); \n          box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); \n          padding: 20px;\n          border-radius: 9px;\n          position: relative;\n          background-color: white;">\n        <br>\n        <h1>{{charity.name}}</h1>\n        <img src={{charity.logourl}} width="200px" height="200px">\n        <h4 style="text-align: left">{{charity.description}}</h4>\n        <div style="position: absolute; text-align: center; left: 50%; bottom: 3%; transform: translate(-50%);">\n            <a href={{charity.siteurl}} style="display: inline; float: none;">\n                <button ion-button center round>Visit Site</button>\n            </a>\n        </div>\n    </div>\n</ion-content>'/*ion-inline-end:"/Users/Chris/Documents/goldenThread/src/pages/charityInfo/charityInfo.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */]])
     ], CharityPage);
@@ -174,6 +179,7 @@ var CharityPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profile_profile__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_ts_User__ = __webpack_require__(274);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -186,22 +192,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var RegisterPage = /** @class */ (function () {
     function RegisterPage(navCtrl) {
         this.navCtrl = navCtrl;
     }
     RegisterPage.prototype.navigatetoProfile = function () {
+        var user = new __WEBPACK_IMPORTED_MODULE_3__models_ts_User__["a" /* User */]();
+        user.name = this.username;
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__profile_profile__["a" /* ProfilePage */], {
-            username: this.username
+            user: user
         });
     };
     RegisterPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-register',template:/*ion-inline-start:"/Users/Chris/Documents/goldenThread/src/pages/register/register.html"*/'\n<ion-content padding style="background-color: rgb(255, 203, 203)">\n  <div style="width:450px; height:470px; margin: 10% auto; \n        -moz-box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); \n        -webkit-box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); \n          box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); \n          padding: 20px;\n          border-radius: 9px;\n          background-color: white;">\n    <h1>Create Your DoneGood Account</h1>\n    <h5>let\'s get you set up</h5>\n    <div style="float: left">\n      <ion-item>\n        <ion-label floating>First name</ion-label>\n        <ion-input type="text" value=""></ion-input>\n      </ion-item>\n    </div>\n    <div style="float: right">\n      <ion-item>\n        <ion-label floating>Last name</ion-label>\n        <ion-input type="password"></ion-input>\n      </ion-item>\n    </div>\n    <br>\n    <ion-item>\n      <ion-label floating>Username</ion-label>\n      <ion-input type="username" [(ngModel)]="username"></ion-input>\n    </ion-item>\n    <p style="font-size: 13px; padding-left: 3%">This can include numbers or letters, but no symbols</p>\n    <div style="float: left">\n      <ion-item>\n        <ion-label floating>Password</ion-label>\n        <ion-input type="text" value=""></ion-input>\n      </ion-item>\n    </div>\n    <div style="float: right">\n      <ion-item>\n        <ion-label floating>Confirm Password</ion-label>\n        <ion-input type="password"></ion-input>\n      </ion-item>\n    </div>\n    <div>\n      <p style="font-size: 13px; padding-left: 3%; float:left">Let\'s use at least 6 characters</p>\n    </div>\n    <br>\n\n\n    <div style="float:right; clear:left">\n      <button ion-button (click)="navigatetoProfile()" color="blue" round>Let\'s Go!</button>\n    </div>\n\n\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/Chris/Documents/goldenThread/src/pages/register/register.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]) === "function" && _a || Object])
     ], RegisterPage);
     return RegisterPage;
+    var _a;
 }());
 
 //# sourceMappingURL=register.js.map
@@ -358,6 +368,22 @@ var Charity = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 274:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return User; });
+var User = /** @class */ (function () {
+    function User() {
+        this.charitiesDonatedTo = [];
+    }
+    return User;
+}());
+
+//# sourceMappingURL=User.js.map
+
+/***/ }),
+
 /***/ 50:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -388,7 +414,7 @@ var ProfilePage = /** @class */ (function () {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.charities = [];
-        this.username = navParams.get('username');
+        this.user = this.navParams.get('user');
         var SchistosomiasisControlInitiative = new __WEBPACK_IMPORTED_MODULE_4__models_ts_Charity__["a" /* Charity */]();
         SchistosomiasisControlInitiative.name = "Schistosomiasis Control Initiative";
         SchistosomiasisControlInitiative.description = "The Schistosomiasis Control Initiative (SCI), at Imperial College London, is a non-profit initiative that works with Ministries of Health in sub-Saharan African countries and Yemen. It supports and evaluates treatment programmes against schistosomiasis and soil-transmitted helminthiasis.";
@@ -404,9 +430,9 @@ var ProfilePage = /** @class */ (function () {
         TheHumaneLeague.description = "The Schistosomiasis Control Initiative (SCI), at Imperial College London, is a non-profit initiative that works with Ministries of Health in sub-Saharan African countries and Yemen. It supports and evaluates treatment programmes against schistosomiasis and soil-transmitted helminthiasis.";
         TheHumaneLeague.logourl = "data:image/png;base64,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";
         TheHumaneLeague.siteurl = "https://thehumaneleague.org/";
-        this.charities.push(SchistosomiasisControlInitiative);
-        this.charities.push(AgainstMalariaFoundation);
-        this.charities.push(TheHumaneLeague);
+        this.user.charitiesDonatedTo.push(SchistosomiasisControlInitiative);
+        this.user.charitiesDonatedTo.push(AgainstMalariaFoundation);
+        this.user.charitiesDonatedTo.push(TheHumaneLeague);
     }
     ProfilePage.prototype.navigatetoHome = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__home_home__["a" /* HomePage */]);
@@ -418,11 +444,12 @@ var ProfilePage = /** @class */ (function () {
     };
     ProfilePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-profile',template:/*ion-inline-start:"/Users/Chris/Documents/goldenThread/src/pages/profile/profile.html"*/'<ion-content padding style="background-color: rgb(255, 203, 203)">\n    <div style="width:450px; height:530px; margin: 10% auto; \n            -moz-box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); \n            -webkit-box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); \n              box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); \n              padding: 20px;\n              border-radius: 9px;\n              background-color: white;\n              position: relative;">\n        <h1 style="text-align: center">Your Account</h1>\n        <img style="width: 110px; height: 110px; margin: 0 auto; display: block;" src="https://thewellatsacstate.com/cache/ce-image/fitness/staff/tatiana-quintero/assets/images/default-profile-image_500_500_bor3_0fa195_all_250.png">\n        <ion-item-group>\n            <ion-item>\n                <ion-label>Username: {{username}}</ion-label>\n            </ion-item>\n            <ion-item>\n                <ion-label>Your Charities:</ion-label>\n            </ion-item>\n            <div style="overflow: auto; max-height: 200px; margin: 10px;">\n                    <ion-list>\n                        <ion-item>\n                            <ion-thumbnail item-start>\n                                <img src={{charities[0].logourl}}>\n                            </ion-thumbnail>\n                            <h2>{{charities[0].name}}</h2>\n                            <p>$891 Given • 167 Treatments Provided</p>\n                            <button ion-button clear item-end (click)="navigateToCharity(charities[0]);">View</button>\n                        </ion-item>\n                        <ion-item>\n                            <ion-thumbnail item-start>\n                                <img src={{charities[1].logourl}}>\n                            </ion-thumbnail>\n                            <h2>{{charities[1].name}}</h2>\n                            <p>$1,074 Given • 347 Bed Nets Delivered</p>\n                            <button ion-button clear item-end (click)="navigateToCharity(charities[1]);">View</button>\n                        </ion-item>\n                        <ion-item>\n                            <ion-thumbnail item-start>\n                                <img src={{charities[2].logourl}}>\n                            </ion-thumbnail>\n                            <h2>{{charities[2].name}}</h2>\n                            <p>$200 Given • 7 Animals Helped</p>\n                            <button ion-button clear item-end (click)="navigateToCharity(charities[2]);">View</button>\n                        </ion-item>\n                    </ion-list>\n            </div>\n\n\n        </ion-item-group>\n        <div style="text-align: center">\n            <button ion-button (click)="navigatetoHome()" color="danger" round>Logout</button>\n        </div>\n\n\n    </div>\n</ion-content>'/*ion-inline-end:"/Users/Chris/Documents/goldenThread/src/pages/profile/profile.html"*/
+            selector: 'page-profile',template:/*ion-inline-start:"/Users/Chris/Documents/goldenThread/src/pages/profile/profile.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-title>\n            {{user.name}}\n        </ion-title>\n    </ion-navbar>\n</ion-header>\n<ion-content padding style="background-color: rgb(255, 203, 203)">\n    <div style="width:450px; height:530px; margin: 10% auto; \n            -moz-box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); \n            -webkit-box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); \n              box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); \n              padding: 20px;\n              border-radius: 9px;\n              background-color: white;\n              position: relative;">\n        <h1 style="text-align: center">Your Profile</h1>\n        <img style="width: 110px; height: 110px; margin: 0 auto; display: block;" src="https://thewellatsacstate.com/cache/ce-image/fitness/staff/tatiana-quintero/assets/images/default-profile-image_500_500_bor3_0fa195_all_250.png">\n        <ion-item-group>\n            <ion-item>\n                <ion-label>Username: {{user.name}}</ion-label>\n            </ion-item>\n            <ion-item>\n                <ion-label>Your Charities:</ion-label>\n            </ion-item>\n            <div style="overflow: auto; max-height: 200px; margin: 10px;">\n                    <ion-list>\n                        <ion-item>\n                            <ion-thumbnail item-start>\n                                <img src={{user.charitiesDonatedTo[0].logourl}}>\n                            </ion-thumbnail>\n                            <h2>{{user.charitiesDonatedTo[0].name}}</h2>\n                            <p>$891 Given • 167 Treatments Provided</p>\n                            <button ion-button clear item-end (click)="navigateToCharity(user.charitiesDonatedTo[0]);">View</button>\n                        </ion-item>\n                        <ion-item>\n                            <ion-thumbnail item-start>\n                                <img src={{user.charitiesDonatedTo[1].logourl}}>\n                            </ion-thumbnail>\n                            <h2>{{user.charitiesDonatedTo[1].name}}</h2>\n                            <p>$1,074 Given • 347 Bed Nets Delivered</p>\n                            <button ion-button clear item-end (click)="navigateToCharity(user.charitiesDonatedTo[1]);">View</button>\n                        </ion-item>\n                        <ion-item>\n                            <ion-thumbnail item-start>\n                                <img src={{user.charitiesDonatedTo[2].logourl}}>\n                            </ion-thumbnail>\n                            <h2>{{user.charitiesDonatedTo[2].name}}</h2>\n                            <p>$200 Given • 7 Animals Helped</p>\n                            <button ion-button clear item-end (click)="navigateToCharity(charities[2]);">View</button>\n                        </ion-item>\n                    </ion-list>\n            </div>\n\n\n        </ion-item-group>\n        <div style="text-align: center">\n            <button ion-button (click)="navigatetoHome()" color="danger" round>Logout</button>\n        </div>\n\n\n    </div>\n</ion-content>'/*ion-inline-end:"/Users/Chris/Documents/goldenThread/src/pages/profile/profile.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */]) === "function" && _b || Object])
     ], ProfilePage);
     return ProfilePage;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=profile.js.map

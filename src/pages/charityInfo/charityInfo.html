@@ -12,14 +12,15 @@
           box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); 
           padding: 20px;
           border-radius: 9px;
+          position: relative;
           background-color: white;">
         <br>
         <h1>{{charity.name}}</h1>
-        <img src={{charity.logourl}} width="400px" height="400px">
+        <img src={{charity.logourl}} width="200px" height="200px">
         <h4 style="text-align: left">{{charity.description}}</h4>
-        <div style="position: relative; margin: 140px">
-            <a href={{charity.siteurl}}>
-                <button ion-button round>Visit Site</button>
+        <div style="position: absolute; text-align: center; left: 50%; bottom: 3%; transform: translate(-50%);">
+            <a href={{charity.siteurl}} style="display: inline; float: none;">
+                <button ion-button center round>Visit Site</button>
             </a>
         </div>
     </div>

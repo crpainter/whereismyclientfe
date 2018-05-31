@@ -3,4 +3,5 @@ export class Charity {
     description: string;
     logourl: string;
     siteurl: string;
+    userDonationTotal: number;
 }
