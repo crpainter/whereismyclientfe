@@ -1,7 +1,7 @@
 <ion-header>
     <ion-navbar>
         <ion-title>
-            {{name}}
+            {{charity.name}}
         </ion-title>
     </ion-navbar>
 </ion-header>
@@ -14,11 +14,11 @@
           border-radius: 9px;
           background-color: white;">
         <br>
-        <h1>{{name}}</h1>
-        <img src={{logourl}} width="400px" height="400px">
-        <h4 style="text-align: left">{{description}}</h4>
+        <h1>{{charity.name}}</h1>
+        <img src={{charity.logourl}} width="400px" height="400px">
+        <h4 style="text-align: left">{{charity.description}}</h4>
         <div style="position: relative; margin: 140px">
-            <a href={{siteurl}}>
+            <a href={{charity.siteurl}}>
                 <button ion-button round>Visit Site</button>
             </a>
         </div>

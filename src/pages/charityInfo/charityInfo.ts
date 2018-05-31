@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { NavParams } from 'ionic-angular';
 import { ProfilePage } from '../profile/profile';
+import { Charity } from '../models.ts/Charity';
 
 @Component({
     selector: 'charityInfo-login',
@@ -9,11 +10,10 @@ import { ProfilePage } from '../profile/profile';
 })
 export class CharityPage {
 
+    public charity: Charity;
+
     constructor(public navCtrl: NavController, public navParams: NavParams) {
-        this.name = navParams.get('name');
-        this.description = navParams.get('description')
-        this.logourl = navParams.get('logourl')
-        this.siteurl = navParams.get('siteurl')
+        this.charity = this.navParams.get("charity");
     }
 
     username: string;
