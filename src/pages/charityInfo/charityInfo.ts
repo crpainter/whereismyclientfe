@@ -13,6 +13,7 @@ export class CharityPage {
         this.name = navParams.get('name');
         this.description = navParams.get('description')
         this.logourl = navParams.get('logourl')
+        this.siteurl = navParams.get('siteurl')
     }
 
     username: string;
@@ -20,6 +21,7 @@ export class CharityPage {
     name: string;
     description: string;
     logourl: string;
+    siteurl: string;
 
     navigatetoProfile() {
         this.navCtrl.push(ProfilePage, {
