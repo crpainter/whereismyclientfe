@@ -30,21 +30,19 @@ export class PortfolioPage {
         this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
             type: 'doughnut',
             data: {
-                labels: ["AMF", "SCI", "THL", "WWF"],
+                labels: ["AMF", "SCI", "THL"],
                 datasets: [{
                     label: 'Dollars Donates',
                     data: [120, 190, 30, 50],
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)'
+                        'rgba(255, 206, 86, 0.2)'
                     ],
                     hoverBackgroundColor: [
                         "#FF6384",
                         "#36A2EB",
-                        "#FFCE56",
-                        "#FF6384"
+                        "#FFCE56"
                     ]
                 }]
             }
