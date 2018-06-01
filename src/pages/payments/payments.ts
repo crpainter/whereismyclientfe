@@ -19,7 +19,7 @@ export class PaymentsPage {
     constructor(public navCtrl: NavController, public navParams: NavParams) {
         this.charity = this.navParams.get("charity");
         this.user = this.navParams.get("user");
-        this.user = this.navParams.get("DonationStatus");
+        this.DonationStatus = this.navParams.get("DonationStatus");
     }
 
     username: string;

@@ -18,14 +18,6 @@ export class FindCharitiesPage {
 
     constructor(public navCtrl: NavController, public navParams: NavParams) {
         this.user = this.navParams.get("user");
-
-        var WWF = new Charity();
-        WWF.name = "World Wildlife Fund";
-        WWF.description = "The world’s leading conservation organization, WWF works in 100 countries and is supported by more than one million members in the United States and close to five million globally. WWF's unique way of working combines global reach with a foundation in science, involves action at every level from local to global, and ensures the delivery of innovative solutions that meet the needs of both people and nature.";
-        WWF.logourl = "https://ladyofthezoos.files.wordpress.com/2013/07/panda-wwf-logo.jpg";
-        WWF.siteurl = "https://www.worldwildlife.org/";
-        WWF.userDonationTotal = 0;
-        this.user.charitiesNotDonatedTo.push(WWF);
     }
 
     username: string;
