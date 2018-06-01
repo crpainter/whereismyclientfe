@@ -29,7 +29,9 @@ export class ProfilePage {
     siteurl: string;
 
     navigatetoHome() {
-        this.navCtrl.push(HomePage);
+        this.navCtrl.push(HomePage, {
+            user: this.user
+        });
     }
 
     navigatetoFindCharities() {

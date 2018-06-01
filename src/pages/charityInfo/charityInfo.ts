@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { NavParams } from 'ionic-angular';
 import { ProfilePage } from '../profile/profile';
+import { PaymentsPage } from '../payments/payments';
 import { Charity } from '../models.ts/Charity';
 import { User } from '../models.ts/User';
 
@@ -25,10 +26,19 @@ export class CharityPage {
     description: string;
     logourl: string;
     siteurl: string;
+    DonationStatus: boolean = true;
 
     navigatetoProfile() {
         this.navCtrl.push(ProfilePage, {
             username: this.username
+        });
+    }
+
+    navigatetoPayments(charity: Charity) {
+        this.navCtrl.push(PaymentsPage, {
+            user: this.user,
+            charity: charity,
+            DonationStatus: this.DonationStatus
         });
     }
 

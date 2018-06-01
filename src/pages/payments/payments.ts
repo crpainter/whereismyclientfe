@@ -45,12 +45,12 @@ export class PaymentsPage {
             return "hello" == "hello";
         }
         if (this.DonationStatus) {
-            this.charity.userDonationTotal = this.charity.userDonationTotal + this.deposit;
+            this.charity.userDonationTotal = +this.charity.userDonationTotal + +this.deposit;
 
         }
         else {
             var pos = this.user.charitiesNotDonatedTo.map(function(e) { return e.name; }).indexOf(this.charity.name);
-            this.charity.userDonationTotal = this.charity.userDonationTotal + this.deposit;
+            this.charity.userDonationTotal = +this.charity.userDonationTotal + +this.deposit;
             this.user.charitiesDonatedTo.push(this.charity);
             this.user.charitiesNotDonatedTo.splice(pos, 1);
         }

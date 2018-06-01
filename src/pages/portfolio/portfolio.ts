@@ -30,10 +30,10 @@ export class PortfolioPage {
         this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
             type: 'doughnut',
             data: {
-                labels: ["AMF", "SCI", "THL"],
+                labels: this.user.charitiesDonatedTo.map(function(e) { return e.name; }),
                 datasets: [{
-                    label: 'Dollars Donates',
-                    data: [120, 190, 70],
+                    label: 'Dollars Donated',
+                    data: this.user.charitiesDonatedTo.map(function(e) { return e.userDonationTotal; }),
                     backgroundColor: [
                         'rgba(75, 192, 192, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
