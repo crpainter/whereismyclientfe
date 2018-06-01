@@ -33,7 +33,7 @@ export class PortfolioPage {
                 labels: ["AMF", "SCI", "THL"],
                 datasets: [{
                     label: 'Dollars Donates',
-                    data: [120, 190, 30, 50],
+                    data: [120, 190, 70],
                     backgroundColor: [
                         'rgba(75, 192, 192, 0.2)',
                         'rgba(54, 162, 235, 0.2)',

@@ -149,21 +149,19 @@ var PortfolioPage = /** @class */ (function () {
         this.doughnutChart = new __WEBPACK_IMPORTED_MODULE_5_chart_js__["Chart"](this.doughnutCanvas.nativeElement, {
             type: 'doughnut',
             data: {
-                labels: ["AMF", "SCI", "THL", "WWF"],
+                labels: ["AMF", "SCI", "THL"],
                 datasets: [{
                         label: 'Dollars Donates',
-                        data: [120, 190, 30, 50],
+                        data: [120, 190, 70],
                         backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)'
+                            'rgba(255, 206, 86, 0.2)'
                         ],
                         hoverBackgroundColor: [
                             "#FF6384",
                             "#36A2EB",
-                            "#FFCE56",
-                            "#FF6384"
+                            "#FFCE56"
                         ]
                     }]
             }
@@ -196,10 +194,10 @@ var PortfolioPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-portfolio',template:/*ion-inline-start:"/Users/Chris/Documents/goldenThread/src/pages/portfolio/portfolio.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-title>\n            Your Account / Your Portfolio\n        </ion-title>\n        <ion-buttons end>\n            <button padding ion-button (click)="navigatetoFindCharities()">Find Charities</button>\n            <button padding ion-button (click)="navigatetoPortfolio()">Your Portfolio</button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content padding style="background-color: rgb(255, 203, 203)">\n    <div style="width:450px; height:700px; margin: 3% auto; \n                -moz-box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); \n                -webkit-box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); \n                  box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); \n                  padding: 20px;\n                  border-radius: 9px;\n                  background-color: white;\n                  position: relative;">\n        <h1 style="text-align: center">Your Portfolio</h1>\n        <ion-item-group>\n            <ion-card>\n                <ion-card-header>\n                    Donation Allocation\n                </ion-card-header>\n                <ion-card-content>\n                    <canvas #doughnutCanvas></canvas>\n                </ion-card-content>\n            </ion-card>\n            <div style="overflow: auto; max-height: 300px; margin: 10px;">\n                <ion-list>\n                    <ion-item *ngFor="let charity of user.charitiesDonatedTo">\n                        <ion-thumbnail item-start>\n                            <img src={{charity.logourl}}>\n                        </ion-thumbnail>\n                        <h2>{{charity.name}}</h2>\n                        <p>${{charity.userDonationTotal}} Given • 167 Treatments Provided</p>\n                        <button ion-button clear item-end (click)="navigateToCharity(charity);">View</button>\n                    </ion-item>\n                </ion-list>\n            </div>\n\n\n        </ion-item-group>\n        <div style="text-align: center">\n            <button ion-button (click)="navigatetoHome()" color="danger" round>Logout</button>\n        </div>\n\n\n    </div>\n</ion-content>'/*ion-inline-end:"/Users/Chris/Documents/goldenThread/src/pages/portfolio/portfolio.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */]) === "function" && _b || Object])
     ], PortfolioPage);
     return PortfolioPage;
-    var PortfolioPage_1;
+    var PortfolioPage_1, _a, _b;
 }());
 
 //# sourceMappingURL=portfolio.js.map
