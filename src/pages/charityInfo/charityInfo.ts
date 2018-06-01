@@ -6,7 +6,7 @@ import { Charity } from '../models.ts/Charity';
 import { User } from '../models.ts/User';
 
 @Component({
-    selector: 'charityInfo-login',
+    selector: 'page-charityInfo',
     templateUrl: 'charityInfo.html'
 })
 export class CharityPage {

@@ -25677,3 +25677,11 @@ ion-navbar.toolbar {
   min-height: calc(46px + constant(safe-area-inset-bottom));
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
+
+.ios page-portfolio .scroll-content, .md page-portfolio .scroll-content {
+  background-color: #ffcbcb;
+}
+
+.ios page-portfolio ion-card-header, .md page-portfolio ion-card-header {
+  font-weight: bold;
+}

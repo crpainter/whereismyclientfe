@@ -3,8 +3,10 @@ import { NavController } from 'ionic-angular';
 import { NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { CharityPage } from '../charityInfo/charityInfo';
+import { FindCharitiesPage } from '../findCharitiesPage/findCharitiesPage';
 import { Charity } from '../models.ts/Charity';
 import { User } from '../models.ts/User';
+import { PortfolioPage } from '../portfolio/portfolio';
 
 @Component({
     selector: 'page-profile',
@@ -46,6 +48,18 @@ export class ProfilePage {
 
     navigatetoHome() {
         this.navCtrl.push(HomePage);
+    }
+
+    navigatetoFindCharities() {
+        this.navCtrl.push(FindCharitiesPage, {
+            user: this.user
+        });
+    }
+
+    navigatetoPortfolio() {
+        this.navCtrl.push(PortfolioPage, {
+            user: this.user
+        });
     }
 
 

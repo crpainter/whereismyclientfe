@@ -1,0 +1,52 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            Your Account / Your Portfolio
+        </ion-title>
+        <ion-buttons end>
+            <button padding ion-button (click)="navigatetoFindCharities()">Find Charities</button>
+            <button padding ion-button (click)="navigatetoPortfolio()">Your Portfolio</button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content padding style="background-color: rgb(255, 203, 203)">
+    <div style="width:450px; height:700px; margin: 3% auto; 
+                -moz-box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); 
+                -webkit-box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); 
+                  box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); 
+                  padding: 20px;
+                  border-radius: 9px;
+                  background-color: white;
+                  position: relative;">
+        <h1 style="text-align: center">Your Portfolio</h1>
+        <ion-item-group>
+            <ion-card>
+                <ion-card-header>
+                    Donation Allocation
+                </ion-card-header>
+                <ion-card-content>
+                    <canvas #doughnutCanvas></canvas>
+                </ion-card-content>
+            </ion-card>
+            <div style="overflow: auto; max-height: 300px; margin: 10px;">
+                <ion-list>
+                    <ion-item *ngFor="let charity of user.charitiesDonatedTo">
+                        <ion-thumbnail item-start>
+                            <img src={{charity.logourl}}>
+                        </ion-thumbnail>
+                        <h2>{{charity.name}}</h2>
+                        <p>${{charity.userDonationTotal}} Given • 167 Treatments Provided</p>
+                        <button ion-button clear item-end (click)="navigateToCharity(charity);">View</button>
+                    </ion-item>
+                </ion-list>
+            </div>
+
+
+        </ion-item-group>
+        <div style="text-align: center">
+            <button ion-button (click)="navigatetoHome()" color="danger" round>Logout</button>
+        </div>
+
+
+    </div>
+</ion-content>

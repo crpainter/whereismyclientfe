@@ -1,8 +1,12 @@
 <ion-header>
     <ion-navbar>
         <ion-title>
-            {{user.name}}
+                Your Account
         </ion-title>
+        <ion-buttons end>
+            <button padding ion-button (click)="navigatetoFindCharities()">Find Charities</button>
+            <button padding ion-button (click)="navigatetoPortfolio()">Your Portfolio</button>
+        </ion-buttons>
     </ion-navbar>
 </ion-header>
 <ion-content padding style="background-color: rgb(255, 203, 203)">
@@ -24,32 +28,16 @@
                 <ion-label>Your Charities:</ion-label>
             </ion-item>
             <div style="overflow: auto; max-height: 200px; margin: 10px;">
-                    <ion-list>
-                        <ion-item>
-                            <ion-thumbnail item-start>
-                                <img src={{user.charitiesDonatedTo[0].logourl}}>
-                            </ion-thumbnail>
-                            <h2>{{user.charitiesDonatedTo[0].name}}</h2>
-                            <p>$891 Given • 167 Treatments Provided</p>
-                            <button ion-button clear item-end (click)="navigateToCharity(user.charitiesDonatedTo[0]);">View</button>
-                        </ion-item>
-                        <ion-item>
-                            <ion-thumbnail item-start>
-                                <img src={{user.charitiesDonatedTo[1].logourl}}>
-                            </ion-thumbnail>
-                            <h2>{{user.charitiesDonatedTo[1].name}}</h2>
-                            <p>$1,074 Given • 347 Bed Nets Delivered</p>
-                            <button ion-button clear item-end (click)="navigateToCharity(user.charitiesDonatedTo[1]);">View</button>
-                        </ion-item>
-                        <ion-item>
-                            <ion-thumbnail item-start>
-                                <img src={{user.charitiesDonatedTo[2].logourl}}>
-                            </ion-thumbnail>
-                            <h2>{{user.charitiesDonatedTo[2].name}}</h2>
-                            <p>$200 Given • 7 Animals Helped</p>
-                            <button ion-button clear item-end (click)="navigateToCharity(user.charitiesDonatedTo[2]);">View</button>
-                        </ion-item>
-                    </ion-list>
+                <ion-list>
+                    <ion-item *ngFor="let charity of user.charitiesDonatedTo">
+                        <ion-thumbnail item-start>
+                            <img src={{charity.logourl}}>
+                        </ion-thumbnail>
+                        <h2>{{charity.name}}</h2>
+                        <p>${{charity.userDonationTotal}} Given • 167 Treatments Provided</p>
+                        <button ion-button clear item-end (click)="navigateToCharity(charity);">View</button>
+                    </ion-item>
+                </ion-list>
             </div>
 
 

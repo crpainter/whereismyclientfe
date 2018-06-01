@@ -10,6 +10,9 @@ import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { ProfilePage } from '../pages/profile/profile';
 import { CharityPage } from '../pages/charityInfo/charityInfo';
+import { FindCharitiesPage } from '../pages/findCharitiesPage/findCharitiesPage';
+import { PortfolioPage } from '../pages/portfolio/portfolio';
+import { PaymentsPage } from '../pages/payments/payments';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { CharityPage } from '../pages/charityInfo/charityInfo';
     LoginPage,
     RegisterPage,
     ProfilePage,
-    CharityPage
+    CharityPage,
+    FindCharitiesPage,
+    PortfolioPage,
+    PaymentsPage
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,10 @@ import { CharityPage } from '../pages/charityInfo/charityInfo';
     LoginPage,
     RegisterPage,
     ProfilePage,
-    CharityPage
+    CharityPage,
+    FindCharitiesPage,
+    PortfolioPage,
+    PaymentsPage
   ],
   providers: [
     StatusBar,

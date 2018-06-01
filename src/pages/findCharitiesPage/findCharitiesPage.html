@@ -1,0 +1,30 @@
+<ion-header>
+        <ion-navbar>
+            <ion-title>
+                    Your Account / Find Charities
+            </ion-title>
+        </ion-navbar>
+    </ion-header>
+    <ion-content text-center padding style="background-color: rgb(255, 203, 203)">
+        <div style="position: relative; width:900px; height:800px; margin: 1% auto; 
+            -moz-box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); 
+            -webkit-box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); 
+              box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); 
+              padding: 20px;
+              border-radius: 9px;
+              position: relative;
+              background-color: white;">
+            <br>
+            <div style="overflow: auto; max-height: 200px; margin: 10px;">
+                    <ion-list>
+                        <ion-item *ngFor="let charity of user.charitiesNotDonatedTo">
+                            <ion-thumbnail item-start>
+                                <img src={{charity.logourl}}>
+                            </ion-thumbnail>
+                            <h2>{{charity.name}}</h2>
+                            <button ion-button clear item-end (click)="navigatetoPayments(charity);">Donate Now</button>
+                        </ion-item>
+                    </ion-list>
+                </div>
+        </div>
+    </ion-content>
