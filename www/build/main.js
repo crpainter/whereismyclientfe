@@ -93,9 +93,6 @@ var PaymentsPage = /** @class */ (function () {
         });
     };
     PaymentsPage.prototype.navigatetoPortfolio = function () {
-        function checkCharityName(element, index, array) {
-            return "hello" == "hello";
-        }
         if (this.DonationStatus) {
             this.charity.userDonationTotal = +this.charity.userDonationTotal + +this.deposit;
         }
@@ -113,9 +110,10 @@ var PaymentsPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-payments',template:/*ion-inline-start:"/Users/Chris/Documents/goldenThread/src/pages/payments/payments.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-title>\n            Your Account / {{charity.name}}\n        </ion-title>\n    </ion-navbar>\n</ion-header>\n<ion-content text-center padding style="background-color: rgb(255, 203, 203)">\n    <div style="position: relative; width:900px; height:800px; margin: 1% auto; \n            -moz-box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); \n            -webkit-box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); \n              box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); \n              padding: 20px;\n              border-radius: 9px;\n              position: relative;\n              background-color: white;">\n        <br>\n        <ion-list>\n            <ion-item>\n                <h1> Make a Payment to {{charity.name}}</h1>\n                <img src={{charity.logourl}} width="200px" height="200px">\n            </ion-item>\n            <ion-item>\n                <ion-label float>Credit Card Number:</ion-label>\n                <ion-input></ion-input>\n            </ion-item>\n            <ion-item>\n                <ion-label float>3-Digit Security Code:</ion-label>\n                <ion-input></ion-input>\n            </ion-item>\n            <ion-item>\n                    <ion-label float>Donation Amount:</ion-label>\n                    <ion-input [(ngModel)]="deposit"></ion-input>\n                </ion-item>\n        </ion-list>\n        <ion-list radio-group>\n            <ion-item>\n                <ion-label>Instant Deposit</ion-label>\n                <ion-radio value="friends" checked></ion-radio>\n            </ion-item>\n            <ion-item>\n                <ion-label>Monthly</ion-label>\n                <ion-radio value="family"></ion-radio>\n            </ion-item>\n        </ion-list>\n        <button ion-button (click)="navigatetoPortfolio()" color="danger" round>Donate</button>\n    </div>\n</ion-content>'/*ion-inline-end:"/Users/Chris/Documents/goldenThread/src/pages/payments/payments.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */]) === "function" && _b || Object])
     ], PaymentsPage);
     return PaymentsPage;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=payments.js.map

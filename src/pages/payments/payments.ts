@@ -41,12 +41,8 @@ export class PaymentsPage {
     
 
     navigatetoPortfolio() {
-        function checkCharityName(element, index, array) {
-            return "hello" == "hello";
-        }
         if (this.DonationStatus) {
             this.charity.userDonationTotal = +this.charity.userDonationTotal + +this.deposit;
-
         }
         else {
             var pos = this.user.charitiesNotDonatedTo.map(function(e) { return e.name; }).indexOf(this.charity.name);
