@@ -1,21 +1,15 @@
 
-<ion-content padding style="background-color: rgb(255, 203, 203)">
-  <div style="width:450px; height:470px; margin: 10% auto; 
-        -moz-box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); 
-        -webkit-box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); 
-          box-shadow: 2px 8px 8px 2px rgb(165, 164, 164); 
-          padding: 20px;
-          border-radius: 9px;
-          background-color: white;">
+<ion-content padding>
+  <div>
     <h1>Create Your DoneGood Account</h1>
     <h5>let's get you set up</h5>
-    <div style="float: left">
+    <div>
       <ion-item>
         <ion-label floating>First name</ion-label>
         <ion-input type="text" value=""></ion-input>
       </ion-item>
     </div>
-    <div style="float: right">
+    <div>
       <ion-item>
         <ion-label floating>Last name</ion-label>
         <ion-input type="password"></ion-input>
@@ -26,26 +20,26 @@
       <ion-label floating>Username</ion-label>
       <ion-input type="username" [(ngModel)]="username"></ion-input>
     </ion-item>
-    <p style="font-size: 13px; padding-left: 3%">This can include numbers or letters, but no symbols</p>
-    <div style="float: left">
+    <p>This can include numbers or letters, but no symbols</p>
+    <div>
       <ion-item>
         <ion-label floating>Password</ion-label>
         <ion-input type="text" value=""></ion-input>
       </ion-item>
     </div>
-    <div style="float: right">
+    <div>
       <ion-item>
         <ion-label floating>Confirm Password</ion-label>
         <ion-input type="password"></ion-input>
       </ion-item>
     </div>
     <div>
-      <p style="font-size: 13px; padding-left: 3%; float:left">Let's use at least 6 characters</p>
+      <p>Let's use at least 6 characters</p>
     </div>
     <br>
 
 
-    <div style="float:right; clear:left">
+    <div>
       <button ion-button (click)="navigatetoProfile()" color="blue" round>Let's Go!</button>
     </div>
 
