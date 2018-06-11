@@ -25,7 +25,7 @@ export class RegisterPage {
         user.username = this.username;
         this.http
             .post("http://localhost:3000/register", user)
-            .subscribe(
+            .subscribe( 
                 result => {
                     console.log(result);
 
