@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ProfilePage } from '../profile/profile';
 import { User } from '../models.ts/User';
-import { Charity } from '../models.ts/Charity';
-import { Http, Headers } from '@angular/http';
+import { Http  } from '@angular/http';
 
 @Component({
     selector: 'page-register',
@@ -25,7 +24,7 @@ export class RegisterPage {
         user.username = this.username;
         this.http
             .post("http://localhost:3000/register", user)
-            .subscribe( 
+            .subscribe(
                 result => {
                     console.log(result);
 

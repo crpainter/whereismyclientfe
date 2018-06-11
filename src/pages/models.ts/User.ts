@@ -1,4 +1,4 @@
-import { Charity } from '../models.ts/Charity';
+
 
 export class User {
     username: string;
