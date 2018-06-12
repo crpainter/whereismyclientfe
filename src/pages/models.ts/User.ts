@@ -1,8 +1,8 @@
-import { Charity } from '../models.ts/Charity';
+
 
 export class User {
-    name: string;
+    username: string;
     password: string;
-    charitiesDonatedTo: Array<Charity> = [];
-    charitiesNotDonatedTo: Array<Charity> = []
+    //charitiesDonatedTo: Array<Charity> = [];
+    //charitiesNotDonatedTo: Array<Charity> = []
 }
