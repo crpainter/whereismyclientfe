@@ -16,6 +16,7 @@ export class ProfilePage {
 
     public charities: Array<Charity> = [];
     public user: User;
+    private token: string;
 
     constructor(public navCtrl: NavController, public navParams: NavParams) {
         this.user = this.navParams.get('user');

@@ -9,7 +9,10 @@ import { RegisterPage } from '../register/register';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,  private app: App) {
+    if (localStorage.getItem("TOKEN")) {
+      this.app.getRootNav().setRoot(ProfilePage);
+    }
 
   }
 
