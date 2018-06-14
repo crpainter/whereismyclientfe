@@ -8,6 +8,7 @@ import { Charity } from '../models.ts/Charity';
 import { User } from '../models.ts/User';
 import { PortfolioPage } from '../portfolio/portfolio';
 import { verify } from 'jsonwebtoken';
+import { Http } from "@angular/http";
 
 @Component({
     selector: 'page-profile',
@@ -17,16 +18,43 @@ export class ProfilePage {
 
     public user: User;
     private token: string;
+    public charitiesDonatedTo: Charity[];
+    
 
-    constructor(public navCtrl: NavController, public navParams: NavParams) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
         this.token = localStorage.getItem("TOKEN");
         var jsBody = verify(this.token, 'shh');
         this.user = jsBody.user;
         console.log(this.user.username);
+
+        let callback = (err) => {
+            if (err) {
+              // TODO: display error
+              return;
+            }
+      
+            this.navCtrl.push(ProfilePage);
+          }
+
+        this.http
+            .get("http://localhost:3000/donation/charitiesDonatedTo", this.token)
+            .subscribe(
+                result => {
+                    this.charitiesDonatedTo = result.json();
+                },
+
+                error => {
+                    callback(error);
+                }
+            );
+
     }
+
+
     ionViewDidLoad() {
 
     }
+
 
     username: string;
     name: string;
