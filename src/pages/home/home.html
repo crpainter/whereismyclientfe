@@ -1,11 +1,24 @@
+<ion-content padding>
 
+  <ion-grid>
+    <ion-row>
+      <ion-col text-center>
+        <h1 stacked >Welcome to Golden Thread</h1>
+      </ion-col>
+    </ion-row>
 
-<ion-content padding >
-    <div>
-  <h1>Welcome to DoneGood</h1>
-  <h5>have an account?</h5>
-  <br>
-  <button ion-button (click)="navigatetoRegister()" round>Register</button>
-  <button ion-button (click)="navigatetoLogin()" round>Sign In</button>
-  </div>
+    <ion-row> 
+      <ion-col text-center>
+        <h5 stacked>have an account?</h5>
+      </ion-col>
+    </ion-row>
+
+    <ion-row >
+      <ion-col text-center>
+        <button ion-button (click)="navigatetoRegister()" square>Register</button>
+        <button ion-button (click)="navigatetoLogin()" square>Sign In</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 </ion-content>

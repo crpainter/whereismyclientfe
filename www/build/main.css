@@ -25677,3 +25677,43 @@ ion-navbar.toolbar {
   min-height: calc(46px + constant(safe-area-inset-bottom));
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
+
+page-home .scroll-content {
+  background-color: #FFFBAD;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 251, 173, 0.3)), to(#C9A967));
+  background-image: linear-gradient(to bottom, rgba(255, 251, 173, 0.3), #C9A967);
+}
+
+page-home ion-grid {
+  height: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+page-home .ion-col {
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+page-home .scroll-content {
+  background-color: #FFFBAD;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 251, 173, 0.3)), to(#C9A967));
+  background-image: linear-gradient(to bottom, rgba(255, 251, 173, 0.3), #C9A967);
+}
+
+page-home ion-grid {
+  height: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+page-home .ion-col {
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}

@@ -646,7 +646,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/mayapelichet/iXperience/wheresmyclife/src/pages/home/home.html"*/'\n\n<ion-content padding >\n    <div>\n  <h1>Welcome to DoneGood</h1>\n  <h5>have an account?</h5>\n  <br>\n  <button ion-button (click)="navigatetoRegister()" round>Register</button>\n  <button ion-button (click)="navigatetoLogin()" round>Sign In</button>\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/mayapelichet/iXperience/wheresmyclife/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/Users/mayapelichet/iXperience/wheresmyclife/src/pages/home/home.html"*/'<ion-content padding>\n\n  <ion-grid>\n    <ion-row>\n      <ion-col text-center>\n        <h1 stacked >Welcome to Golden Thread</h1>\n      </ion-col>\n    </ion-row>\n\n    <ion-row> \n      <ion-col text-center>\n        <h5 stacked>have an account?</h5>\n      </ion-col>\n    </ion-row>\n\n    <ion-row >\n      <ion-col text-center>\n        <button ion-button (click)="navigatetoRegister()" square>Register</button>\n        <button ion-button (click)="navigatetoLogin()" square>Sign In</button>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n</ion-content>'/*ion-inline-end:"/Users/mayapelichet/iXperience/wheresmyclife/src/pages/home/home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]])
     ], HomePage);
