@@ -19,15 +19,11 @@ export class PaymentsPage {
 
     constructor(public navCtrl: NavController, public navParams: NavParams) {
         this.charity = this.navParams.get("charity");
-        this.user = this.navParams.get("user");
         this.DonationStatus = this.navParams.get("DonationStatus");
-    }
-
-    ionViewDidLoad() {
         this.token = localStorage.getItem("TOKEN");
-        var User = verify(this.token, 'shh');
+        var jsBody = verify(this.token, 'shh');
         console.log("profile token: ", this.token);
-        this.user = User
+        this.user = jsBody.user
     }
 
     username: string;

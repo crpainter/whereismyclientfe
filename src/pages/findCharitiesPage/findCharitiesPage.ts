@@ -5,6 +5,7 @@ import { ProfilePage } from '../profile/profile';
 import { Charity } from '../models.ts/Charity';
 import { User } from '../models.ts/User';
 import { PaymentsPage } from '../payments/payments';
+import { verify } from 'jsonwebtoken';
 
 @Component({
     selector: 'page-findCharitiesPage',
@@ -13,11 +14,15 @@ import { PaymentsPage } from '../payments/payments';
 export class FindCharitiesPage {
 
     public user: User;
+    public token: string;
 
     DonationStatus: boolean= false;
 
     constructor(public navCtrl: NavController, public navParams: NavParams) {
-        this.user = this.navParams.get("user");
+        this.token = localStorage.getItem("TOKEN");
+        var jsBody = verify(this.token, 'shh');
+        console.log("profile token: ", this.token);
+        this.user = jsBody.user
     }
 
     username: string;

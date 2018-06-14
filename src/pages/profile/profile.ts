@@ -7,7 +7,7 @@ import { FindCharitiesPage } from '../findCharitiesPage/findCharitiesPage';
 import { Charity } from '../models.ts/Charity';
 import { User } from '../models.ts/User';
 import { PortfolioPage } from '../portfolio/portfolio';
-import {verify} from 'jsonwebtoken';
+import { verify } from 'jsonwebtoken';
 
 @Component({
     selector: 'page-profile',
@@ -19,15 +19,14 @@ export class ProfilePage {
     private token: string;
 
     constructor(public navCtrl: NavController, public navParams: NavParams) {
-       
+        this.token = localStorage.getItem("TOKEN");
+        var jsBody = verify(this.token, 'shh');
+        this.user = jsBody.user;
+        console.log(this.user.username);
     }
     ionViewDidLoad() {
-        console.log("Scream if you made it here");
-        this.token = localStorage.getItem("TOKEN");
-        var User = verify(this.token, 'shh');
-        console.log("profile token: ", this.token);
-        this.user = User
-      }
+
+    }
 
     username: string;
     name: string;

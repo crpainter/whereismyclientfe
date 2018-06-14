@@ -22,14 +22,10 @@ export class PortfolioPage {
     private token: string;
 
     constructor(public navCtrl: NavController, public navParams: NavParams) {
-        this.user = this.navParams.get("user");
-    }
-
-    ionViewDidLoad() {
         this.token = localStorage.getItem("TOKEN");
-        var User = verify(this.token, 'shh');
+        var jsBody = verify(this.token, 'shh');
         console.log("profile token: ", this.token);
-        this.user = User
+        this.user = jsBody.user
     }
 
     // ionViewDidLoad() {
