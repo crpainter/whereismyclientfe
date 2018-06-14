@@ -1,22 +1,18 @@
 <ion-content padding>
 
   <ion-grid>
-    <ion-row>
-      <ion-col text-center>
-        <h1 stacked >Welcome to Golden Thread</h1>
-      </ion-col>
-    </ion-row>
 
     <ion-row> 
-      <ion-col text-center>
-        <h5 stacked>have an account?</h5>
-      </ion-col>
-    </ion-row>
-
+        <ion-col text-center>
+          <img stacked src="../../assets/imgs/Asset 3@2x.png"/>
+        </ion-col>
+      </ion-row>
+    <br>
     <ion-row >
       <ion-col text-center>
-        <button ion-button (click)="navigatetoRegister()" square>Register</button>
-        <button ion-button (click)="navigatetoLogin()" square>Sign In</button>
+        <button ion-button (click)="navigatetoLogin()" block outline>sign in</button>
+        <br>
+        <button ion-button  (click)="navigatetoRegister()" block outline>register</button>
       </ion-col>
     </ion-row>
   </ion-grid>
