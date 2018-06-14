@@ -30,7 +30,7 @@ export class LoginPage {
 
                     // Our username and password (on this) should have data from the user
                     this.navCtrl.push(ProfilePage, {
-                        result
+                        user: user
                     });
                 },
                 error => {
