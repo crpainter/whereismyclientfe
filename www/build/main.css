@@ -3909,7 +3909,7 @@ ion-action-sheet {
   padding: 1.5rem;
   text-align: center;
   border-radius: 0;
-  border-bottom: 0.55px solid #d6d6da;
+  border-bottom: 0.55px block #d6d6da;
   font-size: 1.3rem;
   font-weight: 400;
   color: #8f8f8f;
@@ -3919,7 +3919,7 @@ ion-action-sheet {
   margin: 0;
   padding: 18px;
   min-height: 5.6rem;
-  border-bottom: 0.55px solid #d6d6da;
+  border-bottom: 0.55px block #d6d6da;
   font-size: 2rem;
   color: #007aff;
   background: transparent;
@@ -3931,7 +3931,7 @@ ion-action-sheet {
 
 .action-sheet-ios .action-sheet-button.activated {
   margin-top: -0.55px;
-  border-top: 0.55px solid #ebebeb;
+  border-top: 0.55px block #ebebeb;
   border-bottom-color: #ebebeb;
   background: #ebebeb;
 }
@@ -5786,7 +5786,7 @@ button[disabled],
 }
 
 .button-ios {
-  border-radius: 4px;
+  border-radius: 0px;
   height: 2.8em;
   font-size: 1.6rem;
   color: #fff;
@@ -5834,11 +5834,11 @@ button[disabled],
 }
 
 .button-outline-ios {
-  border-radius: 4px;
-  border-width: 1px;
+  border-radius: 0px;
+  border-width: 1.5px;
   border-style: solid;
-  border-color: #488aff;
-  color: #488aff;
+  border-color: black;
+  color: gold;
   background-color: transparent;
 }
 
@@ -25676,4 +25676,81 @@ ion-navbar.toolbar {
   padding-bottom: calc(env(safe-area-inset-bottom) + 4px);
   min-height: calc(46px + constant(safe-area-inset-bottom));
   min-height: calc(46px + env(safe-area-inset-bottom));
+}
+
+page-home .scroll-content {
+  background-color: #FFFBAD;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 251, 173, 0.3)), to(#C9A967));
+  background-image: linear-gradient(to bottom, rgba(255, 251, 173, 0.3), #C9A967);
+}
+
+page-home ion-grid {
+  height: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+page-home .ion-col {
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+page-home img {
+  max-width: 100%;
+}
+
+@font-face {
+  font-family: "Steinlight";
+  src: url("../assets/fonts/Steinerlight.ttf");
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("http://fonts.googleapis.com/css?family=Open+Sans");
+}
+
+h1, h2, h3, h4, h5, h6, p, .h1, .h2, .h3, .h4, .h5, .h6 .item, .item-divider {
+  color: black;
+  font-family: "Open Sans" , sans-serif;
+  text-align: center;
+  font-weight: 580;
+  letter-spacing: 1px;
+}
+
+span {
+  color: black;
+  font-size: 1.1em;
+}
+
+.button-ios {
+  -webkit-box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.7);
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.7);
+  display: block;
+}
+
+page-home .scroll-content {
+  background-color: #FFFBAD;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 251, 173, 0.3)), to(#C9A967));
+  background-image: linear-gradient(to bottom, rgba(255, 251, 173, 0.3), #C9A967);
+}
+
+page-home ion-grid {
+  height: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+page-home .ion-col {
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+page-home img {
+  max-width: 100%;
 }

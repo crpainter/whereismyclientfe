@@ -72,6 +72,16 @@ $colors: (
 
 @import "ionic.theme.default";
 
+$button-ios-border-radius: 0px; 
+$button-ios-outline-border-color: black;
+$button-ios-outline-text-color: gold; 
+$button-ios-outline-border-width: 1.5px;
+$button-ios-box-shadow: 5px 5px 5px rgba(0,0,0,.5); 
+$action-sheet-ios-button-border-style: block;
+// $button-md-box-shadow: none; 
+
+
+
 
 // Ionicons
 // --------------------------------------------------

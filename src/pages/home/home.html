@@ -1,11 +1,20 @@
+<ion-content padding>
 
+  <ion-grid>
 
-<ion-content padding >
-    <div>
-  <h1>Welcome to DoneGood</h1>
-  <h5>have an account?</h5>
-  <br>
-  <button ion-button (click)="navigatetoRegister()" round>Register</button>
-  <button ion-button (click)="navigatetoLogin()" round>Sign In</button>
-  </div>
+    <ion-row> 
+        <ion-col text-center>
+          <img stacked src="../../assets/imgs/Asset 3@2x.png"/>
+        </ion-col>
+      </ion-row>
+    <br>
+    <ion-row >
+      <ion-col text-center>
+        <button ion-button (click)="navigatetoLogin()" block outline>sign in</button>
+        <br>
+        <button ion-button  (click)="navigatetoRegister()" block outline>register</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 </ion-content>

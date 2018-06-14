@@ -14,3 +14,38 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+@import "../pages/home/home";
+
+
+@font-face {
+    font-family: "Steinlight";
+    src: url('../assets/fonts/Steinerlight.ttf');
+}
+
+@font-face {
+    font-family: "Open Sans";
+    src: url('http://fonts.googleapis.com/css?family=Open+Sans');
+}
+
+
+h1, h2, h3, h4, h5, h6, p, .h1, .h2, .h3, .h4, .h5, .h6 .item,.item-divider{
+    color: black;
+    font-family: "Open Sans" , sans-serif;
+    text-align: center;
+    font-weight: 580 ;
+    letter-spacing: 1px;
+    
+
+}
+
+span{
+    color: black;
+    font-size: 1.1em; 
+
+}
+
+.button-ios{
+    box-shadow: 5px 5px 8px rgba(0,0,0, .7);
+    display: block;
+}
