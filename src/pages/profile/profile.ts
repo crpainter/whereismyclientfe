@@ -22,6 +22,7 @@ export class ProfilePage {
        
     }
     ionViewDidLoad() {
+        console.log("Scream if you made it here");
         this.token = localStorage.getItem("TOKEN");
         var User = verify(this.token, 'shh');
         console.log("profile token: ", this.token);
