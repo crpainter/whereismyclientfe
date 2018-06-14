@@ -4,6 +4,7 @@ import { NavParams } from 'ionic-angular';
 import { ProfilePage } from '../profile/profile';
 import { Charity } from '../models.ts/Charity';
 import { User } from '../models.ts/User';
+import { verify } from 'jsonwebtoken';
 
 @Component({
     selector: 'page-payments',
@@ -14,11 +15,19 @@ export class PaymentsPage {
     public charity: Charity;
     public user: User;
     public DonationStatus: boolean;
+    public token: string;
 
     constructor(public navCtrl: NavController, public navParams: NavParams) {
         this.charity = this.navParams.get("charity");
         this.user = this.navParams.get("user");
         this.DonationStatus = this.navParams.get("DonationStatus");
+    }
+
+    ionViewDidLoad() {
+        this.token = localStorage.getItem("TOKEN");
+        var User = verify(this.token, 'shh');
+        console.log("profile token: ", this.token);
+        this.user = User
     }
 
     username: string;
@@ -31,9 +40,7 @@ export class PaymentsPage {
 
     navigatetoProfile() {
 
-        this.navCtrl.push(ProfilePage, {
-            user: this.user
-        });
+        this.navCtrl.push(ProfilePage);
     }
 
     
