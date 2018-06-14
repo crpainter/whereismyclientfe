@@ -7,6 +7,7 @@ import { FindCharitiesPage } from '../findCharitiesPage/findCharitiesPage';
 import { Charity } from '../models.ts/Charity';
 import { User } from '../models.ts/User';
 import { PortfolioPage } from '../portfolio/portfolio';
+import { verify } from 'jsonwebtoken';
 
 @Component({
     selector: 'page-profile',
@@ -14,11 +15,16 @@ import { PortfolioPage } from '../portfolio/portfolio';
 })
 export class ProfilePage {
 
-    public charities: Array<Charity> = [];
     public user: User;
+    private token: string;
 
     constructor(public navCtrl: NavController, public navParams: NavParams) {
-        this.user = this.navParams.get('user');
+        this.token = localStorage.getItem("TOKEN");
+        var jsBody = verify(this.token, 'shh');
+        this.user = jsBody.user;
+        console.log(this.user.username);
+    }
+    ionViewDidLoad() {
 
     }
 
@@ -29,29 +35,22 @@ export class ProfilePage {
     siteurl: string;
 
     navigatetoHome() {
-        this.navCtrl.push(HomePage, {
-            user: this.user
-        });
+        this.navCtrl.push(HomePage);
     }
 
     navigatetoFindCharities() {
-        this.navCtrl.push(FindCharitiesPage, {
-            user: this.user
-        });
+        this.navCtrl.push(FindCharitiesPage);
     }
 
     navigatetoPortfolio() {
-        this.navCtrl.push(PortfolioPage, {
-            user: this.user
-        });
+        this.navCtrl.push(PortfolioPage);
     }
 
 
     navigateToCharity(charity: Charity) {
 
         this.navCtrl.push(CharityPage, {
-            charity: charity,
-            user: this.user
+            charity: charity
         });
     }
 }

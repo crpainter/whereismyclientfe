@@ -14,6 +14,7 @@ import { CharityPage } from '../pages/charityInfo/charityInfo';
 import { FindCharitiesPage } from '../pages/findCharitiesPage/findCharitiesPage';
 import { PortfolioPage } from '../pages/portfolio/portfolio';
 import { PaymentsPage } from '../pages/payments/payments';
+import { AuthService } from '../auth.service';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { PaymentsPage } from '../pages/payments/payments';
   providers: [
     StatusBar,
     SplashScreen,
+    AuthService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

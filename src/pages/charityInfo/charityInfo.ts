@@ -5,6 +5,7 @@ import { ProfilePage } from '../profile/profile';
 import { PaymentsPage } from '../payments/payments';
 import { Charity } from '../models.ts/Charity';
 import { User } from '../models.ts/User';
+import { verify } from 'jsonwebtoken';
 
 @Component({
     selector: 'page-charityInfo',
@@ -14,10 +15,14 @@ export class CharityPage {
 
     public charity: Charity;
     public user: User;
+    public token: string;
 
     constructor(public navCtrl: NavController, public navParams: NavParams) {
         this.charity = this.navParams.get("charity");
-        this.user = this.navParams.get("user");
+        this.token = localStorage.getItem("TOKEN");
+        var jsBody = verify(this.token, 'shh');
+        console.log("profile token: ", this.token);
+        this.user = jsBody.user
     }
 
     username: string;
@@ -36,7 +41,6 @@ export class CharityPage {
 
     navigatetoPayments(charity: Charity) {
         this.navCtrl.push(PaymentsPage, {
-            user: this.user,
             charity: charity,
             DonationStatus: this.DonationStatus
         });
