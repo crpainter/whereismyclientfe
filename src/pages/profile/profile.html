@@ -16,14 +16,14 @@
                     <br>
                     <h1>your charities</h1>
                     <ion-list>
-                        <!-- <ion-item *ngFor="let charity of user.charitiesDonatedTo">
+                        <ion-item *ngFor="let charity of this.charitiesDonatedTo">
                     <ion-thumbnail item-start>
                         <img src={{charity.logourl}}>
                     </ion-thumbnail>
                     <h2>{{charity.name}}</h2>
                     <p>${{charity.userDonationTotal}} Given • 167 Treatments Provided</p>
                     <button ion-button clear item-end (click)="navigateToCharity(charity);">View</button>
-                </ion-item> -->
+                </ion-item>
                     </ion-list>
                 </ion-item-group>
             </ion-col>

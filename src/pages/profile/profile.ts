@@ -52,7 +52,7 @@ export class ProfilePage {
 
 
     ionViewDidLoad() {
-
+        console.log("Charities Donated to is:",this.charitiesDonatedTo)
     }
 
 
