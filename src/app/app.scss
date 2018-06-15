@@ -74,3 +74,43 @@ ion-header {
     }
 
   }
+  .item-ios.item-block .item-inner{
+    border-bottom: 0.55px solid black; 
+
+  }
+  .list-ios .item-block .item-inner{
+    border-bottom: 0.55px solid black; 
+  }
+
+  .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block{
+    border-bottom: 0.55px solid black; 
+
+  }
+  
+  .item-ios{
+      padding-left: 0px !important;
+  }
+
+  .checkbox-ios .checkbox-icon{
+      border: 0.55px solid black; 
+  }
+
+  .back-button.show-back-button{
+      padding-left:16px;
+      padding-top: 25px;
+  }
+
+  .back-button-text-ios{
+      font-family: "Open Sans";
+      font-size: 18px;
+      padding-left: 5px;
+  }
+
+  .button-outline-ios.activated{
+      background-color:black !important;
+      span{
+        color:#C9A967;
+        font-weight: 500; 
+        transition-timing-function: ease-in 5s;
+      }
+  }

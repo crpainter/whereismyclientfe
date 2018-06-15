@@ -1,34 +1,46 @@
 <ion-header>
-<ion-navbar></ion-navbar>
+  <ion-navbar></ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <div class=".wrapper-div">
-  <div class="generic-div">
-    <ion-list>
-      <h1>Please Sign In</h1>
-      <h5>to continue</h5>
+  <ion-grid>
+    <ion-row>
+      <ion-col text-center>
+          <ion-list>
+            <h1 >sign in to continue</h1>
+            <br>
 
-      <ion-item>
-        <ion-label floating>Username</ion-label>
-        <ion-input type="text" value="" [(ngModel)]="username"></ion-input>
-      </ion-item>
+            <ion-item>
+              <ion-label floating>username</ion-label>
+              <ion-input type="text" value="" [(ngModel)]="username"></ion-input>
+            </ion-item>
 
-      <ion-item>
-        <ion-label floating>Password</ion-label>
-        <ion-input type="password" value="" [(ngModel)]="password"></ion-input>
-      </ion-item>
-      <br>
-      <ion-item>
-        <ion-label style="size:3">Remember Me</ion-label>
-        <ion-checkbox color="dark" checked="false"></ion-checkbox>
-      </ion-item>
-    </ion-list>
-    <a href="nonexistent.com"> Forgot Password?</a>
-    <br>
-    <button ion-button (click)="navigatetoProfile()" block outline>Submit</button>
-  </div>
+            <ion-item>
+              <ion-label floating>password</ion-label>
+              <ion-input type="password" value="" [(ngModel)]="password"></ion-input>
+            </ion-item>
+            <br>
+
+            <ion-item>
+              <ion-label style="size:3">remember me</ion-label>
+              <ion-checkbox color="dark" checked="false"></ion-checkbox>
+            </ion-item>
+          </ion-list>
+          <a href="nonexistent.com" id="forgot"> forgot password?</a>
+          <button padding ion-button (click)="navigatetoProfile()" block outline>submit</button>
+
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
 
 
-  </div>
+  <!-- <ion-row>
+    <a href="nonexistent.com" id="forgot"> Forgot Password?</a>
+  </ion-row>
+  <br>
+  <ion-row>
+    <button padding ion-button (click)="navigatetoProfile()" block outline>submit</button>
+  </ion-row> -->
+
 </ion-content>

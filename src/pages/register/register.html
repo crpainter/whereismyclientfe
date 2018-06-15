@@ -1,48 +1,43 @@
+<ion-header>
+  <ion-navbar></ion-navbar>
+</ion-header>
+
+<br>
+<br>
 
 <ion-content padding>
-  <div>
-    <h1>Create Your DoneGood Account</h1>
-    <h5>let's get you set up</h5>
-    <div>
-      <ion-item>
-        <ion-label floating>First name</ion-label>
-        <ion-input type="text" value=""></ion-input>
-      </ion-item>
-    </div>
-    <div>
-      <ion-item>
-        <ion-label floating>Last name</ion-label>
-        <ion-input type="password"></ion-input>
-      </ion-item>
-    </div>
-    <br>
-    <ion-item>
-      <ion-label floating>Username</ion-label>
-      <ion-input type="username" [(ngModel)]="username"></ion-input>
-    </ion-item>
-    <p>This can include numbers or letters, but no symbols</p>
-    <div>
-      <ion-item>
-        <ion-label floating>Password</ion-label>
-        <ion-input type="text" value="" [(ngModel)]="password"></ion-input>
-      </ion-item>
-    </div>
-    <div>
-      <ion-item>
-        <ion-label floating>Confirm Password</ion-label>
-        <ion-input type="password"></ion-input>
-      </ion-item>
-    </div>
-    <div>
-      <p>Let's use at least 6 characters</p>
-    </div>
-    <br>
 
+<ion-grid>
+  <ion-row>
+    <ion-col text-center>
 
-    <div>
-      <button ion-button (click)="navigatetoProfile()" color="blue" round>Let's Go!</button>
-    </div>
+          <h1>create your account</h1>
+            <ion-item>
+              <ion-label floating>first name</ion-label>
+              <ion-input type="text" value=""></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label floating>last name</ion-label>
+              <ion-input type="password"></ion-input>
+            </ion-item>
+          <ion-item>
+            <ion-label floating>username</ion-label>
+            <ion-input type="username" [(ngModel)]="username"></ion-input>
+          </ion-item>
+            <ion-item>
+              <ion-label floating>password</ion-label>
+              <ion-input type="text" value="" [(ngModel)]="password"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label floating>confirm password</ion-label>
+              <ion-input type="password"></ion-input>
+            </ion-item>
+          <br>
+          <br>
 
+          <button ion-button (click)="navigatetoProfile()" block outline>submit</button>
 
-  </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
 </ion-content>

@@ -74,13 +74,18 @@ $colors: (
 
 $button-ios-border-radius: 0px; 
 $button-ios-outline-border-color: black;
-$button-ios-outline-text-color: gold; 
 $button-ios-outline-border-width: 1.5px;
 $button-ios-box-shadow: 5px 5px 5px rgba(0,0,0,.5); 
 $action-sheet-ios-button-border-style: block;
 
 $navbar-ios-height: 100px;
 $toolbar-ios-background: transparent;
+$list-ios-background-color: transparent;
+$text-input-ios-background-color: transparent;
+$text-input-ios-border-color: black;
+
+$toolbar-ios-height: 50px;
+
 // $button-md-box-shadow: none; 
 
 

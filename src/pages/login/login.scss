@@ -1,7 +1,19 @@
 page-login{
-    .generic-div{
-        margin: auto;
-        width: 100%;
-        top: 50%;
+
+    ion-grid {
+        height: 100%;
+        justify-content: center;
     }
+
+    .ion-col{
+        align-self: center
+    }
+
+
+    #forgot{
+        color: black;
+        float:left;
+        padding-bottom: 16px;
+    }
+
 }
