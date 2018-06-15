@@ -1,7 +1,10 @@
-<ion-nav-bar></ion-nav-bar>
+<ion-header>
+<ion-navbar></ion-navbar>
+</ion-header>
 
 <ion-content padding>
-  <div>
+  <div class=".wrapper-div">
+  <div class="generic-div">
     <ion-list>
       <h1>Please Sign In</h1>
       <h5>to continue</h5>
@@ -23,7 +26,8 @@
     </ion-list>
     <a href="nonexistent.com"> Forgot Password?</a>
     <br>
-    <button ion-button (click)="navigatetoProfile()" round>Submit</button>
+    <button ion-button (click)="navigatetoProfile()" block outline>Submit</button>
+  </div>
 
 
   </div>
