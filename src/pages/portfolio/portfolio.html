@@ -1,45 +1,48 @@
 <ion-header>
     <ion-navbar>
-        <ion-title>
-            Your Account / Your Portfolio
-        </ion-title>
-        <ion-buttons end>
-            <button padding ion-button (click)="navigatetoFindCharities()">Find Charities</button>
-            <button padding ion-button (click)="navigatetoPortfolio()">Your Portfolio</button>
-        </ion-buttons>
+
     </ion-navbar>
 </ion-header>
+
+
 <ion-content padding>
-    <div>
-        <h1 style="text-align: center">Your Portfolio</h1>
-        <ion-item-group>
-            <ion-card>
-                <ion-card-header>
-                    Donation Allocation
-                </ion-card-header>
-                <ion-card-content>
-                    <canvas #doughnutCanvas></canvas>
-                </ion-card-content>
-            </ion-card>
-            <div style="overflow: auto; max-height: 300px; margin: 10px;">
-                <ion-list>
-                    <ion-item *ngFor="let charity of user.charitiesDonatedTo">
-                        <ion-thumbnail item-start>
-                            <img src={{charity.logourl}}>
-                        </ion-thumbnail>
-                        <h2>{{charity.name}}</h2>
-                        <p>${{charity.userDonationTotal}} Given • 167 Treatments Provided</p>
-                        <button ion-button clear item-end (click)="navigateToCharity(charity);">View</button>
-                    </ion-item>
-                </ion-list>
-            </div>
+    <ion-grid>
+        <ion-row>
+            <ion-col text-center>
+                    <h1 style="text-align: center">portfolio</h1>
+                    <ion-item-group>
+                        <ion-card>
+                            <ion-card-header>
+                                charity donations
+                            </ion-card-header>
+                            <ion-card-content>
+                                <canvas #doughnutCanvas></canvas>
+                            </ion-card-content>
+                        </ion-card>
+                            <ion-list>
+                                <ion-item *ngFor="let charity of user.charitiesDonatedTo">
+                                    <ion-thumbnail item-start>
+                                        <img src={{charity.logourl}}>
+                                    </ion-thumbnail>
+                                    <h2>{{charity.name}}</h2>
+                                    <p>${{charity.userDonationTotal}} Given • 167 Treatments Provided</p>
+                                    <button ion-button clear item-end (click)="navigateToCharity(charity);">View</button>
+                                </ion-item>
+                            </ion-list>
+
+                    </ion-item-group>
 
 
-        </ion-item-group>
-        <div style="text-align: center">
-            <button ion-button (click)="navigatetoHome()" color="danger" round>Logout</button>
-        </div>
+                    <ion-buttons>
+                        <button padding ion-button block outline (click)="navigatetoFindCharities()">find charities</button>    
+                        <br>            
+                        <button ion-button (click)="navigatetoHome()" block outline>logout</button>
+
+                    </ion-buttons>
 
 
-    </div>
+
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>

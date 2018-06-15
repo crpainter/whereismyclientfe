@@ -25829,6 +25829,39 @@ page-login #forgot {
   padding-bottom: 16px;
 }
 
+ion-grid {
+  height: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.ion-col {
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+page-profile img {
+  height: 50px;
+  width: 15%;
+}
+
+page-profile ion-grid {
+  height: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+page-profile .ion-col {
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
 page-register ion-grid {
   padding-top: 30px;
   height: 100%;

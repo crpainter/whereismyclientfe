@@ -1,23 +1,25 @@
 <ion-header>
-        <ion-navbar>
-            <ion-title>
-                    Your Account / Find Charities
-            </ion-title>
-        </ion-navbar>
-    </ion-header>
-    <ion-content>
-        <div>
-            <br>
-            <div>
-                    <ion-list>
-                        <ion-item *ngFor="let charity of user.charitiesNotDonatedTo">
-                            <ion-thumbnail item-start>
-                                <img src={{charity.logourl}}>
-                            </ion-thumbnail>
-                            <h2>{{charity.name}}</h2>
-                            <button ion-button clear item-end (click)="navigatetoPayments(charity);">Donate Now</button>
-                        </ion-item>
-                    </ion-list>
-                </div>
-        </div>
-    </ion-content>
+    <ion-navbar>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col text-center>
+                <h1>find charities</h1>
+                <ion-list>
+                    <ion-item *ngFor="let charity of user.charitiesNotDonatedTo">
+                        <ion-thumbnail item-start>
+                            <img src={{charity.logourl}}>
+                        </ion-thumbnail>
+                        <h2>{{charity.name}}</h2>
+                        <button ion-button clear item-end (click)="navigatetoPayments(charity);">Donate Now</button>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+        </ion-grid>
+
+</ion-content>
