@@ -17,7 +17,7 @@ import { Http } from "@angular/http";
 export class ProfilePage {
 
     public user: User;
-    private token: string;
+    public token: string;
     public charitiesDonatedTo: Charity[];
     
 
@@ -37,7 +37,7 @@ export class ProfilePage {
           }
 
         this.http
-            .get("http://localhost:3000/donation/charitiesDonatedTo", this.token)
+            .get("http://localhost:3000/donation1/charitiesDonatedTo?jwt="+ this.token)
             .subscribe(
                 result => {
                     this.charitiesDonatedTo = result.json();
