@@ -273,11 +273,10 @@ var LoginPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-login',template:/*ion-inline-start:"/Users/mayapelichet/iXperience/wheresmyclife/src/pages/login/login.html"*/'<ion-header>\n  <ion-navbar></ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-grid>\n    <ion-row>\n      <ion-col text-center>\n          <ion-list>\n            <h1 >sign in to continue</h1>\n            <br>\n\n            <ion-item>\n              <ion-label floating>username</ion-label>\n              <ion-input type="text" value="" [(ngModel)]="username"></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label floating>password</ion-label>\n              <ion-input type="password" value="" [(ngModel)]="password"></ion-input>\n            </ion-item>\n            <br>\n\n            <ion-item>\n              <ion-label style="size:3">remember me</ion-label>\n              <ion-checkbox color="dark" checked="false"></ion-checkbox>\n            </ion-item>\n          </ion-list>\n          <a href="nonexistent.com" id="forgot"> forgot password?</a>\n          <button padding ion-button (click)="navigatetoProfile()" block outline>submit</button>\n\n      </ion-col>\n    </ion-row>\n\n  </ion-grid>\n\n\n  <!-- <ion-row>\n    <a href="nonexistent.com" id="forgot"> Forgot Password?</a>\n  </ion-row>\n  <br>\n  <ion-row>\n    <button padding ion-button (click)="navigatetoProfile()" block outline>submit</button>\n  </ion-row> -->\n\n</ion-content>'/*ion-inline-end:"/Users/mayapelichet/iXperience/wheresmyclife/src/pages/login/login.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */],
-            __WEBPACK_IMPORTED_MODULE_4__auth_service__["a" /* AuthService */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__auth_service__["a" /* AuthService */]) === "function" && _c || Object])
     ], LoginPage);
     return LoginPage;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=login.js.map
@@ -410,9 +409,9 @@ var AuthService = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profile_profile__ = __webpack_require__(45);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_ts_User__ = __webpack_require__(463);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_ts_User__ = __webpack_require__(463);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(239);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -432,9 +431,9 @@ var RegisterPage = /** @class */ (function () {
         this.navCtrl = navCtrl;
         this.http = http;
     }
-    RegisterPage.prototype.navigatetoProfile = function () {
+    RegisterPage.prototype.navigatetoLogin = function () {
         var _this = this;
-        var user = new __WEBPACK_IMPORTED_MODULE_3__models_ts_User__["a" /* User */]();
+        var user = new __WEBPACK_IMPORTED_MODULE_2__models_ts_User__["a" /* User */]();
         user.password = this.password;
         user.username = this.username;
         this.http
@@ -442,7 +441,7 @@ var RegisterPage = /** @class */ (function () {
             .subscribe(function (result) {
             console.log(result);
             // Our username and password (on this) should have data from the user
-            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__profile_profile__["a" /* ProfilePage */], {
+            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__login_login__["a" /* LoginPage */], {
                 user: user
             });
         }, function (error) {
@@ -451,11 +450,12 @@ var RegisterPage = /** @class */ (function () {
     };
     RegisterPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-register',template:/*ion-inline-start:"/Users/mayapelichet/iXperience/wheresmyclife/src/pages/register/register.html"*/'<ion-header>\n  <ion-navbar></ion-navbar>\n</ion-header>\n\n<br>\n<br>\n\n<ion-content padding>\n\n<ion-grid>\n  <ion-row>\n    <ion-col text-center>\n\n          <h1>create your account</h1>\n            <ion-item>\n              <ion-label floating>first name</ion-label>\n              <ion-input type="text" value=""></ion-input>\n            </ion-item>\n            <ion-item>\n              <ion-label floating>last name</ion-label>\n              <ion-input type="password"></ion-input>\n            </ion-item>\n          <ion-item>\n            <ion-label floating>username</ion-label>\n            <ion-input type="username" [(ngModel)]="username"></ion-input>\n          </ion-item>\n            <ion-item>\n              <ion-label floating>password</ion-label>\n              <ion-input type="text" value="" [(ngModel)]="password"></ion-input>\n            </ion-item>\n            <ion-item>\n              <ion-label floating>confirm password</ion-label>\n              <ion-input type="password"></ion-input>\n            </ion-item>\n          <br>\n          <br>\n\n          <button ion-button (click)="navigatetoProfile()" block outline>submit</button>\n\n    </ion-col>\n  </ion-row>\n</ion-grid>\n</ion-content>\n'/*ion-inline-end:"/Users/mayapelichet/iXperience/wheresmyclife/src/pages/register/register.html"*/
+            selector: 'page-register',template:/*ion-inline-start:"/Users/mayapelichet/iXperience/wheresmyclife/src/pages/register/register.html"*/'<ion-header>\n  <ion-navbar></ion-navbar>\n</ion-header>\n\n<br>\n<br>\n\n<ion-content padding>\n\n<ion-grid>\n  <ion-row>\n    <ion-col text-center>\n\n          <h1>create your account</h1>\n            <ion-item>\n              <ion-label floating>first name</ion-label>\n              <ion-input type="text" value=""></ion-input>\n            </ion-item>\n            <ion-item>\n              <ion-label floating>last name</ion-label>\n              <ion-input type="password"></ion-input>\n            </ion-item>\n          <ion-item>\n            <ion-label floating>username</ion-label>\n            <ion-input type="username" [(ngModel)]="username"></ion-input>\n          </ion-item>\n            <ion-item>\n              <ion-label floating>password</ion-label>\n              <ion-input type="text" value="" [(ngModel)]="password"></ion-input>\n            </ion-item>\n            <ion-item>\n              <ion-label floating>confirm password</ion-label>\n              <ion-input type="password"></ion-input>\n            </ion-item>\n          <br>\n          <br>\n\n          <button ion-button (click)="navigatetoLogin()" block outline>submit</button>\n\n    </ion-col>\n  </ion-row>\n</ion-grid>\n</ion-content>\n'/*ion-inline-end:"/Users/mayapelichet/iXperience/wheresmyclife/src/pages/register/register.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* Http */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */]) === "function" && _b || Object])
     ], RegisterPage);
     return RegisterPage;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=register.js.map
@@ -702,6 +702,7 @@ var ProfilePage = /** @class */ (function () {
     }
     ProfilePage_1 = ProfilePage;
     ProfilePage.prototype.ionViewDidLoad = function () {
+        console.log("Charities Donated to is:", this.charitiesDonatedTo);
     };
     ProfilePage.prototype.navigatetoHome = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__home_home__["a" /* HomePage */]);
@@ -719,7 +720,7 @@ var ProfilePage = /** @class */ (function () {
     };
     ProfilePage = ProfilePage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-profile',template:/*ion-inline-start:"/Users/mayapelichet/iXperience/wheresmyclife/src/pages/profile/profile.html"*/'<ion-header>\n    <ion-navbar>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n    <ion-grid>\n        <ion-row>\n            <ion-col text-center>\n                <h1 style="text-align: center">profile</h1>\n                <br>\n                <img src="../../assets/imgs/Asset 7@2x.png" center>\n                <ion-item-group>\n                    <ion-label>username: {{this.user.username}}</ion-label>\n                    <br> \n                    <br>\n                    <h1>your charities</h1>\n                    <ion-list>\n                        <!-- <ion-item *ngFor="let charity of user.charitiesDonatedTo">\n                    <ion-thumbnail item-start>\n                        <img src={{charity.logourl}}>\n                    </ion-thumbnail>\n                    <h2>{{charity.name}}</h2>\n                    <p>${{charity.userDonationTotal}} Given • 167 Treatments Provided</p>\n                    <button ion-button clear item-end (click)="navigateToCharity(charity);">View</button>\n                </ion-item> -->\n                    </ion-list>\n                </ion-item-group>\n            </ion-col>\n        </ion-row>\n\n        <ion-buttons>\n                <button padding ion-button block outline (click)="navigatetoFindCharities()">Find Charities</button>\n                <br>\n                <button padding ion-button block outline (click)="navigatetoPortfolio()">Your Portfolio</button>\n                <br>\n                <button ion-button (click)="navigatetoHome()" block outline>Logout</button>\n            </ion-buttons>\n    </ion-grid>\n\n    \n\n    </ion-content>'/*ion-inline-end:"/Users/mayapelichet/iXperience/wheresmyclife/src/pages/profile/profile.html"*/
+            selector: 'page-profile',template:/*ion-inline-start:"/Users/mayapelichet/iXperience/wheresmyclife/src/pages/profile/profile.html"*/'<ion-header>\n    <ion-navbar>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n    <ion-grid>\n        <ion-row>\n            <ion-col text-center>\n                <h1 style="text-align: center">profile</h1>\n                <br>\n                <img src="../../assets/imgs/Asset 7@2x.png" center>\n                <ion-item-group>\n                    <ion-label>username: {{this.user.username}}</ion-label>\n                    <br> \n                    <br>\n                    <h1>your charities</h1>\n                    <ion-list>\n                        <ion-item *ngFor="let charity of this.charitiesDonatedTo">\n                    <ion-thumbnail item-start>\n                        <img src={{charity.logourl}}>\n                    </ion-thumbnail>\n                    <h2>{{charity.name}}</h2>\n                    <p>${{charity.userDonationTotal}} Given • 167 Treatments Provided</p>\n                    <button ion-button clear item-end (click)="navigateToCharity(charity);">View</button>\n                </ion-item>\n                    </ion-list>\n                </ion-item-group>\n            </ion-col>\n        </ion-row>\n\n        <ion-buttons>\n                <button padding ion-button block outline (click)="navigatetoFindCharities()">Find Charities</button>\n                <br>\n                <button padding ion-button block outline (click)="navigatetoPortfolio()">Your Portfolio</button>\n                <br>\n                <button ion-button (click)="navigatetoHome()" block outline>Logout</button>\n            </ion-buttons>\n    </ion-grid>\n\n    \n\n    </ion-content>'/*ion-inline-end:"/Users/mayapelichet/iXperience/wheresmyclife/src/pages/profile/profile.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */], __WEBPACK_IMPORTED_MODULE_7__angular_http__["a" /* Http */]])
     ], ProfilePage);
