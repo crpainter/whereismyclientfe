@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, Tab } from 'ionic-angular';
 import { NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { CharityPage } from '../charityInfo/charityInfo';
@@ -55,6 +55,8 @@ export class ProfilePage {
 
     ionViewDidLoad() {
         console.log("Charities Donated to is:",this.charitiesDonatedTo);
+        this.navCtrl.setRoot(TabsPage);
+
 
     }
 
