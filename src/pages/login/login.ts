@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { ProfilePage } from '../profile/profile';
 import { Http } from '@angular/http';
 import { AuthService } from "../../auth.service";
+import { TabsPage } from "../tabs/tabs"
 
 @Component({
     selector: 'page-login',
@@ -14,27 +15,30 @@ export class LoginPage {
     password: string;
 
     constructor(
-        public navCtrl: NavController, 
+        public navCtrl: NavController,
         public http: Http,
-        public authService: AuthService
-    ) {}
+        public authService: AuthService,
 
-    ionViewDidLoad(){
+    ) { }
+
+    ionViewDidLoad() {
         console.log("ionViewDidLoad LoginPage");
     }
 
+
     navigatetoProfile() {
+
         let callback = (err) => {
-          if (err) {
-            // TODO: display error
-            return;
-          }
-    
-          this.navCtrl.push(ProfilePage);
+            if (err) {
+                // TODO: display error
+                return;
+            }
+            this.navCtrl.push(ProfilePage);
         }
-    
+
         this.authService.login(this.username, this.password, callback);
-      }
+
+    }
 
 
 }

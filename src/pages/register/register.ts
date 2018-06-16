@@ -4,6 +4,7 @@ import { ProfilePage } from '../profile/profile';
 import { User } from '../models.ts/User';
 import { Http  } from '@angular/http';
 import { LoginPage } from '../login/login';
+import { TabsPage } from '../tabs/tabs';
 
 @Component({
     selector: 'page-register',
@@ -33,7 +34,10 @@ export class RegisterPage {
                     this.navCtrl.push(LoginPage, {
                         user: user
                     });
+
+
                 },
+
                 error => {
                     console.log(error);
                 }
