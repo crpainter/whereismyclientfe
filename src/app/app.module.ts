@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { IonicApp, IonicErrorHandler, IonicModule, Tabs } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { HttpModule } from"@angular/http";
@@ -15,6 +15,7 @@ import { FindCharitiesPage } from '../pages/findCharitiesPage/findCharitiesPage'
 import { PortfolioPage } from '../pages/portfolio/portfolio';
 import { PaymentsPage } from '../pages/payments/payments';
 import { AuthService } from '../auth.service';
+import { TabsPage } from '../pages/tabs/tabs';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AuthService } from '../auth.service';
     CharityPage,
     FindCharitiesPage,
     PortfolioPage,
-    PaymentsPage
+    PaymentsPage, 
+    TabsPage
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,8 @@ import { AuthService } from '../auth.service';
     CharityPage,
     FindCharitiesPage,
     PortfolioPage,
-    PaymentsPage
+    PaymentsPage, 
+    TabsPage
   ],
   providers: [
     StatusBar,

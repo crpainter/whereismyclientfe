@@ -3,6 +3,8 @@ import { NavController } from 'ionic-angular';
 import { ProfilePage } from '../profile/profile';
 import { User } from '../models.ts/User';
 import { Http  } from '@angular/http';
+import { LoginPage } from '../login/login';
+import { TabsPage } from '../tabs/tabs';
 
 @Component({
     selector: 'page-register',
@@ -18,7 +20,7 @@ export class RegisterPage {
     password: string;
 
 
-    navigatetoProfile() {
+    navigatetoLogin() {
         var user = new User()
         user.password = this.password;
         user.username = this.username;
@@ -29,10 +31,13 @@ export class RegisterPage {
                     console.log(result);
 
                     // Our username and password (on this) should have data from the user
-                    this.navCtrl.push(ProfilePage, {
+                    this.navCtrl.push(LoginPage, {
                         user: user
                     });
+
+
                 },
+
                 error => {
                     console.log(error);
                 }

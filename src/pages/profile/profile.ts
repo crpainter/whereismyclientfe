@@ -9,6 +9,7 @@ import { User } from '../models.ts/User';
 import { PortfolioPage } from '../portfolio/portfolio';
 import { verify } from 'jsonwebtoken';
 import { Http } from "@angular/http";
+import { TabsPage } from '../tabs/tabs'
 
 @Component({
     selector: 'page-profile',
@@ -22,6 +23,8 @@ export class ProfilePage {
     
 
     constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
+        //this.navCtrl.setRoot(TabsPage);
+
         this.token = localStorage.getItem("TOKEN");
         var jsBody = verify(this.token, 'shh');
         this.user = jsBody.user;
@@ -50,9 +53,9 @@ export class ProfilePage {
 
     }
 
-
     ionViewDidLoad() {
-        console.log("Charities Donated to is:",this.charitiesDonatedTo)
+        console.log("Charities Donated to is:",this.charitiesDonatedTo);
+
     }
 
 
