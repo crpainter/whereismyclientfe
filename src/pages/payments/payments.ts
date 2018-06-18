@@ -5,6 +5,10 @@ import { ProfilePage } from '../profile/profile';
 import { Charity } from '../models.ts/Charity';
 import { User } from '../models.ts/User';
 import { verify } from 'jsonwebtoken';
+import { Http } from "@angular/http";
+import { PortfolioPage } from '../portfolio/portfolio';
+
+import { App } from 'ionic-angular';
 
 @Component({
     selector: 'page-payments',
@@ -17,7 +21,7 @@ export class PaymentsPage {
     public DonationStatus: boolean;
     public token: string;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public app: App) {
         this.charity = this.navParams.get("charity");
         this.DonationStatus = this.navParams.get("DonationStatus");
         this.token = localStorage.getItem("TOKEN");
@@ -35,27 +39,36 @@ export class PaymentsPage {
     deposit: number;
 
     navigatetoProfile() {
-
         this.navCtrl.push(ProfilePage);
     }
 
-    
-    
 
-    // navigatetoPortfolio() {
-    //     if (this.DonationStatus) {
-    //         this.charity.userDonationTotal = +this.charity.userDonationTotal + +this.deposit;
-    //     }
-    //     else {
-    //         var pos = this.user.charitiesNotDonatedTo.map(function(e) { return e.name; }).indexOf(this.charity.name);
-    //         this.charity.userDonationTotal = +this.charity.userDonationTotal + +this.deposit;
-    //         this.user.charitiesDonatedTo.push(this.charity);
-    //         this.user.charitiesNotDonatedTo.splice(pos, 1);
-    //     }
-    //     this.navCtrl.push(PortfolioPage, {
-    //         user: this.user
-    //     });
-    // }
+
+
+    navigatetoPortfolio() {
+        let callback = (err) => {
+            if (err) {
+                // TODO: display error
+                return;
+            }
+
+        }
+
+        this.http
+            .get("http://localhost:3000/donation1/charitiesDonatedTo?jwt=" + this.token)
+            .subscribe(
+                result => {
+                    // this.charitiesDonatedTo = result.json();
+                },
+
+                error => {
+                    callback(error);
+                }
+            );
+        this.navCtrl.push(PortfolioPage, {
+            user: this.user
+        });
+    }
 
 
 }
