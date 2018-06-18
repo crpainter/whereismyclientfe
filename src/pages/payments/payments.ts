@@ -55,19 +55,18 @@ export class PaymentsPage {
         }
 
         this.http
-            .get("http://localhost:3000/donation1/charitiesDonatedTo?jwt=" + this.token)
+            .get('/user/charity/addDonation?jwt=' + this.token + "&charity_id=" + this.charity.id + '&DonationAmount' + this.deposit)
             .subscribe(
                 result => {
-                    // this.charitiesDonatedTo = result.json();
+                    this.navCtrl.push(PortfolioPage, {
+                        user: this.user
+                    });
                 },
 
                 error => {
                     callback(error);
                 }
             );
-        this.navCtrl.push(PortfolioPage, {
-            user: this.user
-        });
     }
 
 
