@@ -9,7 +9,7 @@ import { User } from '../models.ts/User';
 import { PortfolioPage } from '../portfolio/portfolio';
 import { verify } from 'jsonwebtoken';
 import { Http } from "@angular/http";
-import { TabsPage } from '../tabs/tabs'
+import { App } from 'ionic-angular';
 
 @Component({
     selector: 'page-profile',
@@ -22,8 +22,9 @@ export class ProfilePage {
     public charitiesDonatedTo: Charity[];
     
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
-        //this.navCtrl.setRoot(TabsPage);
+    constructor(public navCtrl: NavController, public navParams: NavParams, 
+        public http: Http,  public app: App
+    ) {
 
         this.token = localStorage.getItem("TOKEN");
         var jsBody = verify(this.token, 'shh');
@@ -55,8 +56,6 @@ export class ProfilePage {
 
     ionViewDidLoad() {
         console.log("Charities Donated to is:",this.charitiesDonatedTo);
-        this.navCtrl.setRoot(TabsPage);
-
 
     }
 
@@ -67,8 +66,10 @@ export class ProfilePage {
     logourl: string;
     siteurl: string;
 
-    navigatetoHome() {
-        this.navCtrl.push(HomePage);
+    logout() {
+        //this.authServ.navigatetoHome (); // this is a function to logout from the server
+        const root = this.app.getRootNav (); // in this line, you have to declare a root, which is the app's root 
+        root.popToRoot (); // here you go to the root.
     }
 
     navigatetoFindCharities() {

@@ -33,7 +33,7 @@ export class LoginPage {
                 // TODO: display error
                 return;
             }
-            this.navCtrl.push(ProfilePage);
+            this.navCtrl.push(TabsPage);
         }
 
         this.authService.login(this.username, this.password, callback);
