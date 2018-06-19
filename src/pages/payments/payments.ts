@@ -55,7 +55,7 @@ export class PaymentsPage {
         }
 
         this.http
-            .get('/user/charity/addDonation?jwt=' + this.token + "&charity_id=" + this.charity.id + '&DonationAmount' + this.deposit)
+            .post("http://localhost:3000/user/charity/addDonation?jwt=" + this.token + "&charity_id=" + this.charity.id + "&donation_amount=" + this.deposit,{})
             .subscribe(
                 result => {
                     this.navCtrl.push(PortfolioPage, {
