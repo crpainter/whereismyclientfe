@@ -20,10 +20,9 @@ import { LoginPage } from '../login/login';
 export class TabsPage {
 
 
-  tab2Root = LoginPage;
   tab1Root = ProfilePage;
-  tab3Root = FindCharitiesPage;
-  tab4Root = PortfolioPage;
+  tab2Root = FindCharitiesPage;
+  tab3Root = PortfolioPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
