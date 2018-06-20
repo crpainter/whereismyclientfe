@@ -10,6 +10,7 @@ import { PortfolioPage } from '../portfolio/portfolio';
 import { verify } from 'jsonwebtoken';
 import { Http } from "@angular/http";
 import { App } from 'ionic-angular';
+import { SettingsPage } from '../settings/settings';
 
 @Component({
     selector: 'page-profile',
@@ -86,5 +87,9 @@ export class ProfilePage {
         this.navCtrl.push(CharityPage, {
             charity: charity
         });
+    }
+
+    navigateToSettings() {
+        this.navCtrl.push(SettingsPage);
     }
 }

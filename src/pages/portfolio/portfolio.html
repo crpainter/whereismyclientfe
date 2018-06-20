@@ -1,7 +1,7 @@
 <ion-header>
-    <ion-navbar>
+        <ion-navbar><ion-title>Portfolio</ion-title></ion-navbar>
+    
 
-    </ion-navbar>
 </ion-header>
 
 
@@ -9,12 +9,8 @@
     <ion-grid>
         <ion-row>
             <ion-col text-center>
-                    <h1 style="text-align: center">portfolio</h1>
                     <ion-item-group>
                         <ion-card>
-                            <ion-card-header>
-                                charity donations
-                            </ion-card-header>
                             <ion-card-content>
                                 <canvas #doughnutCanvas></canvas>
                             </ion-card-content>
@@ -31,15 +27,6 @@
                             </ion-list>
 
                     </ion-item-group>
-
-
-                    <ion-buttons>
-                        <button padding ion-button block outline (click)="navigatetoFindCharities()">find charities</button>    
-                        <br>            
-                        <button ion-button (click)="navigatetoHome()" block outline>logout</button>
-
-                    </ion-buttons>
-
 
 
             </ion-col>

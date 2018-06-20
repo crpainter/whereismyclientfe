@@ -16,6 +16,9 @@ import { PortfolioPage } from '../pages/portfolio/portfolio';
 import { PaymentsPage } from '../pages/payments/payments';
 import { AuthService } from '../auth.service';
 import { TabsPage } from '../pages/tabs/tabs';
+import { SettingsPage } from '../pages/settings/settings';
+import { BrowsePage } from '../pages/browse/browse';
+import { FavoritesPage } from '../pages/favorites/favorites';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { TabsPage } from '../pages/tabs/tabs';
     FindCharitiesPage,
     PortfolioPage,
     PaymentsPage, 
-    TabsPage
+    TabsPage,
+    SettingsPage, 
+    BrowsePage, 
+    FavoritesPage
   ],
   imports: [
     BrowserModule,
@@ -46,7 +52,10 @@ import { TabsPage } from '../pages/tabs/tabs';
     FindCharitiesPage,
     PortfolioPage,
     PaymentsPage, 
-    TabsPage
+    TabsPage, 
+    SettingsPage, 
+    BrowsePage, 
+    FavoritesPage
   ],
   providers: [
     StatusBar,

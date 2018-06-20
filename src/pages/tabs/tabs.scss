@@ -1,3 +1,36 @@
 page-tabs {
+    .tabbar.show-tabbar{
+        bottom: 0px;
+        height: 60px;
+        background-color:#e1bf6a;
+        box-shadow: 0px -2px 15px #443821 ;
+        //border-top: solid black 1.5px;
+    
+    }
+
+    .tab-button-text{
+        color: black ;
+        font-family: "Open Sans";
+        font-size: x-small;
+        font-weight: 600;
+        
+    }
+
+    .tabs-ios .tab-button-icon{
+        margin-top: 4px;
+        margin-bottom: 0px;
+        min-width: 35px;
+        height: 30px;
+        font-size: 25px;
+        font-weight: 500;
+        color: black ;
+    }
+
+    .tabs-ios .tab-button:hover:not(.disable-hover), .tabs-ios .tab-button[aria-selected=true]{
+        span{
+            color: #fcffc7;
+        }
+    }
+
 
 }
