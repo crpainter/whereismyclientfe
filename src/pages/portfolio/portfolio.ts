@@ -7,6 +7,9 @@ import { User } from '../models.ts/User';
 import { FindCharitiesPage } from '../findCharitiesPage/findCharitiesPage';
 import { HomePage } from '../home/home';
 import { verify } from 'jsonwebtoken';
+import { Http } from "@angular/http";
+import { App } from 'ionic-angular';
+import { Chart } from 'chart.js'
 
 @Component({
     selector: 'page-portfolio',
@@ -20,37 +23,66 @@ export class PortfolioPage {
     public charity: Charity;
     public user: User;
     private token: string;
+    public charitiesDonatedTo: Charity[];
 
-    constructor(public navCtrl: NavController, public navParams: NavParams) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public app: App) {
         this.token = localStorage.getItem("TOKEN");
         var jsBody = verify(this.token, 'shh');
         console.log("profile token: ", this.token);
         this.user = jsBody.user
+
+
     }
 
-    // ionViewDidLoad() {
+    ionViewDidLoad() {
 
-    //     this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
-    //         type: 'doughnut',
-    //         data: {
-    //             labels: this.user.charitiesDonatedTo.map(function(e) { return e.name; }),
-    //             datasets: [{
-    //                 label: 'Dollars Donated',
-    //                 data: this.user.charitiesDonatedTo.map(function(e) { return e.userDonationTotal; }),
-    //                 backgroundColor: [
-    //                     'rgba(75, 192, 192, 0.2)',
-    //                     'rgba(54, 162, 235, 0.2)',
-    //                     'rgba(255, 206, 86, 0.2)'
-    //                 ],
-    //                 hoverBackgroundColor: [
-    //                     "#FF6384",
-    //                     "#36A2EB",
-    //                     "#FFCE56"
-    //                 ]
-    //             }]
-    //         }
-    //     });
-    // }
+        let callback = (err) => {
+            if (err) {
+                // TODO: display error
+                return;
+            }
+
+        }
+
+        this.http
+            .get("http://localhost:3000/donation1/charitiesDonatedTo?jwt=" + this.token)
+            .subscribe(
+                result => {
+                    this.charitiesDonatedTo = result.json();
+                    console.log("My charitiesDonatedTo was=" + this.charitiesDonatedTo[1].id)
+                    this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
+                        type: 'doughnut',
+                        data: {
+                            labels: this.charitiesDonatedTo.map(function (e) { return e.name; }),
+                            datasets: [{
+                                label: 'Dollars Donated',
+                                data: this.charitiesDonatedTo.map(function (e) { return e.userDonationTotal; }),
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)',
+                                    'rgba(153, 102, 255, 0.2)',
+                                    'rgba(255, 159, 64, 0.2)'
+                                ],
+                                hoverBackgroundColor: [
+                                    "#FF6384",
+                                    "#36A2EB",
+                                    "#FFCE56",
+                                    "#FF6384",
+                                    "#36A2EB",
+                                    "#FFCE56"
+                                ]
+                            }]
+                        }
+                    });
+                },
+
+                error => {
+                    callback(error);
+                }
+            );
+    }
 
     username: string;
     charityInfo: object;

@@ -7,7 +7,7 @@ import { User } from '../models.ts/User';
 import { verify } from 'jsonwebtoken';
 import { Http } from "@angular/http";
 import { PortfolioPage } from '../portfolio/portfolio';
-
+import { Stripe } from '@ionic-native/stripe';
 import { App } from 'ionic-angular';
 
 @Component({
@@ -21,7 +21,7 @@ export class PaymentsPage {
     public DonationStatus: boolean;
     public token: string;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public app: App) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public app: App, private stripe: Stripe) {
         this.charity = this.navParams.get("charity");
         this.DonationStatus = this.navParams.get("DonationStatus");
         this.token = localStorage.getItem("TOKEN");
@@ -37,6 +37,21 @@ export class PaymentsPage {
     logourl: string;
     siteurl: string;
     deposit: number;
+
+    ionViewDidLoad() {
+        this.stripe.setPublishableKey('my_publishable_key');
+
+        let card = {
+            number: '4242424242424242',
+            expMonth: 12,
+            expYear: 2020,
+            cvc: '220'
+        };
+
+        this.stripe.createCardToken(card)
+            .then(token => console.log(token.id))
+            .catch(error => console.error(error));
+    }
 
     navigatetoProfile() {
         this.navCtrl.push(ProfilePage);
@@ -55,7 +70,7 @@ export class PaymentsPage {
         }
 
         this.http
-            .post("http://localhost:3000/user/charity/addDonation?jwt=" + this.token + "&charity_id=" + this.charity.id + "&donation_amount=" + this.deposit,{})
+            .post("http://localhost:3000/user/charity/addDonation?jwt=" + this.token + "&charity_id=" + this.charity.id + "&donation_amount=" + this.deposit, {})
             .subscribe(
                 result => {
                     this.navCtrl.push(PortfolioPage, {
