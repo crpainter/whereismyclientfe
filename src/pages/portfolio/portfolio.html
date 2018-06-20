@@ -20,7 +20,7 @@
                             </ion-card-content>
                         </ion-card>
                             <ion-list>
-                                <ion-item *ngFor="let charity of user.charitiesDonatedTo">
+                                <ion-item *ngFor="let charity of this.charitiesDonatedTo">
                                     <ion-thumbnail item-start>
                                         <img src={{charity.logourl}}>
                                     </ion-thumbnail>
