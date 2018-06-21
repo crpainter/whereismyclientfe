@@ -185,6 +185,7 @@ export class PaymentsPage {
     //   }
     
       donationSuccessful() {
+          console.log("Donation was definitely successful")
         let alert = this.alertCtrl.create({
           title: 'Donation Successful',
           subTitle: 'Thank you for donating!',
@@ -220,6 +221,9 @@ export class PaymentsPage {
             .post("http://localhost:3000/user/charity/addDonation?jwt=" + this.token + "&charity_id=" + this.charity.id + "&donation_amount=" + this.deposit, {})
             .subscribe(
                 result => {
+
+                    // The log below says it all, this code is allowing this form to "function" even though the strip logic isn't completely functioning correctly.
+                    console.log("And I wouldn't have gotten away with it either if it weren't for that meddling http property.")
                     this.navCtrl.push(PortfolioPage, {
                         user: this.user
                     });

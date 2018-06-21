@@ -232,6 +232,7 @@ var PaymentsPage = /** @class */ (function () {
     //         });
     //   }
     PaymentsPage.prototype.donationSuccessful = function () {
+        console.log("Donation was definitely successful");
         var alert = this.alertCtrl.create({
             title: 'Donation Successful',
             subTitle: 'Thank you for donating!',
@@ -260,6 +261,8 @@ var PaymentsPage = /** @class */ (function () {
         this.http
             .post("http://localhost:3000/user/charity/addDonation?jwt=" + this.token + "&charity_id=" + this.charity.id + "&donation_amount=" + this.deposit, {})
             .subscribe(function (result) {
+            // The log below says it all, this code is allowing this form to "function" even though the strip logic isn't completely functioning correctly.
+            console.log("And I wouldn't have gotten away with it either if it weren't for that meddling http property.");
             _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__portfolio_portfolio__["a" /* PortfolioPage */], {
                 user: _this.user
             });
@@ -269,11 +272,12 @@ var PaymentsPage = /** @class */ (function () {
     };
     PaymentsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-payments',template:/*ion-inline-start:"/Users/Chris/Documents/whereismyclientfe/src/pages/payments/payments.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-title>\n            Your Account / {{charity.name}}\n        </ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content text-center padding>\n    <div>\n        <br>\n        <ion-list>\n            <ion-item>\n                <h1> Make a Payment to {{charity.name}}</h1>\n                <img src={{charity.logourl}} width="200px" height="200px">\n            </ion-item>\n            <ion-item>\n                <ion-label float>Donation Amount:</ion-label>\n                <ion-input [(ngModel)]="deposit"></ion-input>\n            </ion-item>\n        </ion-list>\n        <ion-list radio-group>\n            <ion-item>\n                <ion-label>One Time</ion-label>\n                <ion-radio value="oneTime" (click)="oneTimeTrue()"></ion-radio>\n            </ion-item>\n            <ion-item>\n                <ion-label>Monthly</ion-label>\n                <ion-radio value="monthly" (click)="monthlyTrue()"></ion-radio>\n            </ion-item>\n        </ion-list>\n        <form action="/" method="post" id="payment-form">\n            <div class="form-row">\n                <div id="card-element"></div>\n                <!-- Used to display Element errors -->\n                <div id="card-errors" role="alert"></div>\n            </div>\n            <button ion-button block (click)="navigatetoPortfolio()" color="danger">Donate Once</button>\n        </form>\n    </div>\n</ion-content>'/*ion-inline-end:"/Users/Chris/Documents/whereismyclientfe/src/pages/payments/payments.html"*/
+            selector: 'page-payments',template:/*ion-inline-start:"/Users/Chris/Documents/whereismyclientfe/src/pages/payments/payments.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-title>\n            Your Account / {{charity.name}}\n        </ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content text-center padding>\n    <div>\n        <br>\n        <ion-list>\n            <ion-item>\n                <h1> Make a Payment to {{charity.name}}</h1>\n                <img src={{charity.logourl}} width="200px" height="200px">\n            </ion-item>\n            <ion-item>\n                <ion-label float>Donation Amount:</ion-label>\n                <ion-input [(ngModel)]="deposit"></ion-input>\n            </ion-item>\n        </ion-list>\n        <<ion-list radio-group [(ngModel)]="frequency">\n            <ion-item>\n                <ion-label>One Time</ion-label>\n                <ion-radio value="oneTime" (click)="oneTimeTrue()"></ion-radio>\n            </ion-item>\n            <ion-item>\n                <ion-label>Monthly</ion-label>\n                <ion-radio value="monthly" (click)="monthlyTrue()"></ion-radio>\n            </ion-item>\n            </ion-list>\n            <form action="/" method="post" id="payment-form">\n                <div class="form-row">\n                    <div id="card-element"></div>\n                    <!-- Used to display Element errors -->\n                    <div id="card-errors" role="alert"></div>\n                </div>\n                <button ion-button block (click)="navigatetoPortfolio()" color="danger">Donate Once</button>\n            </form>\n    </div>\n</ion-content>'/*ion-inline-end:"/Users/Chris/Documents/whereismyclientfe/src/pages/payments/payments.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* Http */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _e || Object])
     ], PaymentsPage);
     return PaymentsPage;
+    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=payments.js.map
