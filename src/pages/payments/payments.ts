@@ -10,6 +10,7 @@ import { PortfolioPage } from '../portfolio/portfolio';
 import { App } from 'ionic-angular';
 import { StripeJavaScriptPage } from './../stripe-java-script/stripe-java-script';
 import { StripeNativePage } from '../stripe-native/stripe-native';
+import { AuthService } from "../../auth.service";
 
 declare var Stripe;
 
@@ -30,7 +31,7 @@ export class PaymentsPage {
     oneTime: boolean;
     monthly: boolean;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public app: App, private alertCtrl: AlertController) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public app: App, private alertCtrl: AlertController, public authService: AuthService) {
         this.charity = this.navParams.get("charity");
         this.DonationStatus = this.navParams.get("DonationStatus");
         this.token = localStorage.getItem("TOKEN");
@@ -45,7 +46,7 @@ export class PaymentsPage {
         }
 
         this.http
-            .get("http://localhost:3000/user?jwt=" + this.token)
+            .get(this.authService.getBaseUrl() + "/user?jwt=" + this.token)
             .subscribe(
                 result => {
                     this.user = result.json();
@@ -165,7 +166,7 @@ export class PaymentsPage {
 
     stripeTokenHandler(token) {
         this.http
-          .post("http://localhost:3000/payment?jwt=" + localStorage.getItem("Token"), {
+          .post(this.authService.getBaseUrl() + "/payment?jwt=" + localStorage.getItem("Token"), {
             paymenttoken: token.id,
             amount: this.deposit,
             curency: this.curency,
@@ -240,7 +241,7 @@ export class PaymentsPage {
         }
 
         this.http
-            .post("http://localhost:3000/user/charity/addDonation?jwt=" + this.token + "&charity_id=" + this.charity.id + "&donation_amount=" + this.deposit, {})
+            .post(this.authService.getBaseUrl() + "/user/charity/addDonation?jwt=" + this.token + "&charity_id=" + this.charity.id + "&donation_amount=" + this.deposit, {})
             .subscribe(
                 result => {
 

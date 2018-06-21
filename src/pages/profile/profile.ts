@@ -11,6 +11,7 @@ import { verify } from 'jsonwebtoken';
 import { Http } from "@angular/http";
 import { App } from 'ionic-angular';
 import { SettingsPage } from '../settings/settings';
+import { AuthService } from "../../auth.service";
 
 @Component({
     selector: 'page-profile',
@@ -33,7 +34,7 @@ export class ProfilePage {
 
 
     constructor(public navCtrl: NavController, public navParams: NavParams,
-        public http: Http, public app: App
+        public http: Http, public app: App, public authService: AuthService
     ) {
 
         this.token = localStorage.getItem("TOKEN");
@@ -48,7 +49,7 @@ export class ProfilePage {
         }
 
         this.http
-            .get("http://localhost:3000/user?jwt=" + this.token)
+            .get(this.authService.getBaseUrl() +"/user?jwt=" + this.token)
             .subscribe(
                 result => {
                     this.user = result.json();
@@ -64,7 +65,7 @@ export class ProfilePage {
         console.log("My user is:"+ this.user.username);
 
         this.http
-            .get("http://localhost:3000/donation1/charitiesDonatedTo?jwt=" + this.token)
+            .get(this.authService.getBaseUrl() +"/donation1/charitiesDonatedTo?jwt=" + this.token)
             .subscribe(
                 result => {
                     this.charitiesDonatedTo = result.json();

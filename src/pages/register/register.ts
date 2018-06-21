@@ -5,6 +5,8 @@ import { User } from '../models.ts/User';
 import { Http  } from '@angular/http';
 import { LoginPage } from '../login/login';
 import { TabsPage } from '../tabs/tabs';
+import { AuthService } from "../../auth.service";
+
 
 @Component({
     selector: 'page-register',
@@ -12,7 +14,7 @@ import { TabsPage } from '../tabs/tabs';
 })
 export class RegisterPage {
 
-    constructor(public navCtrl: NavController, public http: Http) {
+    constructor(public navCtrl: NavController, public http: Http, public authService: AuthService) {
 
     }
 
@@ -25,7 +27,7 @@ export class RegisterPage {
         user.password = this.password;
         user.username = this.username;
         this.http
-            .post("http://localhost:3000/register", user)
+            .post(this.authService.getBaseUrl() +"/register", user)
             .subscribe(
                 result => {
                     console.log(result);

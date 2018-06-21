@@ -10,6 +10,7 @@ import { verify } from 'jsonwebtoken';
 import { Http } from "@angular/http";
 import { App } from 'ionic-angular';
 import { Chart } from 'chart.js'
+import { AuthService } from "../../auth.service";
 
 @Component({
     selector: 'page-portfolio',
@@ -35,7 +36,7 @@ export class PortfolioPage {
 
 
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public app: App) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public app: App, public authService: AuthService) {
         this.charity = this.navParams.get("charity");
         this.token = localStorage.getItem("TOKEN");
 
@@ -48,7 +49,7 @@ export class PortfolioPage {
         }
 
         this.http
-            .get("http://localhost:3000/user?jwt=" + this.token)
+            .get(this.authService.getBaseUrl() +  "/user?jwt=" + this.token)
             .subscribe(
                 result => {
                     this.user = result.json();

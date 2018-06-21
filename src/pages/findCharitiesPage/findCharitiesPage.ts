@@ -8,6 +8,7 @@ import { PaymentsPage } from '../payments/payments';
 import { verify } from 'jsonwebtoken';
 import { Http } from "@angular/http";
 import { CharityPage } from "../charityInfo/charityInfo";
+import { AuthService } from "../../auth.service";
 
 @Component({
     selector: 'page-findCharitiesPage',
@@ -29,7 +30,7 @@ export class FindCharitiesPage {
     siteurl: string;
     featuredimage1: string;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public authService: AuthService) {
         this.token = localStorage.getItem("TOKEN");
         console.log("profile token: ", this.token);
 
@@ -43,7 +44,7 @@ export class FindCharitiesPage {
         }
 
         this.http
-            .get("http://localhost:3000/user?jwt=" + this.token)
+            .get(this.authService.getBaseUrl() + "/user?jwt=" + this.token)
             .subscribe(
                 result => {
                     this.user = result.json();
@@ -58,7 +59,7 @@ export class FindCharitiesPage {
             );
 
         this.http
-            .get("http://localhost:3000/charity", this.token)
+            .get(this.authService.getBaseUrl() + "/charity", this.token)
             .subscribe(
                 result => {
                     this.charitiesAll = result.json();
@@ -71,7 +72,7 @@ export class FindCharitiesPage {
 
     }
 
-   
+
 
     navigateToProfile() {
 
@@ -90,10 +91,10 @@ export class FindCharitiesPage {
 
     navigateToCharityInfo(charity: Charity) {
         this.navCtrl.push(CharityPage, {
-        charity: charity
-        });   
+            charity: charity
+        });
     }
-    
+
 
 
 }
