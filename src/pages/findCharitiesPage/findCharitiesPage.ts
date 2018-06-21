@@ -17,23 +17,36 @@ export class FindCharitiesPage {
     public user: User;
     public token: string;
 
-    DonationStatus: boolean= false;
+    DonationStatus: boolean = false;
     public charitiesAll: Charity[];
 
     constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
         this.token = localStorage.getItem("TOKEN");
-        var jsBody = verify(this.token, 'shh');
         console.log("profile token: ", this.token);
-        this.user = jsBody.user
 
         let callback = (err) => {
             if (err) {
-              // TODO: display error
-              return;
+                // TODO: display error
+                return;
             }
-      
+
             this.navCtrl.push(ProfilePage);
-          }
+        }
+
+        this.http
+            .get("http://localhost:3000/user?jwt=" + this.token)
+            .subscribe(
+                result => {
+                    this.user = result.json();
+
+                    console.log("this user: " + this.user)
+                    console.log("result.json " + result.json())
+                },
+
+                error => {
+                    callback(error);
+                }
+            );
 
         this.http
             .get("http://localhost:3000/charity", this.token)

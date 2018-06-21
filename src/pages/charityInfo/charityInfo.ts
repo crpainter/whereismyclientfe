@@ -6,6 +6,7 @@ import { PaymentsPage } from '../payments/payments';
 import { Charity } from '../models.ts/Charity';
 import { User } from '../models.ts/User';
 import { verify } from 'jsonwebtoken';
+import { Http } from "@angular/http";
 
 @Component({
     selector: 'page-charityInfo',
@@ -17,12 +18,33 @@ export class CharityPage {
     public user: User;
     public token: string;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
         this.charity = this.navParams.get("charity");
         this.token = localStorage.getItem("TOKEN");
-        var jsBody = verify(this.token, 'shh');
         console.log("profile token: ", this.token);
-        this.user = jsBody.user
+
+        let callback = (err) => {
+            if (err) {
+                // TODO: display error
+                return;
+            }
+
+        }
+
+        this.http
+            .get("http://localhost:3000/user?jwt=" + this.token)
+            .subscribe(
+                result => {
+                    this.user = result.json();
+
+                    console.log("this user: " + this.user)
+                    console.log("result.json " + result.json())
+                },
+
+                error => {
+                    callback(error);
+                }
+            );
     }
 
     username: string;

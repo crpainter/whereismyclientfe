@@ -18,31 +18,44 @@ import { SettingsPage } from '../settings/settings';
 })
 export class ProfilePage {
 
-    public user: User;
+    public user: User = new User();
     public token: string;
     public charitiesDonatedTo: Charity[];
-    
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, 
-        public http: Http,  public app: App
+
+    constructor(public navCtrl: NavController, public navParams: NavParams,
+        public http: Http, public app: App
     ) {
 
         this.token = localStorage.getItem("TOKEN");
-        var jsBody = verify(this.token, 'shh');
-        this.user = jsBody.user;
-        console.log(this.user.username);
 
         let callback = (err) => {
             if (err) {
-              // TODO: display error
-              return;
+                // TODO: display error
+                return;
             }
-      
+
             this.navCtrl.push(ProfilePage);
-          }
+        }
 
         this.http
-            .get("http://localhost:3000/donation1/charitiesDonatedTo?jwt="+ this.token)
+            .get("http://localhost:3000/user?jwt=" + this.token)
+            .subscribe(
+                result => {
+                    this.user = result.json();
+
+                    console.log("this user: " + this.user)
+                    console.log("result.json " + result.json())
+                },
+
+                error => {
+                    callback(error);
+                }
+            );
+        console.log("My user is:"+ this.user.username);
+
+        this.http
+            .get("http://localhost:3000/donation1/charitiesDonatedTo?jwt=" + this.token)
             .subscribe(
                 result => {
                     this.charitiesDonatedTo = result.json();
@@ -56,7 +69,7 @@ export class ProfilePage {
     }
 
     ionViewDidLoad() {
-        console.log("Charities Donated to is:",this.charitiesDonatedTo);
+        console.log("Charities Donated to is:", this.charitiesDonatedTo);
 
     }
 
@@ -69,8 +82,8 @@ export class ProfilePage {
 
     logout() {
         //this.authServ.navigatetoHome (); // this is a function to logout from the server
-        const root = this.app.getRootNav (); // in this line, you have to declare a root, which is the app's root 
-        root.popToRoot (); // here you go to the root.
+        const root = this.app.getRootNav(); // in this line, you have to declare a root, which is the app's root 
+        root.popToRoot(); // here you go to the root.
     }
 
     navigatetoFindCharities() {

@@ -22,7 +22,7 @@ export class PaymentsPage {
     stripe = Stripe('pk_test_9xDCoJstNY3XTH470KJmBNzU');
     card: any;
     public charity: Charity;
-    public user: User;
+    public user: User = new User();
     public DonationStatus: boolean;
     public token: string;
     date: Date;
@@ -34,9 +34,30 @@ export class PaymentsPage {
         this.charity = this.navParams.get("charity");
         this.DonationStatus = this.navParams.get("DonationStatus");
         this.token = localStorage.getItem("TOKEN");
-        var jsBody = verify(this.token, 'shh');
         console.log("profile token: ", this.token);
-        this.user = jsBody.user
+
+        let callback = (err) => {
+            if (err) {
+                // TODO: display error
+                return;
+            }
+
+        }
+
+        this.http
+            .get("http://localhost:3000/user?jwt=" + this.token)
+            .subscribe(
+                result => {
+                    this.user = result.json();
+
+                    console.log("this user: " + this.user)
+                    console.log("result.json " + result.json())
+                },
+
+                error => {
+                    callback(error);
+                }
+            );
     }
 
     username: string;
@@ -209,6 +230,7 @@ export class PaymentsPage {
     }
 
     navigatetoPortfolio() {
+
         let callback = (err) => {
             if (err) {
                 // TODO: display error

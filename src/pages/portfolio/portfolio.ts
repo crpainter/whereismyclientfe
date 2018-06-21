@@ -21,15 +21,35 @@ export class PortfolioPage {
     doughnutChart: any;
 
     public charity: Charity;
-    public user: User;
+    public user: User = new User();
     private token: string;
     public charitiesDonatedTo: Charity[];
 
     constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public app: App) {
         this.token = localStorage.getItem("TOKEN");
-        var jsBody = verify(this.token, 'shh');
-        console.log("profile token: ", this.token);
-        this.user = jsBody.user
+
+        let callback = (err) => {
+            if (err) {
+                // TODO: display error
+                return;
+            }
+
+        }
+
+        this.http
+            .get("http://localhost:3000/user?jwt=" + this.token)
+            .subscribe(
+                result => {
+                    this.user = result.json();
+
+                    console.log("this user: " + this.user)
+                    console.log("result.json " + result.json())
+                },
+
+                error => {
+                    callback(error);
+                }
+            );
 
 
     }
