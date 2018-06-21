@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
 import { NavController, Tab } from 'ionic-angular';
 import { NavParams } from 'ionic-angular';
-import { HomePage } from '../home/home';
 import { CharityPage } from '../charityInfo/charityInfo';
 import { FindCharitiesPage } from '../findCharitiesPage/findCharitiesPage';
 import { Charity } from '../models.ts/Charity';
 import { User } from '../models.ts/User';
 import { PortfolioPage } from '../portfolio/portfolio';
-import { verify } from 'jsonwebtoken';
 import { Http } from "@angular/http";
 import { App } from 'ionic-angular';
 import { SettingsPage } from '../settings/settings';

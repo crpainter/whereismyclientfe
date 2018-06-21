@@ -5,7 +5,6 @@ import { ProfilePage } from '../profile/profile';
 import { PaymentsPage } from '../payments/payments';
 import { Charity } from '../models.ts/Charity';
 import { User } from '../models.ts/User';
-import { verify } from 'jsonwebtoken';
 import { Http } from "@angular/http";
 import { AuthService } from "../../auth.service";
 

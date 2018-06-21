@@ -4,7 +4,6 @@ import { NavParams, AlertController } from 'ionic-angular';
 import { ProfilePage } from '../profile/profile';
 import { Charity } from '../models.ts/Charity';
 import { User } from '../models.ts/User';
-import { verify } from 'jsonwebtoken';
 import { Http } from "@angular/http";
 import { PortfolioPage } from '../portfolio/portfolio';
 import { App } from 'ionic-angular';

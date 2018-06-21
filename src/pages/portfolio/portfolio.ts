@@ -6,7 +6,6 @@ import { Charity } from '../models.ts/Charity';
 import { User } from '../models.ts/User';
 import { FindCharitiesPage } from '../findCharitiesPage/findCharitiesPage';
 import { HomePage } from '../home/home';
-import { verify } from 'jsonwebtoken';
 import { Http } from "@angular/http";
 import { App } from 'ionic-angular';
 import { Chart } from 'chart.js'
