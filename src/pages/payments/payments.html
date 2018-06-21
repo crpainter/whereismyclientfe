@@ -21,12 +21,12 @@
         </ion-list>
         <ion-list radio-group>
             <ion-item>
-                <ion-label>Instant Deposit</ion-label>
-                <ion-radio value="friends" checked></ion-radio>
+                <ion-label>One Time</ion-label>
+                <ion-radio value="oneTime" (click)="oneTimeTrue()"></ion-radio>
             </ion-item>
             <ion-item>
                 <ion-label>Monthly</ion-label>
-                <ion-radio value="family"></ion-radio>
+                <ion-radio value="monthly" (click)="monthlyTrue()"></ion-radio>
             </ion-item>
         </ion-list>
         <form action="/" method="post" id="payment-form">
@@ -35,8 +35,7 @@
                 <!-- Used to display Element errors -->
                 <div id="card-errors" role="alert"></div>
             </div>
-            <button ion-button block (click)="navigatetoPortfolio()">Donate Once</button>
+            <button ion-button block (click)="navigatetoPortfolio()" color="danger">Donate Once</button>
         </form>
-        <button ion-button (click)="navigatetoPortfolio()" color="danger" round>Donate</button>
     </div>
 </ion-content>
