@@ -18,9 +18,6 @@ export class CharityPage {
     public user: User;
     public token: string;
 
-<<<<<<< Updated upstream
-    constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
-=======
     username: string;
     charityInfo: object;
     name: string;
@@ -31,8 +28,7 @@ export class CharityPage {
 
     DonationStatus: boolean = true;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams) {
->>>>>>> Stashed changes
+    constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
         this.charity = this.navParams.get("charity");
         this.token = localStorage.getItem("TOKEN");
         console.log("profile token: ", this.token);
