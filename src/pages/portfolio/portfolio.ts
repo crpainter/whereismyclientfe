@@ -25,7 +25,18 @@ export class PortfolioPage {
     private token: string;
     public charitiesDonatedTo: Charity[];
 
+    username: string;
+    charityInfo: object;
+    name: string;
+    description: string;
+    logourl: string;
+    siteurl: string;
+    featuredimage1: string;
+
+
+
     constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public app: App) {
+        this.charity = this.navParams.get("charity");
         this.token = localStorage.getItem("TOKEN");
 
         let callback = (err) => {
@@ -69,7 +80,7 @@ export class PortfolioPage {
             .subscribe(
                 result => {
                     this.charitiesDonatedTo = result.json();
-                    console.log("My charitiesDonatedTo was=" + this.charitiesDonatedTo[1].id)
+                    console.log("My charitiesDonatedTo was=")
                     this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
                         type: 'doughnut',
                         data: {
@@ -104,12 +115,7 @@ export class PortfolioPage {
             );
     }
 
-    username: string;
-    charityInfo: object;
-    name: string;
-    description: string;
-    logourl: string;
-    siteurl: string;
+    
 
     navigatetoHome() {
         this.navCtrl.push(HomePage);
@@ -124,12 +130,12 @@ export class PortfolioPage {
     }
 
 
-    navigateToCharity(charity: Charity) {
-
+    navigateToCharityInfo(charity: Charity) {
         this.navCtrl.push(CharityPage, {
-            charity: charity
-        });
+        charity: charity
+        });   
     }
+    
 
 
 }

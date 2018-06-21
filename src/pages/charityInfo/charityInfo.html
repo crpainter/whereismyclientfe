@@ -1,7 +1,7 @@
 <ion-header>
     <ion-navbar>
         <ion-title>
-            Your Account / {{charity.name}}
+            {{charity.name}}
         </ion-title>
     </ion-navbar>
 </ion-header>
@@ -12,12 +12,13 @@
         <img src={{charity.logourl}} width="200px" height="200px">
         <h4 style="text-align: left">{{charity.description}}</h4>
         <div style="position: absolute; text-align: center; left: 50%; bottom: 3%; transform: translate(-50%);">
-            <a href={{charity.siteurl}} style="display: inline; float: none;">
-                <button ion-button center round>Visit Site</button>
-            </a>
-            <a (click)="navigatetoPayments(charity);" style="display: inline; float: left;">
-                <button ion-button center round>Add Donation</button>
-            </a>
+            <button ion-button block outline>
+                <a href={{charity.siteurl}} style="display: inline; float: none;">
+                    Visit Site</a>
+            </button>
+            <button ion-button block outline>
+                <a (click)="navigateToPayments(charity);">Add Donation</a>
+            </button>
         </div>
     </div>
 </ion-content>

@@ -7,6 +7,7 @@ import { User } from '../models.ts/User';
 import { PaymentsPage } from '../payments/payments';
 import { verify } from 'jsonwebtoken';
 import { Http } from "@angular/http";
+import { CharityPage } from "../charityInfo/charityInfo";
 
 @Component({
     selector: 'page-findCharitiesPage',
@@ -19,6 +20,14 @@ export class FindCharitiesPage {
 
     DonationStatus: boolean = false;
     public charitiesAll: Charity[];
+
+    username: string;
+    charityInfo: object;
+    name: string;
+    description: string;
+    logourl: string;
+    siteurl: string;
+    featuredimage1: string;
 
     constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
         this.token = localStorage.getItem("TOKEN");
@@ -62,27 +71,29 @@ export class FindCharitiesPage {
 
     }
 
-    username: string;
-    charityInfo: object;
-    name: string;
-    description: string;
-    logourl: string;
-    siteurl: string;
+   
 
-    navigatetoProfile() {
+    navigateToProfile() {
 
         this.navCtrl.push(ProfilePage, {
             user: this.user,
         });
     }
 
-    navigatetoPayments(charity: Charity) {
+    navigateToPayments(charity: Charity) {
         this.navCtrl.push(PaymentsPage, {
             user: this.user,
             charity: charity,
             DonationStatus: this.DonationStatus
         });
     }
+
+    navigateToCharityInfo(charity: Charity) {
+        this.navCtrl.push(CharityPage, {
+        charity: charity
+        });   
+    }
+    
 
 
 }

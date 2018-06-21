@@ -18,7 +18,21 @@ export class CharityPage {
     public user: User;
     public token: string;
 
+<<<<<<< Updated upstream
     constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
+=======
+    username: string;
+    charityInfo: object;
+    name: string;
+    description: string;
+    logourl: string;
+    siteurl: string;
+    featuredimage1: string;
+
+    DonationStatus: boolean = true;
+
+    constructor(public navCtrl: NavController, public navParams: NavParams) {
+>>>>>>> Stashed changes
         this.charity = this.navParams.get("charity");
         this.token = localStorage.getItem("TOKEN");
         console.log("profile token: ", this.token);
@@ -47,24 +61,19 @@ export class CharityPage {
             );
     }
 
-    username: string;
-    charityInfo: object;
-    name: string;
-    description: string;
-    logourl: string;
-    siteurl: string;
-    DonationStatus: boolean = true;
+    
 
-    navigatetoProfile() {
+   
+    navigateToProfile() {
         this.navCtrl.push(ProfilePage, {
             username: this.username
         });
     }
 
-    navigatetoPayments(charity: Charity) {
+    navigateToPayments(charity: Charity) {
         this.navCtrl.push(PaymentsPage, {
             charity: charity,
-            DonationStatus: this.DonationStatus
+            DonationStatus: this.DonationStatus, 
         });
     }
 

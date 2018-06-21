@@ -48,6 +48,9 @@ span{
 .button-ios{
     box-shadow: 5px 5px 15px #7d612a;
     display: block;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border: .7px solid black;
 }
 
 .scroll-content{
@@ -67,15 +70,18 @@ ion-header {
       }
       .toolbar-title {
         color: black;
+        font-family: "Open Sans" , sans-serif;
+        text-align: center;
+        font-weight: 580 ;
+        font-size: 20px;
         letter-spacing: 1px;
-        font-family: "Open Sans";
-      }
-      .toolbar-ios-border-color	{
-        color: rgba(0, 0, 0, .3);	
+        text-transform: lowercase;
       }
     }
 
 }
+
+
 
   .item-ios.item-block .item-inner{
     border-bottom: 0.55px solid black; 
@@ -87,6 +93,7 @@ ion-header {
 
   .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block{
     border-bottom: 0.55px solid black; 
+    border-top: none;
 
   }
   
@@ -121,8 +128,7 @@ ion-header {
   .toolbar.toolbar-ios{
     height: 70px;
     background-color: #e1bf6a;
-    box-shadow: 0px 2px 15px #7d612a;
-    //border-bottom: solid black 1.5px;
+    box-shadow: 0px -2px 20px black;
   }
 
   .toolbar-title.toolbar-title-ios{
@@ -134,4 +140,41 @@ ion-header {
 
   .icon.icon-ios{
     font-weight: 600;
+  }
+
+  .card-ios{
+      height: 250px;
+      box-shadow: 0px 5px 15px #7d612a;
+  }
+
+
+  .fab-ios{
+    border-radius: 0;
+    background-color: transparent;
+  }
+
+  .list-ios .item-block .item-inner{
+      padding: 0;
+      border-top: none;
+  }
+
+  .label-ios{
+      margin: 0;
+  }
+
+  .searchbar-ios{
+      //padding: 0px;
+      width: 100%;
+      border: none;
+      background: none;
+        .button-ios{
+            
+            border: none;
+            box-shadow: none;
+        }
+  }
+
+  .searchbar-ios .searchbar-input{
+      //background: none;
+      //outline: .5px solid  #7d612a;
   }

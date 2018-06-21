@@ -1,25 +1,23 @@
 <ion-header>
-        <ion-navbar>
-                <ion-title>Search</ion-title>
-              </ion-navbar>
+    <ion-navbar>
+        <!-- //<ion-title>Search</ion-title> -->
+        <ion-searchbar [(ngModel)]="charity" [showCancelButton]="shouldShowCancel" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)">
+            </ion-searchbar>
+
+    </ion-navbar>
 
 
 </ion-header>
 
-<ion-content>
-
-</ion-content>
 
 <ion-content>
 
     <ion-grid>
-        <ion-row nowrap class="forecast_container">
+        <ion-row>
             <ion-col text-center>
-                <!-- <ion-searchbar [(ngModel)]="charity" 
-                [showCancelButton]="shouldShowCancel"
-                 (ionInput)="onInput($event)" (ionCancel)="onCancel($event)">
-                </ion-searchbar> -->
-                <ion-list>
+               
+
+                <!-- <ion-list>
                     <ion-item *ngFor="let charity of charitiesAll">
                         <ion-thumbnail item-start>
                             <img src="{{charity.logourl}}">
@@ -27,7 +25,21 @@
                         <h2>{{charity.name}}</h2>
                         <button ion-button clear item-end (click)="navigatetoPayments(charity);">Donate Now</button>
                     </ion-item>
+                </ion-list> -->
+
+                <ion-list *ngFor="let charity of charitiesAll">
+                    <ion-item-sliding>
+                        <ion-item>
+                            <ion-card>
+                                <img (click)="navigateToCharityInfo(charity)" src="{{charity.featuredimage1}}" />
+                                <img src="{{charity.logourl}}" />
+
+                            </ion-card>
+                        </ion-item>
+                    </ion-item-sliding>
                 </ion-list>
+
+
             </ion-col>
         </ion-row>
     </ion-grid>

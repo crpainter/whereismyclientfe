@@ -23,6 +23,15 @@ export class ProfilePage {
     public charitiesDonatedTo: Charity[];
 
 
+
+    username: string;
+    name: string;
+    description: string;
+    logourl: string;
+    siteurl: string;
+
+
+
     constructor(public navCtrl: NavController, public navParams: NavParams,
         public http: Http, public app: App
     ) {
@@ -73,12 +82,6 @@ export class ProfilePage {
 
     }
 
-
-    username: string;
-    name: string;
-    description: string;
-    logourl: string;
-    siteurl: string;
 
     logout() {
         //this.authServ.navigatetoHome (); // this is a function to logout from the server

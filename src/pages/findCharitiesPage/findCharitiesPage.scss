@@ -1,2 +1,26 @@
 page-findCharitiesPage{
+
+    .list-ios{
+        margin: 0;
+    }
+
+    .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block{
+        border-bottom: none;
+    }
+
+    ion-grid {
+        height: 100%;
+        justify-content: center;
+    }
+
+    .grid{
+        margin-top: 75px;
+    }
+
+    .col{
+        padding: 0;
+    }
+    
+
+
 }

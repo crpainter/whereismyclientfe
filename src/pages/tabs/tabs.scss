@@ -3,8 +3,7 @@ page-tabs {
         bottom: 0px;
         height: 60px;
         background-color:#e1bf6a;
-        box-shadow: 0px -2px 15px #443821 ;
-        //border-top: solid black 1.5px;
+        box-shadow: 0px 2px 15px black;
     
     }
 
@@ -13,6 +12,7 @@ page-tabs {
         font-family: "Open Sans";
         font-size: x-small;
         font-weight: 600;
+        text-transform: lowercase;
         
     }
 

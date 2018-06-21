@@ -25723,6 +25723,9 @@ span {
   -webkit-box-shadow: 5px 5px 15px #7d612a;
   box-shadow: 5px 5px 15px #7d612a;
   display: block;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border: .7px solid black;
 }
 
 .scroll-content {
@@ -25743,12 +25746,12 @@ ion-header .toolbar .toolbar-background {
 
 ion-header .toolbar .toolbar-title {
   color: black;
+  font-family: "Open Sans" , sans-serif;
+  text-align: center;
+  font-weight: 580;
+  font-size: 20px;
   letter-spacing: 1px;
-  font-family: "Open Sans";
-}
-
-ion-header .toolbar .toolbar-ios-border-color {
-  color: rgba(0, 0, 0, 0.3);
+  text-transform: lowercase;
 }
 
 .item-ios.item-block .item-inner {
@@ -25761,6 +25764,7 @@ ion-header .toolbar .toolbar-ios-border-color {
 
 .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block {
   border-bottom: 0.55px solid black;
+  border-top: none;
 }
 
 .item-ios {
@@ -25796,8 +25800,8 @@ ion-header .toolbar .toolbar-ios-border-color {
 .toolbar.toolbar-ios {
   height: 70px;
   background-color: #e1bf6a;
-  -webkit-box-shadow: 0px 2px 15px #7d612a;
-  box-shadow: 0px 2px 15px #7d612a;
+  -webkit-box-shadow: 0px -2px 20px black;
+  box-shadow: 0px -2px 20px black;
 }
 
 .toolbar-title.toolbar-title-ios {
@@ -25809,6 +25813,62 @@ ion-header .toolbar .toolbar-ios-border-color {
 
 .icon.icon-ios {
   font-weight: 600;
+}
+
+.card-ios {
+  height: 250px;
+  -webkit-box-shadow: 0px 5px 15px #7d612a;
+  box-shadow: 0px 5px 15px #7d612a;
+}
+
+.fab-ios {
+  border-radius: 0;
+  background-color: transparent;
+}
+
+.list-ios .item-block .item-inner {
+  padding: 0;
+  border-top: none;
+}
+
+.label-ios {
+  margin: 0;
+}
+
+.searchbar-ios {
+  width: 100%;
+  border: none;
+  background: none;
+}
+
+.searchbar-ios .button-ios {
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+page-findCharitiesPage .list-ios {
+  margin: 0;
+}
+
+page-findCharitiesPage .list-ios > .item-block:last-child, page-findCharitiesPage .list-ios > .item-wrapper:last-child .item-block {
+  border-bottom: none;
+}
+
+page-findCharitiesPage ion-grid {
+  height: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+page-findCharitiesPage .grid {
+  margin-top: 75px;
+}
+
+page-findCharitiesPage .col {
+  padding: 0;
 }
 
 page-home ion-grid {
@@ -25853,6 +25913,7 @@ page-login .toolbar.toolbar-ios {
   background-color: transparent;
   -webkit-box-shadow: none;
   box-shadow: none;
+  border-bottom: none;
 }
 
 ion-grid {
@@ -25903,6 +25964,13 @@ page-register .ion-col {
   align-self: center;
 }
 
+page-register .toolbar.toolbar-ios {
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-bottom: none;
+}
+
 page-stripe-java-script .form-row {
   padding: 10px;
 }
@@ -25938,8 +26006,8 @@ page-tabs .tabbar.show-tabbar {
   bottom: 0px;
   height: 60px;
   background-color: #e1bf6a;
-  -webkit-box-shadow: 0px -2px 15px #443821;
-  box-shadow: 0px -2px 15px #443821;
+  -webkit-box-shadow: 0px 2px 15px black;
+  box-shadow: 0px 2px 15px black;
 }
 
 page-tabs .tab-button-text {
@@ -25947,6 +26015,7 @@ page-tabs .tab-button-text {
   font-family: "Open Sans";
   font-size: x-small;
   font-weight: 600;
+  text-transform: lowercase;
 }
 
 page-tabs .tabs-ios .tab-button-icon {
