@@ -1,0 +1,49 @@
+page-charityInfo{
+    ion-grid {
+        height: 100%;
+        justify-content: center;
+    }
+
+    #gridcharity{
+        //margin-top: 70px;
+    }
+
+    .col{
+        padding: 0;
+    }
+
+    img{
+        margin-top: 70px;
+    }
+
+    .grid{
+        padding: 0;
+    }
+
+    p{
+        text-align: left;
+        line-height:35px;
+        font-size: 14px;
+        font-style: italic;
+    }
+
+    .charitydes{
+        padding-left: 30px;
+        padding-right: 30px;
+        margin: 0 auto;
+    }
+    
+    .button-divs{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    a{
+        text-decoration: none;
+    }
+
+    h2{
+        font-weight: 800;
+    }
+ 
+}

@@ -90,31 +90,50 @@ export class PortfolioPage {
                                 label: 'Dollars Donated',
                                 data: this.charitiesDonatedTo.map(function (e) { return e.userDonationTotal; }),
                                 backgroundColor: [
-                                    '#FF007B',
-                                    '#BF7B21',
-                                    '#00CCE2',
-                                    '#00CCE2',
-                                    '#00CCE2',
-                                    '#00CCE2'
+                                    'rgba(255, 0, 123, .6)',
+                                    'rgba(0, 204, 226, .8)',
+                                    'rgba(191, 123, 33, .6)',
+                                    'rgba(0, 204, 226, .2)',
+                                    'rgba(0, 204, 226, .2)',
+                                    'rgba(0, 204, 226, .2)',
                                 ],
+                                hoverBorderColor: "#e1bf6a",
+                                borderColor: ["#e1bf6a", "#e1bf6a", "#e1bf6a", "#e1bf6a", "#e1bf6a"],
+                                borderWidth: 1,
+                                hoverBorderWidth: 0,
+                        
                                 hoverBackgroundColor: [
-                                    "#FF007B",
-                                    "#36A2EB",
-                                    "#FFCE56",
+                                    "#e1bf6a",
+                                    "#e1bf6a",
+                                    "#e1bf6a",
                                     "#FF6384",
                                     "#36A2EB",
                                     "#FFCE56"
                                 ]
-                            }]
+                            }], 
+                        
+                        }, 
+                        options: { 
+                            legend: {
+                                labels: {
+                                    fontColor: "black",
+                                    fontFamily: "Open Sans",
+                                    fontWeight: 700,
+                                }
+                            }
                         }
                     });
                 },
+
+                
 
                 error => {
                     callback(error);
                 }
             );
     }
+
+    
 
     
 

@@ -6,23 +6,26 @@
 
 
 <ion-content padding>
-    <ion-grid>
+    <ion-grid id="portfolio">
         <ion-row>
             <ion-col text-center>
+                    <h3> Donation Data</h3>
+                    <br>
+
                     <ion-item-group>
-                        <ion-card>
-                            <ion-card-content>
+                        <ion-card id="portfoliocard">
                                 <canvas #doughnutCanvas></canvas>
-                            </ion-card-content>
                         </ion-card>
-                        <h2> Donations Made </h2>
                         <br>
+                        <h3> Recent Donations</h3>
                             <ion-list>
                                 <ion-item *ngFor="let charity of this.charitiesDonatedTo">
                                     <ion-thumbnail item-start>
-                                        <img (click)="navigateToCharityInfo(charity)" src={{charity.featuredimage1}}>
+                                        <img id="album" (click)="navigateToCharityInfo(charity)" src={{charity.featuredimage1}}>
                                     </ion-thumbnail>
-                                    <h2>{{charity.name}}</h2>
+                                    <div id="charityname">
+                                    <h2 text-wrap>{{charity.name}}</h2>
+                                    </div>  
                                     <br>
                                     <p>${{charity.userDonationTotal}} Given</p>
                                 </ion-item>
