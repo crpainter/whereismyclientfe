@@ -506,17 +506,23 @@ var SettingsPage = /** @class */ (function () {
             callback(error);
         });
         console.log("My user is:" + this.user.username);
-        this.http
-            .get(this.authService.getBaseUrl() + "/donation1/charitiesDonatedTo?jwt=" + this.token)
-            .subscribe(function (result) {
-            _this.charitiesDonatedTo = result.json();
-        }, function (error) {
-            callback(error);
-        });
     }
     SettingsPage_1 = SettingsPage;
     SettingsPage.prototype.ionViewDidLoad = function () {
         console.log("Charities Donated to is:", this.charitiesDonatedTo);
+    };
+    SettingsPage.prototype.updateUserCreds = function () {
+        this.http
+            .patch(this.authService.getBaseUrl() + "/updateUser?jwt=" + this.token, {
+            username: this.newUsername,
+            password: this.newPassword
+        })
+            .subscribe(function (result) {
+            var responseJson = result.json();
+            // store the token in local storage
+            localStorage.setItem("TOKEN", responseJson.token);
+        }, function (error) {
+        });
     };
     SettingsPage.prototype.logout = function () {
         //this.authServ.navigatetoHome (); // this is a function to logout from the server
@@ -539,12 +545,13 @@ var SettingsPage = /** @class */ (function () {
     };
     SettingsPage = SettingsPage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-settings',template:/*ion-inline-start:"/Users/Chris/Documents/whereismyclientfe/src/pages/settings/settings.html"*/'<!--\n  Generated template for the SettingsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>settings</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<h1>Change Username</h1>\n<ion-content padding>\n  <ion-item>\n    <ion-label floating>old password</ion-label>\n    <ion-input type="password" [(ngModel)]="password"></ion-input>\n  </ion-item>\n  <ion-item>\n      <ion-label floating>new username</ion-label>\n      <ion-input type="username" [(ngModel)]="newUsername"></ion-input>\n    </ion-item>\n\n</ion-content>\n<h1>Change Password</h1>\n<ion-content padding>\n  <ion-item>\n    <ion-label floating>old password</ion-label>\n    <ion-input type="password" [(ngModel)]="password"></ion-input>\n  </ion-item>\n  <ion-item>\n      <ion-label floating>new password</ion-label>\n      <ion-input type="text" [(ngModel)]="newPassword"></ion-input>\n    </ion-item>\n\n</ion-content>'/*ion-inline-end:"/Users/Chris/Documents/whereismyclientfe/src/pages/settings/settings.html"*/
+            selector: 'page-settings',template:/*ion-inline-start:"/Users/Chris/Documents/whereismyclientfe/src/pages/settings/settings.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>settings</ion-title>\n  </ion-navbar>\n\n</ion-header>\n<ion-content padding>\n\n  <ion-grid>\n    <ion-row>\n      <ion-col text-center>\n        <!-- <h1>Change Username</h1> -->\n        <ion-item>\n          <ion-label floating>old password</ion-label>\n          <ion-input type="password" [(ngModel)]="password"></ion-input>\n        </ion-item>\n        <ion-item>\n          <ion-label floating>new username</ion-label>\n          <ion-input type="username" [(ngModel)]="newUsername"></ion-input>\n        </ion-item>\n        <ion-item>\n          <button ion-button (click)="changeUsername()" block outline>Change Username</button>\n        </ion-item>\n\n\n        <!-- <h1>Change Password</h1> -->\n        <ion-item>\n          <ion-label floating>old password</ion-label>\n          <ion-input type="password" [(ngModel)]="password"></ion-input>\n        </ion-item>\n        <ion-item>\n          <ion-label floating>new password</ion-label>\n          <ion-input type="text" [(ngModel)]="newPassword"></ion-input>\n        </ion-item>\n        <ion-item>\n          <button ion-button (click)="changeUsername()" block outline>Change Username</button>\n        </ion-item>\n\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>'/*ion-inline-end:"/Users/Chris/Documents/whereismyclientfe/src/pages/settings/settings.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__angular_http__["a" /* Http */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_7__auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__auth_service__["a" /* AuthService */]) === "function" && _e || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_6__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */], __WEBPACK_IMPORTED_MODULE_7__auth_service__["a" /* AuthService */]])
     ], SettingsPage);
     return SettingsPage;
-    var SettingsPage_1, _a, _b, _c, _d, _e;
+    var SettingsPage_1;
 }());
 
 //# sourceMappingURL=settings.js.map

@@ -7,7 +7,6 @@ import { FindCharitiesPage } from '../findCharitiesPage/findCharitiesPage';
 import { Charity } from '../models.ts/Charity';
 import { User } from '../models.ts/User';
 import { PortfolioPage } from '../portfolio/portfolio';
-import { verify } from 'jsonwebtoken';
 import { Http } from "@angular/http";
 import { App } from 'ionic-angular';
 import { AuthService } from "../../auth.service";
@@ -26,10 +25,13 @@ export class SettingsPage {
 
 
     username: string;
+    newUsername: string;
     name: string;
     description: string;
     logourl: string;
     siteurl: string;
+    password: string;
+    newPassword: string;
 
 
 
@@ -64,23 +66,31 @@ export class SettingsPage {
             );
         console.log("My user is:"+ this.user.username);
 
-        this.http
-            .get(this.authService.getBaseUrl() +"/donation1/charitiesDonatedTo?jwt=" + this.token)
-            .subscribe(
-                result => {
-                    this.charitiesDonatedTo = result.json();
-                },
-
-                error => {
-                    callback(error);
-                }
-            );
-
     }
 
     ionViewDidLoad() {
         console.log("Charities Donated to is:", this.charitiesDonatedTo);
 
+    }
+
+    updateUserCreds() {
+      this.http
+            .patch(this.authService.getBaseUrl() +"/updateUser?jwt=" + this.token, {
+              username: this.newUsername,
+              password: this.newPassword
+            })
+            .subscribe(
+                result => {
+                  var responseJson = result.json();
+
+                  // store the token in local storage
+                  localStorage.setItem("TOKEN", responseJson.token);
+                },
+
+                error => {
+                    
+                }
+            );
     }
 
 
