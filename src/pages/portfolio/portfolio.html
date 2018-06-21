@@ -15,18 +15,16 @@
                                 <canvas #doughnutCanvas></canvas>
                             </ion-card-content>
                         </ion-card>
+                        <h2> Donations Made </h2>
+                        <br>
                             <ion-list>
                                 <ion-item *ngFor="let charity of this.charitiesDonatedTo">
-                                    <ion-card>
                                     <ion-thumbnail item-start>
-                                        <img src={{charity.logourl}}>
+                                        <img (click)="navigateToCharityInfo(charity)" src={{charity.featuredimage1}}>
                                     </ion-thumbnail>
-                                    <img (click)="navigateToCharityInfo(charity)" src={{charity.featuredimage1}}/>
                                     <h2>{{charity.name}}</h2>
-                                    <p>${{charity.userDonationTotal}} Given • 167 Treatments Provided</p>
-                                    <button ion-button clear item-end (click)="navigateToCharityInfo(charity)">View</button>
-                                </ion-card>  
-
+                                    <br>
+                                    <p>${{charity.userDonationTotal}} Given</p>
                                 </ion-item>
                             </ion-list>
 

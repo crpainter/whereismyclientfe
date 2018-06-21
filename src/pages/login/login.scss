@@ -23,5 +23,14 @@ page-login{
     }
 
 
+.list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block{
+    border-bottom: 1px solid black;
+}
+
+.list-ios .item-block .item-inner{
+    border-bottom: 1px solid black;
+}
+
+
 
 }

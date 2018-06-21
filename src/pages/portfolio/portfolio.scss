@@ -6,3 +6,49 @@ ion-grid {
 .ion-col{
     align-self: center;
 }
+
+.grid{
+    margin-top: 40px;
+}
+
+.list-ios > .item-block:first-child{
+    border: none;
+}
+
+.list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block{
+    border: none;
+}
+
+.list-ios .item-block .item-inner{
+    border: none;
+}
+
+.label.label-ios{
+    float: left
+}
+
+.item-ios h2{
+    float:left;
+    font-weight: 600;
+}
+
+p{
+    float: left;
+}
+
+
+.col{
+    padding: 0;
+}
+
+.row{
+    padding: 0;
+}
+
+.card-ios{
+    margin: 0;
+    width: 100%;
+    -webkit-box-shadow: 0px 5px 15px #7d612a;
+    box-shadow: 0px 5px 15px #7d612a;
+    background: black;
+}
