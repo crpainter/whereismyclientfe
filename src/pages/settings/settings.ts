@@ -14,8 +14,8 @@ import { AuthService } from "../../auth.service";
 import { ProfilePage } from '../profile/profile';
 
 @Component({
-    selector: 'page-profile',
-    templateUrl: 'profile.html'
+    selector: 'page-settings',
+    templateUrl: 'settings.html'
 })
 export class SettingsPage {
 
