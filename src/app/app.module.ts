@@ -16,6 +16,11 @@ import { PortfolioPage } from '../pages/portfolio/portfolio';
 import { PaymentsPage } from '../pages/payments/payments';
 import { AuthService } from '../auth.service';
 import { TabsPage } from '../pages/tabs/tabs';
+import { SettingsPage } from '../pages/settings/settings';
+import { BrowsePage } from '../pages/browse/browse';
+import { FavoritesPage } from '../pages/favorites/favorites';
+import { StripeJavaScriptPage } from '../pages/stripe-java-script/stripe-java-script';
+import { StripeNativePage } from '../pages/stripe-native/stripe-native';
 
 @NgModule({
   declarations: [
@@ -28,7 +33,12 @@ import { TabsPage } from '../pages/tabs/tabs';
     FindCharitiesPage,
     PortfolioPage,
     PaymentsPage, 
-    TabsPage
+    TabsPage,
+    SettingsPage, 
+    BrowsePage, 
+    FavoritesPage,
+    StripeNativePage,
+    StripeJavaScriptPage
   ],
   imports: [
     BrowserModule,
@@ -46,7 +56,12 @@ import { TabsPage } from '../pages/tabs/tabs';
     FindCharitiesPage,
     PortfolioPage,
     PaymentsPage, 
-    TabsPage
+    TabsPage, 
+    SettingsPage, 
+    BrowsePage, 
+    FavoritesPage,
+    StripeNativePage,
+    StripeJavaScriptPage
   ],
   providers: [
     StatusBar,

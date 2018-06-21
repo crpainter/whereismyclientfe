@@ -19849,7 +19849,7 @@ ion-spinner.spinner-paused svg {
   min-height: 49px;
   font-size: 10px;
   font-weight: 500;
-  color: #8c8c8c;
+  color: black;
   padding: 0 2px;
 }
 
@@ -19859,7 +19859,7 @@ ion-spinner.spinner-paused svg {
 }
 
 .tabs-ios .tab-button[aria-selected=true] .tab-button-icon {
-  color: #488aff;
+  color: #fcffc7;
 }
 
 .tabs-ios .tab-button-text {
@@ -25720,8 +25720,8 @@ span {
 }
 
 .button-ios {
-  -webkit-box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.7);
-  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow: 5px 5px 15px #7d612a;
+  box-shadow: 5px 5px 15px #7d612a;
   display: block;
 }
 
@@ -25743,6 +25743,8 @@ ion-header .toolbar .toolbar-background {
 
 ion-header .toolbar .toolbar-title {
   color: black;
+  letter-spacing: 1px;
+  font-family: "Open Sans";
 }
 
 ion-header .toolbar .toolbar-ios-border-color {
@@ -25791,6 +25793,24 @@ ion-header .toolbar .toolbar-ios-border-color {
   transition-timing-function: ease-in 5s;
 }
 
+.toolbar.toolbar-ios {
+  height: 70px;
+  background-color: #e1bf6a;
+  -webkit-box-shadow: 0px 2px 15px #7d612a;
+  box-shadow: 0px 2px 15px #7d612a;
+}
+
+.toolbar-title.toolbar-title-ios {
+  color: black   !important;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: "Open Sans";
+}
+
+.icon.icon-ios {
+  font-weight: 600;
+}
+
 page-home ion-grid {
   height: 100%;
   -webkit-box-pack: center;
@@ -25827,6 +25847,12 @@ page-login #forgot {
   color: black;
   float: left;
   padding-bottom: 16px;
+}
+
+page-login .toolbar.toolbar-ios {
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 ion-grid {
@@ -25875,4 +25901,64 @@ page-register .ion-col {
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
+}
+
+page-stripe-java-script .form-row {
+  padding: 10px;
+}
+
+page-stripe-java-script .StripeElement {
+  background-color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  -webkit-box-shadow: 0 1px 3px 0 #e6ebf1;
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  -webkit-transition: -webkit-box-shadow 150ms ease;
+  transition: -webkit-box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease, -webkit-box-shadow 150ms ease;
+}
+
+page-stripe-java-script .StripeElement--focus {
+  -webkit-box-shadow: 0 1px 3px 0 #cfd7df;
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+page-stripe-java-script .StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+page-stripe-java-script .StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+page-tabs .tabbar.show-tabbar {
+  bottom: 0px;
+  height: 60px;
+  background-color: #e1bf6a;
+  -webkit-box-shadow: 0px -2px 15px #443821;
+  box-shadow: 0px -2px 15px #443821;
+}
+
+page-tabs .tab-button-text {
+  color: black;
+  font-family: "Open Sans";
+  font-size: x-small;
+  font-weight: 600;
+}
+
+page-tabs .tabs-ios .tab-button-icon {
+  margin-top: 4px;
+  margin-bottom: 0px;
+  min-width: 35px;
+  height: 30px;
+  font-size: 25px;
+  font-weight: 500;
+  color: black;
+}
+
+page-tabs .tabs-ios .tab-button:hover:not(.disable-hover) span, page-tabs .tabs-ios .tab-button[aria-selected=true] span {
+  color: #fcffc7;
 }

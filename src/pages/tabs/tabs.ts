@@ -5,6 +5,8 @@ import { HomePage } from '../home/home'
 import { PortfolioPage } from '../portfolio/portfolio'
 import { ProfilePage } from '../profile/profile';
 import { LoginPage } from '../login/login';
+import { BrowsePage } from '../browse/browse';
+import { FavoritesPage } from '../favorites/favorites';
 /**
  * Generated class for the TabsPage page.
  *
@@ -20,9 +22,11 @@ import { LoginPage } from '../login/login';
 export class TabsPage {
 
 
-  tab1Root = ProfilePage;
-  tab2Root = FindCharitiesPage;
-  tab3Root = PortfolioPage;
+  tab1Root = BrowsePage;
+  tab2Root = FavoritesPage;
+  tab3Root = FindCharitiesPage;
+  tab4Root = PortfolioPage;
+  tab5Root = ProfilePage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
