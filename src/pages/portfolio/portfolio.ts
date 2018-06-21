@@ -77,7 +77,7 @@ export class PortfolioPage {
         }
 
         this.http
-            .get("http://localhost:3000/donation1/charitiesDonatedTo?jwt=" + this.token)
+            .get(this.authService.getBaseUrl() + "/donation1/charitiesDonatedTo?jwt=" + this.token)
             .subscribe(
                 result => {
                     this.charitiesDonatedTo = result.json();
