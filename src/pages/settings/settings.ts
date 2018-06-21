@@ -91,6 +91,8 @@ export class SettingsPage {
                     
                 }
             );
+            this.navCtrl.push(ProfilePage);
+            console.log("I definitely pushed the profile page")
     }
 
 

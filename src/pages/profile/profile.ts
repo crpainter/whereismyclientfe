@@ -77,7 +77,19 @@ export class ProfilePage {
     }
 
     ionViewDidLoad() {
-        console.log("Charities Donated to is:", this.charitiesDonatedTo);
+        this.http
+            .get(this.authService.getBaseUrl() +"/user?jwt=" + this.token)
+            .subscribe(
+                result => {
+                    this.user = result.json();
+
+                    console.log("this user: " + this.user)
+                    console.log("result.json " + result.json())
+                },
+
+                error => {
+                }
+            );
 
     }
 
