@@ -334,8 +334,8 @@ var AuthService = /** @class */ (function () {
         this.http = http;
     }
     AuthService.prototype.getBaseUrl = function () {
-        return "http://localhost:3000";
-        // return "https://whereismyclient-api.herokuapp.com";
+        // return "http://localhost:3000";
+        return "https://whereismyclient-api.herokuapp.com";
     };
     AuthService.prototype.login = function (username, password, callback) {
         this.http
@@ -355,10 +355,9 @@ var AuthService = /** @class */ (function () {
     };
     AuthService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Http */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Http */]])
     ], AuthService);
     return AuthService;
-    var _a;
 }());
 
 //# sourceMappingURL=auth.service.js.map
@@ -1311,7 +1310,7 @@ var PortfolioPage = /** @class */ (function () {
             }
         };
         this.http
-            .get("http://localhost:3000/donation1/charitiesDonatedTo?jwt=" + this.token)
+            .get(this.authService.getBaseUrl() + "/donation1/charitiesDonatedTo?jwt=" + this.token)
             .subscribe(function (result) {
             _this.charitiesDonatedTo = result.json();
             console.log("My charitiesDonatedTo was=");

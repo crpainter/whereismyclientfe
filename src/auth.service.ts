@@ -9,8 +9,8 @@ export class AuthService {
   ) {}
 
   getBaseUrl() {
-    return "http://localhost:3000";
-    // return "https://whereismyclient-api.herokuapp.com";
+    // return "http://localhost:3000";
+    return "https://whereismyclient-api.herokuapp.com";
   }
 
   login(username: string, password: string, callback: Function) {
