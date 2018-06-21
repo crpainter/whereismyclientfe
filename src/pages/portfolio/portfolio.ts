@@ -22,7 +22,7 @@ export class PortfolioPage {
     doughnutChart: any;
 
     public charity: Charity;
-    public user: User = new User();
+    public user = new User();
     private token: string;
     public charitiesDonatedTo: Charity[];
 
@@ -90,15 +90,15 @@ export class PortfolioPage {
                                 label: 'Dollars Donated',
                                 data: this.charitiesDonatedTo.map(function (e) { return e.userDonationTotal; }),
                                 backgroundColor: [
-                                    'rgba(255, 99, 132, 0.2)',
-                                    'rgba(54, 162, 235, 0.2)',
-                                    'rgba(255, 206, 86, 0.2)',
-                                    'rgba(75, 192, 192, 0.2)',
-                                    'rgba(153, 102, 255, 0.2)',
-                                    'rgba(255, 159, 64, 0.2)'
+                                    '#FF007B',
+                                    '#BF7B21',
+                                    '#00CCE2',
+                                    '#00CCE2',
+                                    '#00CCE2',
+                                    '#00CCE2'
                                 ],
                                 hoverBackgroundColor: [
-                                    "#FF6384",
+                                    "#FF007B",
                                     "#36A2EB",
                                     "#FFCE56",
                                     "#FF6384",
@@ -122,9 +122,6 @@ export class PortfolioPage {
         this.navCtrl.push(HomePage);
     }
 
-    navigatetoFindCharities() {
-        this.navCtrl.push(FindCharitiesPage);
-    }
 
     navigatetoPortfolio() {
         this.navCtrl.push(PortfolioPage);
