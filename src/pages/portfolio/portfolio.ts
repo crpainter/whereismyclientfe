@@ -21,7 +21,7 @@ export class PortfolioPage {
     doughnutChart: any;
 
     public charity: Charity;
-    public user: User = new User();
+    public user = new User();
     private token: string;
     public charitiesDonatedTo: Charity[];
 
@@ -89,25 +89,42 @@ export class PortfolioPage {
                                 label: 'Dollars Donated',
                                 data: this.charitiesDonatedTo.map(function (e) { return e.userDonationTotal; }),
                                 backgroundColor: [
-                                    'rgba(255, 99, 132, 0.2)',
-                                    'rgba(54, 162, 235, 0.2)',
-                                    'rgba(255, 206, 86, 0.2)',
-                                    'rgba(75, 192, 192, 0.2)',
-                                    'rgba(153, 102, 255, 0.2)',
-                                    'rgba(255, 159, 64, 0.2)'
+                                    'rgba(255, 0, 123, .6)',
+                                    'rgba(0, 204, 226, .8)',
+                                    'rgba(191, 123, 33, .6)',
+                                    'rgba(0, 204, 226, .2)',
+                                    'rgba(0, 204, 226, .2)',
+                                    'rgba(0, 204, 226, .2)',
                                 ],
+                                hoverBorderColor: "#e1bf6a",
+                                borderColor: ["#e1bf6a", "#e1bf6a", "#e1bf6a", "#e1bf6a", "#e1bf6a"],
+                                borderWidth: 1,
+                                hoverBorderWidth: 0,
+                        
                                 hoverBackgroundColor: [
-                                    "#FF6384",
-                                    "#36A2EB",
-                                    "#FFCE56",
+                                    "#e1bf6a",
+                                    "#e1bf6a",
+                                    "#e1bf6a",
                                     "#FF6384",
                                     "#36A2EB",
                                     "#FFCE56"
                                 ]
-                            }]
+                            }], 
+                        
+                        }, 
+                        options: { 
+                            legend: {
+                                labels: {
+                                    fontColor: "black",
+                                    fontFamily: "Open Sans",
+                                    fontWeight: 700,
+                                }
+                            }
                         }
                     });
                 },
+
+                
 
                 error => {
                     callback(error);
@@ -117,13 +134,12 @@ export class PortfolioPage {
 
     
 
+    
+
     navigatetoHome() {
         this.navCtrl.push(HomePage);
     }
 
-    navigatetoFindCharities() {
-        this.navCtrl.push(FindCharitiesPage);
-    }
 
     navigatetoPortfolio() {
         this.navCtrl.push(PortfolioPage);

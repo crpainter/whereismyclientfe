@@ -1,24 +1,41 @@
 <ion-header>
     <ion-navbar>
-        <ion-title>
-            {{charity.name}}
-        </ion-title>
     </ion-navbar>
 </ion-header>
+
+
 <ion-content>
-    <div>
-        <br>
-        <h1>{{charity.name}}</h1>
-        <img src={{charity.logourl}} width="200px" height="200px">
-        <h4 style="text-align: left">{{charity.description}}</h4>
-        <div style="position: absolute; text-align: center; left: 50%; bottom: 3%; transform: translate(-50%);">
-            <button ion-button block outline>
-                <a href={{charity.siteurl}} style="display: inline; float: none;">
-                    Visit Site</a>
-            </button>
-            <button ion-button block outline>
-                <a (click)="navigateToPayments(charity);">Add Donation</a>
-            </button>
-        </div>
-    </div>
+
+    <ion-grid id="gridcharity">
+        <ion-row>
+            <ion-col text-center>
+                    <img src={{charity.featuredimage1}}>
+                    <br> 
+                   
+                    <div class="charitydes">
+
+                            <h2>{{charity.name}}</h2>
+                            <br>
+                            <h5>About</h5>
+                    <p>{{charity.description}}</p>
+                    </div>
+                    <br>
+
+                    <div class="button-divs">
+                    <a href="{{charity.siteurl}}">
+                        <button ion-button block outline>Visit Site
+                        </button>
+                    </a>
+                    <br>
+                    <button ion-button block outline (click)="navigateToPayments(charity)">
+                        Add Donation
+                    </button>
+
+                    </div>
+                    <br>
+                    <br>
+
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>
