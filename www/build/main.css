@@ -25845,6 +25845,46 @@ ion-header .toolbar .toolbar-title {
   box-shadow: none;
 }
 
+.alert-ios .alert-wrapper {
+  overflow: hidden;
+  border-radius: 0;
+  min-width: 80%;
+  padding: 15px;
+  background: #f1d26d;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  font-family: "Open Sans";
+}
+
+.alert-ios .alert-button {
+  border-top: 1px solid #7d612a;
+}
+
+.alert-head {
+  color: black;
+}
+
+.alert-ios .alert-title {
+  font-family: "Open Sans";
+  color: black !important;
+}
+
+h3 {
+  color: black;
+}
+
+#alert-subhdr-2 {
+  color: black;
+}
+
+.button-effect {
+  background-color: none;
+}
+
+.alert-ios .alert-button.activated {
+  background: #f5d262e8;
+}
+
 page-charityInfo ion-grid {
   height: 100%;
   -webkit-box-pack: center;

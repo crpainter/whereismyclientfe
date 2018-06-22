@@ -92,8 +92,8 @@ export class PortfolioPage {
                                 backgroundColor: [
                                     'rgba(255, 0, 123, .6)',
                                     'rgba(0, 204, 226, .8)',
-                                    'rgba(191, 123, 33, .6)',
-                                    'rgba(0, 204, 226, .6)',
+                                    'rgba(191, 123, 33, .8)',
+                                    'rgba(198, 9, 0, .8)',
                                     'rgba(139, 0, 225, .6)',
                                     'rgba(244, 139, 0, .6)',
                                 ],

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController} from 'ionic-angular';
 import { ProfilePage } from '../profile/profile';
 import { Http } from '@angular/http';
 import { AuthService } from "../../auth.service";
@@ -18,6 +18,7 @@ export class LoginPage {
         public navCtrl: NavController,
         public http: Http,
         public authService: AuthService,
+        private alertCtrl: AlertController,
 
     ) { }
 
@@ -31,9 +32,25 @@ export class LoginPage {
         let callback = (err) => {
             if (err) {
                 // TODO: display error
+
+                this.navCtrl.push(TabsPage);
+                let alert = this.alertCtrl.create({
+                    title: 'Whoops, try again',
+                    buttons: ['Ok']
+                });
+              console.log('Donate clicked');
+          
+              alert.present();
                 return;
             }
             this.navCtrl.push(TabsPage);
+            let alert = this.alertCtrl.create({
+                title: 'Welcome to Golden Thread',
+                buttons: ['Ok']
+              });
+              console.log('Donate clicked');
+          
+              alert.present();
         }
 
         this.authService.login(this.username, this.password, callback);

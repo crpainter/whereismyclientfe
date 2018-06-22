@@ -32,7 +32,9 @@ export class PaymentsPage {
     oneTime: boolean;
     monthly: boolean;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public app: App, private alertCtrl: AlertController, public authService: AuthService) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, 
+        public http: Http, public app: App, private alertCtrl: AlertController, 
+        public authService: AuthService) {
         this.charity = this.navParams.get("charity");
         this.DonationStatus = this.navParams.get("DonationStatus");
         this.token = localStorage.getItem("TOKEN");
@@ -259,7 +261,7 @@ export class PaymentsPage {
                 
                     alert.present();
                     this.navCtrl.push(FindCharitiesPage);
-                    this.navCtrl.parent.select(1);
+                    //this.navCtrl.parent.select(1);
                     // this.navCtrl.push(FindCharitiesPage, {
                     //     user: this.user
                     // });
