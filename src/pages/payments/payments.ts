@@ -11,6 +11,7 @@ import { App } from 'ionic-angular';
 import { StripeJavaScriptPage } from './../stripe-java-script/stripe-java-script';
 import { StripeNativePage } from '../stripe-native/stripe-native';
 import { AuthService } from "../../auth.service";
+import { FindCharitiesPage } from "../findCharitiesPage/findCharitiesPage"
 
 declare var Stripe;
 
@@ -247,7 +248,7 @@ export class PaymentsPage {
 
                     // The log below says it all, this code is allowing this form to "function" even though the strip logic isn't completely functioning correctly.
                     console.log("And I wouldn't have gotten away with it either if it weren't for that meddling http property.")
-                    this.navCtrl.push(PortfolioPage, {
+                    this.navCtrl.push(FindCharitiesPage, {
                         user: this.user
                     });
                 },
