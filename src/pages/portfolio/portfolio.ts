@@ -65,6 +65,79 @@ export class PortfolioPage {
 
     }
 
+    doRefresh(refresher) {
+        console.log('Begin async operation', refresher);
+
+        let callback = (err) => {
+            if (err) {
+                // TODO: display error
+                return;
+            }
+
+        }
+
+        this.http
+            .get(this.authService.getBaseUrl() + "/donation1/charitiesDonatedTo?jwt=" + this.token)
+            .subscribe(
+                result => {
+                    this.charitiesDonatedTo = result.json();
+                    console.log("My charitiesDonatedTo was=")
+                    this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
+                        type: 'doughnut',
+                        data: {
+                            labels: this.charitiesDonatedTo.map(function (e) { return e.name; }),
+                            datasets: [{
+                                label: 'Dollars Donated',
+                                data: this.charitiesDonatedTo.map(function (e) { return e.userDonationTotal; }),
+                                backgroundColor: [
+                                    'rgba(255, 0, 123, .6)',
+                                    'rgba(0, 204, 226, .8)',
+                                    'rgba(191, 123, 33, .6)',
+                                    'rgba(0, 204, 226, .2)',
+                                    'rgba(0, 204, 226, .2)',
+                                    'rgba(0, 204, 226, .2)',
+                                ],
+                                hoverBorderColor: "#e1bf6a",
+                                borderColor: ["#e1bf6a", "#e1bf6a", "#e1bf6a", "#e1bf6a", "#e1bf6a"],
+                                borderWidth: 1,
+                                hoverBorderWidth: 0,
+                        
+                                hoverBackgroundColor: [
+                                    "#e1bf6a",
+                                    "#e1bf6a",
+                                    "#e1bf6a",
+                                    "#FF6384",
+                                    "#36A2EB",
+                                    "#FFCE56"
+                                ]
+                            }], 
+                        
+                        }, 
+                        options: { 
+                            legend: {
+                                labels: {
+                                    fontColor: "black",
+                                    fontFamily: "Open Sans",
+                                    fontWeight: 700,
+                                }
+                            }
+                        }
+                    });
+                },
+
+                
+
+                error => {
+                    callback(error);
+                }
+            );
+    
+        setTimeout(() => {
+          console.log('Async operation has ended');
+          refresher.complete();
+        }, 2000);
+      }
+
     ionViewDidLoad() {
 
         let callback = (err) => {

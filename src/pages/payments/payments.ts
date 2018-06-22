@@ -10,6 +10,8 @@ import { App } from 'ionic-angular';
 import { StripeJavaScriptPage } from './../stripe-java-script/stripe-java-script';
 import { StripeNativePage } from '../stripe-native/stripe-native';
 import { AuthService } from "../../auth.service";
+import { TabsPage } from '../tabs/tabs';
+import { FindCharitiesPage } from '../findCharitiesPage/findCharitiesPage';
 
 declare var Stripe;
 
@@ -126,7 +128,8 @@ export class PaymentsPage {
                         } else {
                             console.log(result.token);
                             this.stripeTokenHandler(result.token);
-                            this.navCtrl.setRoot(PortfolioPage);
+                            this.navCtrl.push(FindCharitiesPage);
+                            this.navCtrl.parent.select(3);
                             this.donationSuccessful();
                         }
                     })
@@ -246,9 +249,11 @@ export class PaymentsPage {
 
                     // The log below says it all, this code is allowing this form to "function" even though the strip logic isn't completely functioning correctly.
                     console.log("And I wouldn't have gotten away with it either if it weren't for that meddling http property.")
-                    this.navCtrl.push(PortfolioPage, {
-                        user: this.user
-                    });
+                    this.navCtrl.push(FindCharitiesPage);
+                    this.navCtrl.parent.select(3);
+                    // this.navCtrl.push(FindCharitiesPage, {
+                    //     user: this.user
+                    // });
                 },
 
                 error => {
