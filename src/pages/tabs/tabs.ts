@@ -20,13 +20,9 @@ import { FavoritesPage } from '../favorites/favorites';
   templateUrl: 'tabs.html',
 })
 export class TabsPage {
-
-
-  tab1Root = BrowsePage;
-  tab2Root = FavoritesPage;
-  tab3Root = FindCharitiesPage;
-  tab4Root = PortfolioPage;
-  tab5Root = ProfilePage;
+  tab1Root = ProfilePage;
+  tab2Root = FindCharitiesPage;
+  tab3Root = PortfolioPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

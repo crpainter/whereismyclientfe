@@ -250,7 +250,7 @@ export class PaymentsPage {
                     // The log below says it all, this code is allowing this form to "function" even though the strip logic isn't completely functioning correctly.
                     console.log("And I wouldn't have gotten away with it either if it weren't for that meddling http property.")
                     this.navCtrl.push(FindCharitiesPage);
-                    this.navCtrl.parent.select(3);
+                    this.navCtrl.parent.select(1);
                     // this.navCtrl.push(FindCharitiesPage, {
                     //     user: this.user
                     // });
