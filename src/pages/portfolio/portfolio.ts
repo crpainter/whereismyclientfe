@@ -135,7 +135,7 @@ export class PortfolioPage {
         setTimeout(() => {
           console.log('Async operation has ended');
           refresher.complete();
-        }, 2000);
+        }, 1000);
       }
 
     ionViewDidLoad() {

@@ -98,7 +98,7 @@ var FavoritesPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__findCharitiesPage_findCharitiesPage__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__portfolio_portfolio__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__portfolio_portfolio__ = __webpack_require__(59);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__profile_profile__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__browse_browse__ = __webpack_require__(117);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__favorites_favorites__ = __webpack_require__(118);
@@ -201,6 +201,136 @@ module.exports = webpackAsyncContext;
 /***/ }),
 
 /***/ 171:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StripeJavaScriptPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var StripeJavaScriptPage = /** @class */ (function () {
+    function StripeJavaScriptPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.stripe = Stripe('pk_test_8OYeDSReq6YQ3ShqhhHsigs3');
+    }
+    StripeJavaScriptPage.prototype.ionViewDidLoad = function () {
+        this.setupStripe();
+    };
+    StripeJavaScriptPage.prototype.setupStripe = function () {
+        var _this = this;
+        var elements = this.stripe.elements();
+        var style = {
+            base: {
+                color: '#32325d',
+                lineHeight: '24px',
+                fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+                fontSmoothing: 'antialiased',
+                fontSize: '16px',
+                '::placeholder': {
+                    color: '#aab7c4'
+                }
+            },
+            invalid: {
+                color: '#fa755a',
+                iconColor: '#fa755a'
+            }
+        };
+        this.card = elements.create('card', { style: style });
+        this.card.mount('#card-element');
+        this.card.addEventListener('change', function (event) {
+            var displayError = document.getElementById('card-errors');
+            if (event.error) {
+                displayError.textContent = event.error.message;
+            }
+            else {
+                displayError.textContent = '';
+            }
+        });
+        var form = document.getElementById('payment-form');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            // this.stripe.createToken(this.card)
+            _this.stripe.createSource(_this.card).then(function (result) {
+                if (result.error) {
+                    var errorElement = document.getElementById('card-errors');
+                    errorElement.textContent = result.error.message;
+                }
+                else {
+                    console.log(result);
+                }
+            });
+        });
+    };
+    StripeJavaScriptPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-stripe-java-script',template:/*ion-inline-start:"/Users/Chris/Documents/whereismyclientfe/src/pages/stripe-java-script/stripe-java-script.html"*/'<ion-header>\n<ion-navbar>\n  <ion-title>JavaScript</ion-title>\n</ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n\n  <form action="/" method="post" id="payment-form">\n\n    <div class="form-row">\n      <div id="card-element">\n        <!-- a Stripe Element will be inserted here. -->\n      </div>\n\n      <!-- Used to display Element errors -->\n      <div id="card-errors" role="alert"></div>\n    </div>\n\n    <button ion-button block large>Add Card</button>\n\n  </form>\n\n</ion-content>'/*ion-inline-end:"/Users/Chris/Documents/whereismyclientfe/src/pages/stripe-java-script/stripe-java-script.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+    ], StripeJavaScriptPage);
+    return StripeJavaScriptPage;
+}());
+
+//# sourceMappingURL=stripe-java-script.js.map
+
+/***/ }),
+
+/***/ 172:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StripeNativePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the StripeNativePage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var StripeNativePage = /** @class */ (function () {
+    function StripeNativePage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    StripeNativePage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad StripeNativePage');
+    };
+    StripeNativePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-stripe-native',template:/*ion-inline-start:"/Users/Chris/Documents/whereismyclientfe/src/pages/stripe-native/stripe-native.html"*/'<!--\n  Generated template for the StripeNativePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>StripeNative</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/Chris/Documents/whereismyclientfe/src/pages/stripe-native/stripe-native.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+    ], StripeNativePage);
+    return StripeNativePage;
+}());
+
+//# sourceMappingURL=stripe-native.js.map
+
+/***/ }),
+
+/***/ 173:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -315,136 +445,6 @@ var AuthService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 301:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StripeJavaScriptPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var StripeJavaScriptPage = /** @class */ (function () {
-    function StripeJavaScriptPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.stripe = Stripe('pk_test_8OYeDSReq6YQ3ShqhhHsigs3');
-    }
-    StripeJavaScriptPage.prototype.ionViewDidLoad = function () {
-        this.setupStripe();
-    };
-    StripeJavaScriptPage.prototype.setupStripe = function () {
-        var _this = this;
-        var elements = this.stripe.elements();
-        var style = {
-            base: {
-                color: '#32325d',
-                lineHeight: '24px',
-                fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-                fontSmoothing: 'antialiased',
-                fontSize: '16px',
-                '::placeholder': {
-                    color: '#aab7c4'
-                }
-            },
-            invalid: {
-                color: '#fa755a',
-                iconColor: '#fa755a'
-            }
-        };
-        this.card = elements.create('card', { style: style });
-        this.card.mount('#card-element');
-        this.card.addEventListener('change', function (event) {
-            var displayError = document.getElementById('card-errors');
-            if (event.error) {
-                displayError.textContent = event.error.message;
-            }
-            else {
-                displayError.textContent = '';
-            }
-        });
-        var form = document.getElementById('payment-form');
-        form.addEventListener('submit', function (event) {
-            event.preventDefault();
-            // this.stripe.createToken(this.card)
-            _this.stripe.createSource(_this.card).then(function (result) {
-                if (result.error) {
-                    var errorElement = document.getElementById('card-errors');
-                    errorElement.textContent = result.error.message;
-                }
-                else {
-                    console.log(result);
-                }
-            });
-        });
-    };
-    StripeJavaScriptPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-stripe-java-script',template:/*ion-inline-start:"/Users/Chris/Documents/whereismyclientfe/src/pages/stripe-java-script/stripe-java-script.html"*/'<ion-header>\n<ion-navbar>\n  <ion-title>JavaScript</ion-title>\n</ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n\n  <form action="/" method="post" id="payment-form">\n\n    <div class="form-row">\n      <div id="card-element">\n        <!-- a Stripe Element will be inserted here. -->\n      </div>\n\n      <!-- Used to display Element errors -->\n      <div id="card-errors" role="alert"></div>\n    </div>\n\n    <button ion-button block large>Add Card</button>\n\n  </form>\n\n</ion-content>'/*ion-inline-end:"/Users/Chris/Documents/whereismyclientfe/src/pages/stripe-java-script/stripe-java-script.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
-    ], StripeJavaScriptPage);
-    return StripeJavaScriptPage;
-}());
-
-//# sourceMappingURL=stripe-java-script.js.map
-
-/***/ }),
-
-/***/ 302:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StripeNativePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/**
- * Generated class for the StripeNativePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var StripeNativePage = /** @class */ (function () {
-    function StripeNativePage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    StripeNativePage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad StripeNativePage');
-    };
-    StripeNativePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-stripe-native',template:/*ion-inline-start:"/Users/Chris/Documents/whereismyclientfe/src/pages/stripe-native/stripe-native.html"*/'<!--\n  Generated template for the StripeNativePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>StripeNative</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/Chris/Documents/whereismyclientfe/src/pages/stripe-native/stripe-native.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
-    ], StripeNativePage);
-    return StripeNativePage;
-}());
-
-//# sourceMappingURL=stripe-native.js.map
-
-/***/ }),
-
 /***/ 303:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -455,7 +455,7 @@ var StripeNativePage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__charityInfo_charityInfo__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__findCharitiesPage_findCharitiesPage__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_ts_User__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__portfolio_portfolio__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__portfolio_portfolio__ = __webpack_require__(59);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__auth_service__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__profile_profile__ = __webpack_require__(40);
@@ -588,19 +588,19 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__(468);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_home_home__ = __webpack_require__(93);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_login_login__ = __webpack_require__(94);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_register_register__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_register_register__ = __webpack_require__(173);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_profile_profile__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_charityInfo_charityInfo__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_findCharitiesPage_findCharitiesPage__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_portfolio_portfolio__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_portfolio_portfolio__ = __webpack_require__(59);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_payments_payments__ = __webpack_require__(92);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__auth_service__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_tabs_tabs__ = __webpack_require__(119);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_settings_settings__ = __webpack_require__(303);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_browse_browse__ = __webpack_require__(117);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_favorites_favorites__ = __webpack_require__(118);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_stripe_java_script_stripe_java_script__ = __webpack_require__(301);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_stripe_native_stripe_native__ = __webpack_require__(302);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_stripe_java_script_stripe_java_script__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_stripe_native_stripe_native__ = __webpack_require__(172);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -705,7 +705,7 @@ var AppModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__charityInfo_charityInfo__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__findCharitiesPage_findCharitiesPage__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_ts_User__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__portfolio_portfolio__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__portfolio_portfolio__ = __webpack_require__(59);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__settings_settings__ = __webpack_require__(303);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__auth_service__ = __webpack_require__(26);
@@ -776,6 +776,31 @@ var ProfilePage = /** @class */ (function () {
         }, function (error) {
         });
     };
+    ProfilePage.prototype.doRefresh = function (refresher) {
+        var _this = this;
+        console.log('Begin async operation', refresher);
+        var callback = function (err) {
+            if (err) {
+                // TODO: display error
+                return;
+            }
+        };
+        this.http
+            .get(this.authService.getBaseUrl() + "/user?jwt=" + this.token)
+            .subscribe(function (result) {
+            _this.user = result.json();
+            console.log("this user: " + _this.user);
+            console.log("result.json " + result.json());
+        }, function (error) {
+        });
+        (function (error) {
+            callback(error);
+        });
+        setTimeout(function () {
+            console.log('Async operation has ended');
+            refresher.complete();
+        }, 2000);
+    };
     ProfilePage.prototype.logout = function () {
         //this.authServ.navigatetoHome (); // this is a function to logout from the server
         var root = this.app.getRootNav(); // in this line, you have to declare a root, which is the app's root 
@@ -797,7 +822,7 @@ var ProfilePage = /** @class */ (function () {
     };
     ProfilePage = ProfilePage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-profile',template:/*ion-inline-start:"/Users/Chris/Documents/whereismyclientfe/src/pages/profile/profile.html"*/'<ion-header>\n    <ion-navbar hideBackButton>\n        <ion-buttons start padding>\n            <button ion-button (click)="logout()" >\n                <ion-icon name="log-out"></ion-icon>\n            </button>            \n                \n        </ion-buttons>\n        <ion-title>Profile</ion-title>\n\n        <ion-buttons end padding>\n            <button ion-button clear (click)="navigateToSettings()">\n                <ion-icon name="settings"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n    <ion-grid>\n        <ion-row>\n            <ion-col text-center>\n                <br>\n                <img src="../../assets/imgs/Asset 7@2x.png" center>\n                <ion-item-group>\n                    <ion-label>username: {{this.user.username}}</ion-label>\n                    <br>\n                    <br>\n                    <h1>your charities</h1>\n                    <ion-list>\n                        <ion-item *ngFor="let charity of this.charitiesDonatedTo">\n                            <ion-thumbnail item-start>\n                                <img src={{charity.logourl}}>\n                            </ion-thumbnail>\n                            <h2>{{charity.name}}</h2>\n                            <p>${{charity.userDonationTotal}} Given • 167 Treatments Provided</p>\n                            <button ion-button clear item-end (click)="navigateToCharity(charity);">View</button>\n                        </ion-item>\n                    </ion-list>\n                </ion-item-group>\n            </ion-col>\n        </ion-row>\n\n    </ion-grid>\n\n\n\n</ion-content>'/*ion-inline-end:"/Users/Chris/Documents/whereismyclientfe/src/pages/profile/profile.html"*/
+            selector: 'page-profile',template:/*ion-inline-start:"/Users/Chris/Documents/whereismyclientfe/src/pages/profile/profile.html"*/'<ion-header>\n    <ion-navbar hideBackButton>\n        <ion-buttons start padding>\n            <button ion-button (click)="logout()" >\n                <ion-icon name="log-out"></ion-icon>\n            </button>            \n                \n        </ion-buttons>\n        <ion-title>Profile</ion-title>\n\n        <ion-buttons end padding>\n            <button ion-button clear (click)="navigateToSettings()">\n                <ion-icon name="settings"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n        <ion-refresher (ionRefresh)="doRefresh($event)">\n                <ion-refresher-content></ion-refresher-content>\n              </ion-refresher>\n    <ion-grid>\n        <ion-row>\n            <ion-col text-center>\n                <br>\n                <img src="../../assets/imgs/Asset 7@2x.png" center>\n                <ion-item-group>\n                    <ion-label>username: {{this.user.username}}</ion-label>\n                    <br>\n                    <br>\n                    <h1>your charities</h1>\n                    <ion-list>\n                        <ion-item *ngFor="let charity of this.charitiesDonatedTo">\n                            <ion-thumbnail item-start>\n                                <img src={{charity.logourl}}>\n                            </ion-thumbnail>\n                            <h2>{{charity.name}}</h2>\n                            <p>${{charity.userDonationTotal}} Given • 167 Treatments Provided</p>\n                            <button ion-button clear item-end (click)="navigateToCharity(charity);">View</button>\n                        </ion-item>\n                    </ion-list>\n                </ion-item-group>\n            </ion-col>\n        </ion-row>\n\n    </ion-grid>\n\n\n\n</ion-content>'/*ion-inline-end:"/Users/Chris/Documents/whereismyclientfe/src/pages/profile/profile.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_6__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */], __WEBPACK_IMPORTED_MODULE_8__auth_service__["a" /* AuthService */]])
@@ -814,252 +839,252 @@ var ProfilePage = /** @class */ (function () {
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./af": 178,
-	"./af.js": 178,
-	"./ar": 179,
-	"./ar-dz": 180,
-	"./ar-dz.js": 180,
-	"./ar-kw": 181,
-	"./ar-kw.js": 181,
-	"./ar-ly": 182,
-	"./ar-ly.js": 182,
-	"./ar-ma": 183,
-	"./ar-ma.js": 183,
-	"./ar-sa": 184,
-	"./ar-sa.js": 184,
-	"./ar-tn": 185,
-	"./ar-tn.js": 185,
-	"./ar.js": 179,
-	"./az": 186,
-	"./az.js": 186,
-	"./be": 187,
-	"./be.js": 187,
-	"./bg": 188,
-	"./bg.js": 188,
-	"./bm": 189,
-	"./bm.js": 189,
-	"./bn": 190,
-	"./bn.js": 190,
-	"./bo": 191,
-	"./bo.js": 191,
-	"./br": 192,
-	"./br.js": 192,
-	"./bs": 193,
-	"./bs.js": 193,
-	"./ca": 194,
-	"./ca.js": 194,
-	"./cs": 195,
-	"./cs.js": 195,
-	"./cv": 196,
-	"./cv.js": 196,
-	"./cy": 197,
-	"./cy.js": 197,
-	"./da": 198,
-	"./da.js": 198,
-	"./de": 199,
-	"./de-at": 200,
-	"./de-at.js": 200,
-	"./de-ch": 201,
-	"./de-ch.js": 201,
-	"./de.js": 199,
-	"./dv": 202,
-	"./dv.js": 202,
-	"./el": 203,
-	"./el.js": 203,
-	"./en-au": 204,
-	"./en-au.js": 204,
-	"./en-ca": 205,
-	"./en-ca.js": 205,
-	"./en-gb": 206,
-	"./en-gb.js": 206,
-	"./en-ie": 207,
-	"./en-ie.js": 207,
-	"./en-il": 208,
-	"./en-il.js": 208,
-	"./en-nz": 209,
-	"./en-nz.js": 209,
-	"./eo": 210,
-	"./eo.js": 210,
-	"./es": 211,
-	"./es-do": 212,
-	"./es-do.js": 212,
-	"./es-us": 213,
-	"./es-us.js": 213,
-	"./es.js": 211,
-	"./et": 214,
-	"./et.js": 214,
-	"./eu": 215,
-	"./eu.js": 215,
-	"./fa": 216,
-	"./fa.js": 216,
-	"./fi": 217,
-	"./fi.js": 217,
-	"./fo": 218,
-	"./fo.js": 218,
-	"./fr": 219,
-	"./fr-ca": 220,
-	"./fr-ca.js": 220,
-	"./fr-ch": 221,
-	"./fr-ch.js": 221,
-	"./fr.js": 219,
-	"./fy": 222,
-	"./fy.js": 222,
-	"./gd": 223,
-	"./gd.js": 223,
-	"./gl": 224,
-	"./gl.js": 224,
-	"./gom-latn": 225,
-	"./gom-latn.js": 225,
-	"./gu": 226,
-	"./gu.js": 226,
-	"./he": 227,
-	"./he.js": 227,
-	"./hi": 228,
-	"./hi.js": 228,
-	"./hr": 229,
-	"./hr.js": 229,
-	"./hu": 230,
-	"./hu.js": 230,
-	"./hy-am": 231,
-	"./hy-am.js": 231,
-	"./id": 232,
-	"./id.js": 232,
-	"./is": 233,
-	"./is.js": 233,
-	"./it": 234,
-	"./it.js": 234,
-	"./ja": 235,
-	"./ja.js": 235,
-	"./jv": 236,
-	"./jv.js": 236,
-	"./ka": 237,
-	"./ka.js": 237,
-	"./kk": 238,
-	"./kk.js": 238,
-	"./km": 239,
-	"./km.js": 239,
-	"./kn": 240,
-	"./kn.js": 240,
-	"./ko": 241,
-	"./ko.js": 241,
-	"./ky": 242,
-	"./ky.js": 242,
-	"./lb": 243,
-	"./lb.js": 243,
-	"./lo": 244,
-	"./lo.js": 244,
-	"./lt": 245,
-	"./lt.js": 245,
-	"./lv": 246,
-	"./lv.js": 246,
-	"./me": 247,
-	"./me.js": 247,
-	"./mi": 248,
-	"./mi.js": 248,
-	"./mk": 249,
-	"./mk.js": 249,
-	"./ml": 250,
-	"./ml.js": 250,
-	"./mn": 251,
-	"./mn.js": 251,
-	"./mr": 252,
-	"./mr.js": 252,
-	"./ms": 253,
-	"./ms-my": 254,
-	"./ms-my.js": 254,
-	"./ms.js": 253,
-	"./mt": 255,
-	"./mt.js": 255,
-	"./my": 256,
-	"./my.js": 256,
-	"./nb": 257,
-	"./nb.js": 257,
-	"./ne": 258,
-	"./ne.js": 258,
-	"./nl": 259,
-	"./nl-be": 260,
-	"./nl-be.js": 260,
-	"./nl.js": 259,
-	"./nn": 261,
-	"./nn.js": 261,
-	"./pa-in": 262,
-	"./pa-in.js": 262,
-	"./pl": 263,
-	"./pl.js": 263,
-	"./pt": 264,
-	"./pt-br": 265,
-	"./pt-br.js": 265,
-	"./pt.js": 264,
-	"./ro": 266,
-	"./ro.js": 266,
-	"./ru": 267,
-	"./ru.js": 267,
-	"./sd": 268,
-	"./sd.js": 268,
-	"./se": 269,
-	"./se.js": 269,
-	"./si": 270,
-	"./si.js": 270,
-	"./sk": 271,
-	"./sk.js": 271,
-	"./sl": 272,
-	"./sl.js": 272,
-	"./sq": 273,
-	"./sq.js": 273,
-	"./sr": 274,
-	"./sr-cyrl": 275,
-	"./sr-cyrl.js": 275,
-	"./sr.js": 274,
-	"./ss": 276,
-	"./ss.js": 276,
-	"./sv": 277,
-	"./sv.js": 277,
-	"./sw": 278,
-	"./sw.js": 278,
-	"./ta": 279,
-	"./ta.js": 279,
-	"./te": 280,
-	"./te.js": 280,
-	"./tet": 281,
-	"./tet.js": 281,
-	"./tg": 282,
-	"./tg.js": 282,
-	"./th": 283,
-	"./th.js": 283,
-	"./tl-ph": 284,
-	"./tl-ph.js": 284,
-	"./tlh": 285,
-	"./tlh.js": 285,
-	"./tr": 286,
-	"./tr.js": 286,
-	"./tzl": 287,
-	"./tzl.js": 287,
-	"./tzm": 288,
-	"./tzm-latn": 289,
-	"./tzm-latn.js": 289,
-	"./tzm.js": 288,
-	"./ug-cn": 290,
-	"./ug-cn.js": 290,
-	"./uk": 291,
-	"./uk.js": 291,
-	"./ur": 292,
-	"./ur.js": 292,
-	"./uz": 293,
-	"./uz-latn": 294,
-	"./uz-latn.js": 294,
-	"./uz.js": 293,
-	"./vi": 295,
-	"./vi.js": 295,
-	"./x-pseudo": 296,
-	"./x-pseudo.js": 296,
-	"./yo": 297,
-	"./yo.js": 297,
-	"./zh-cn": 298,
-	"./zh-cn.js": 298,
-	"./zh-hk": 299,
-	"./zh-hk.js": 299,
-	"./zh-tw": 300,
-	"./zh-tw.js": 300
+	"./af": 180,
+	"./af.js": 180,
+	"./ar": 181,
+	"./ar-dz": 182,
+	"./ar-dz.js": 182,
+	"./ar-kw": 183,
+	"./ar-kw.js": 183,
+	"./ar-ly": 184,
+	"./ar-ly.js": 184,
+	"./ar-ma": 185,
+	"./ar-ma.js": 185,
+	"./ar-sa": 186,
+	"./ar-sa.js": 186,
+	"./ar-tn": 187,
+	"./ar-tn.js": 187,
+	"./ar.js": 181,
+	"./az": 188,
+	"./az.js": 188,
+	"./be": 189,
+	"./be.js": 189,
+	"./bg": 190,
+	"./bg.js": 190,
+	"./bm": 191,
+	"./bm.js": 191,
+	"./bn": 192,
+	"./bn.js": 192,
+	"./bo": 193,
+	"./bo.js": 193,
+	"./br": 194,
+	"./br.js": 194,
+	"./bs": 195,
+	"./bs.js": 195,
+	"./ca": 196,
+	"./ca.js": 196,
+	"./cs": 197,
+	"./cs.js": 197,
+	"./cv": 198,
+	"./cv.js": 198,
+	"./cy": 199,
+	"./cy.js": 199,
+	"./da": 200,
+	"./da.js": 200,
+	"./de": 201,
+	"./de-at": 202,
+	"./de-at.js": 202,
+	"./de-ch": 203,
+	"./de-ch.js": 203,
+	"./de.js": 201,
+	"./dv": 204,
+	"./dv.js": 204,
+	"./el": 205,
+	"./el.js": 205,
+	"./en-au": 206,
+	"./en-au.js": 206,
+	"./en-ca": 207,
+	"./en-ca.js": 207,
+	"./en-gb": 208,
+	"./en-gb.js": 208,
+	"./en-ie": 209,
+	"./en-ie.js": 209,
+	"./en-il": 210,
+	"./en-il.js": 210,
+	"./en-nz": 211,
+	"./en-nz.js": 211,
+	"./eo": 212,
+	"./eo.js": 212,
+	"./es": 213,
+	"./es-do": 214,
+	"./es-do.js": 214,
+	"./es-us": 215,
+	"./es-us.js": 215,
+	"./es.js": 213,
+	"./et": 216,
+	"./et.js": 216,
+	"./eu": 217,
+	"./eu.js": 217,
+	"./fa": 218,
+	"./fa.js": 218,
+	"./fi": 219,
+	"./fi.js": 219,
+	"./fo": 220,
+	"./fo.js": 220,
+	"./fr": 221,
+	"./fr-ca": 222,
+	"./fr-ca.js": 222,
+	"./fr-ch": 223,
+	"./fr-ch.js": 223,
+	"./fr.js": 221,
+	"./fy": 224,
+	"./fy.js": 224,
+	"./gd": 225,
+	"./gd.js": 225,
+	"./gl": 226,
+	"./gl.js": 226,
+	"./gom-latn": 227,
+	"./gom-latn.js": 227,
+	"./gu": 228,
+	"./gu.js": 228,
+	"./he": 229,
+	"./he.js": 229,
+	"./hi": 230,
+	"./hi.js": 230,
+	"./hr": 231,
+	"./hr.js": 231,
+	"./hu": 232,
+	"./hu.js": 232,
+	"./hy-am": 233,
+	"./hy-am.js": 233,
+	"./id": 234,
+	"./id.js": 234,
+	"./is": 235,
+	"./is.js": 235,
+	"./it": 236,
+	"./it.js": 236,
+	"./ja": 237,
+	"./ja.js": 237,
+	"./jv": 238,
+	"./jv.js": 238,
+	"./ka": 239,
+	"./ka.js": 239,
+	"./kk": 240,
+	"./kk.js": 240,
+	"./km": 241,
+	"./km.js": 241,
+	"./kn": 242,
+	"./kn.js": 242,
+	"./ko": 243,
+	"./ko.js": 243,
+	"./ky": 244,
+	"./ky.js": 244,
+	"./lb": 245,
+	"./lb.js": 245,
+	"./lo": 246,
+	"./lo.js": 246,
+	"./lt": 247,
+	"./lt.js": 247,
+	"./lv": 248,
+	"./lv.js": 248,
+	"./me": 249,
+	"./me.js": 249,
+	"./mi": 250,
+	"./mi.js": 250,
+	"./mk": 251,
+	"./mk.js": 251,
+	"./ml": 252,
+	"./ml.js": 252,
+	"./mn": 253,
+	"./mn.js": 253,
+	"./mr": 254,
+	"./mr.js": 254,
+	"./ms": 255,
+	"./ms-my": 256,
+	"./ms-my.js": 256,
+	"./ms.js": 255,
+	"./mt": 257,
+	"./mt.js": 257,
+	"./my": 258,
+	"./my.js": 258,
+	"./nb": 259,
+	"./nb.js": 259,
+	"./ne": 260,
+	"./ne.js": 260,
+	"./nl": 261,
+	"./nl-be": 262,
+	"./nl-be.js": 262,
+	"./nl.js": 261,
+	"./nn": 263,
+	"./nn.js": 263,
+	"./pa-in": 264,
+	"./pa-in.js": 264,
+	"./pl": 265,
+	"./pl.js": 265,
+	"./pt": 266,
+	"./pt-br": 267,
+	"./pt-br.js": 267,
+	"./pt.js": 266,
+	"./ro": 268,
+	"./ro.js": 268,
+	"./ru": 269,
+	"./ru.js": 269,
+	"./sd": 270,
+	"./sd.js": 270,
+	"./se": 271,
+	"./se.js": 271,
+	"./si": 272,
+	"./si.js": 272,
+	"./sk": 273,
+	"./sk.js": 273,
+	"./sl": 274,
+	"./sl.js": 274,
+	"./sq": 275,
+	"./sq.js": 275,
+	"./sr": 276,
+	"./sr-cyrl": 277,
+	"./sr-cyrl.js": 277,
+	"./sr.js": 276,
+	"./ss": 278,
+	"./ss.js": 278,
+	"./sv": 279,
+	"./sv.js": 279,
+	"./sw": 280,
+	"./sw.js": 280,
+	"./ta": 281,
+	"./ta.js": 281,
+	"./te": 282,
+	"./te.js": 282,
+	"./tet": 283,
+	"./tet.js": 283,
+	"./tg": 284,
+	"./tg.js": 284,
+	"./th": 285,
+	"./th.js": 285,
+	"./tl-ph": 286,
+	"./tl-ph.js": 286,
+	"./tlh": 287,
+	"./tlh.js": 287,
+	"./tr": 288,
+	"./tr.js": 288,
+	"./tzl": 289,
+	"./tzl.js": 289,
+	"./tzm": 290,
+	"./tzm-latn": 291,
+	"./tzm-latn.js": 291,
+	"./tzm.js": 290,
+	"./ug-cn": 292,
+	"./ug-cn.js": 292,
+	"./uk": 293,
+	"./uk.js": 293,
+	"./ur": 294,
+	"./ur.js": 294,
+	"./uz": 295,
+	"./uz-latn": 296,
+	"./uz-latn.js": 296,
+	"./uz.js": 295,
+	"./vi": 297,
+	"./vi.js": 297,
+	"./x-pseudo": 298,
+	"./x-pseudo.js": 298,
+	"./yo": 299,
+	"./yo.js": 299,
+	"./zh-cn": 300,
+	"./zh-cn.js": 300,
+	"./zh-hk": 301,
+	"./zh-hk.js": 301,
+	"./zh-tw": 302,
+	"./zh-tw.js": 302
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -1311,7 +1336,7 @@ var User = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 51:
+/***/ 59:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1508,10 +1533,10 @@ var PortfolioPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-portfolio',template:/*ion-inline-start:"/Users/Chris/Documents/whereismyclientfe/src/pages/portfolio/portfolio.html"*/'<ion-header>\n        <ion-navbar><ion-title>Portfolio</ion-title></ion-navbar>\n    \n\n</ion-header>\n\n\n<ion-content padding>\n        <ion-refresher (ionRefresh)="doRefresh($event)">\n                <ion-refresher-content></ion-refresher-content>\n              </ion-refresher>\n    <ion-grid id="portfolio">\n        <ion-row>\n            <ion-col text-center>\n                    <h3> Donation Data</h3>\n                    <br>\n\n                    <ion-item-group>\n                        <ion-card id="portfoliocard">\n                                <canvas #doughnutCanvas></canvas>\n                        </ion-card>\n                        <br>\n                        <h3> Recent Donations</h3>\n                            <ion-list>\n                                <ion-item *ngFor="let charity of this.charitiesDonatedTo">\n                                    <ion-thumbnail item-start>\n                                        <img id="album" (click)="navigateToCharityInfo(charity)" src={{charity.featuredimage1}}>\n                                    </ion-thumbnail>\n                                    <div id="charityname">\n                                    <h2 text-wrap>{{charity.name}}</h2>\n                                    </div>  \n                                    <br>\n                                    <p>${{charity.userDonationTotal}} Given</p>\n                                </ion-item>\n                            </ion-list>\n\n                    </ion-item-group>\n\n\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n</ion-content>'/*ion-inline-end:"/Users/Chris/Documents/whereismyclientfe/src/pages/portfolio/portfolio.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_http__["a" /* Http */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_7__auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__auth_service__["a" /* AuthService */]) === "function" && _e || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_5__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */], __WEBPACK_IMPORTED_MODULE_7__auth_service__["a" /* AuthService */]])
     ], PortfolioPage);
     return PortfolioPage;
-    var PortfolioPage_1, _a, _b, _c, _d, _e;
+    var PortfolioPage_1;
 }());
 
 //# sourceMappingURL=portfolio.js.map
@@ -1528,8 +1553,8 @@ var PortfolioPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profile_profile__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_ts_User__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__stripe_java_script_stripe_java_script__ = __webpack_require__(301);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__stripe_native_stripe_native__ = __webpack_require__(302);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__stripe_java_script_stripe_java_script__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__stripe_native_stripe_native__ = __webpack_require__(172);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__auth_service__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__findCharitiesPage_findCharitiesPage__ = __webpack_require__(48);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1751,10 +1776,9 @@ var PaymentsPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-payments',template:/*ion-inline-start:"/Users/Chris/Documents/whereismyclientfe/src/pages/payments/payments.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-title>\n            Donate\n        </ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content text-center padding>\n        <ion-grid>\n                <ion-row>\n                    <ion-col text-center>\n        <br>\n        <ion-list>\n                <h1>{{charity.name}}</h1>\n                <br>\n            <ion-item>\n                <ion-label float>Donation Amount:</ion-label>\n                <ion-input [(ngModel)]="deposit"></ion-input>\n            </ion-item>\n        </ion-list>\n        <ion-list radio-group [(ngModel)]="frequency">\n            <ion-item>\n                <ion-label>One Time</ion-label>\n                <ion-radio value="oneTime" (click)="oneTimeTrue()"></ion-radio>\n            </ion-item>\n            <ion-item>\n                <ion-label>Monthly</ion-label>\n                <ion-radio value="monthly" (click)="monthlyTrue()"></ion-radio>\n            </ion-item>\n            </ion-list>\n            <form action="/" method="post" id="payment-form">\n                <div class="form-row">\n                    <div id="card-element"></div>\n                    <!-- Used to display Element errors -->\n                    <div id="card-errors" role="alert"></div>\n                </div>\n                <br>\n                <br>\n                <button ion-button block outline (click)="navigatetoPortfolio()" >Donate Once</button>\n            </form>\n\n        </ion-col>\n    </ion-row>\n</ion-grid>\n\n</ion-content>'/*ion-inline-end:"/Users/Chris/Documents/whereismyclientfe/src/pages/payments/payments.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* Http */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_7__auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__auth_service__["a" /* AuthService */]) === "function" && _f || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_7__auth_service__["a" /* AuthService */]])
     ], PaymentsPage);
     return PaymentsPage;
-    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=payments.js.map
@@ -1769,7 +1793,7 @@ var PaymentsPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_login__ = __webpack_require__(94);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__register_register__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__register_register__ = __webpack_require__(173);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1852,7 +1876,7 @@ var LoginPage = /** @class */ (function () {
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"/Users/Chris/Documents/whereismyclientfe/src/pages/login/login.html"*/'<ion-header>\n  <ion-navbar></ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-grid>\n    <ion-row>\n      <ion-col text-center>\n          <ion-list>\n            <h1 >sign in to continue</h1>\n            <br>\n\n            <ion-item>\n              <ion-label floating>username</ion-label>\n              <ion-input type="text" value="" [(ngModel)]="username"></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label floating>password</ion-label>\n              <ion-input type="password" value="" [(ngModel)]="password"></ion-input>\n            </ion-item>\n            <br>\n\n            <ion-item>\n              <ion-label style="size:3">remember me</ion-label>\n              <ion-checkbox color="dark" checked="false"></ion-checkbox>\n            </ion-item>\n          </ion-list>\n          <a href="#" id="forgot"> forgot password?</a>\n          <button padding ion-button (click)="navigatetoProfile()" block outline>submit</button>\n\n      </ion-col>\n    </ion-row>\n\n  </ion-grid>\n\n\n  <!-- <ion-row>\n    <a href="nonexistent.com" id="forgot"> Forgot Password?</a>\n  </ion-row>\n  <br>\n  <ion-row>\n    <button padding ion-button (click)="navigatetoProfile()" block outline>submit</button>\n  </ion-row> -->\n\n</ion-content>'/*ion-inline-end:"/Users/Chris/Documents/whereismyclientfe/src/pages/login/login.html"*/
+            selector: 'page-login',template:/*ion-inline-start:"/Users/Chris/Documents/whereismyclientfe/src/pages/login/login.html"*/'<ion-header>\n  <ion-navbar></ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-grid>\n    <ion-row>\n      <ion-col text-center>\n          <ion-list>\n            <h1 >sign in to continue</h1>\n            <br>\n\n            <ion-item>\n              <ion-label floating>username</ion-label>\n              <ion-input type="text" value="" [(ngModel)]="username"></ion-input>\n            </ion-item>\n\n            <ion-item>\n              <ion-label floating>password</ion-label>\n              <ion-input type="password" value="" [(ngModel)]="password"></ion-input>\n            </ion-item>\n            <br>\n\n            <!-- <ion-item>\n              <ion-label style="size:3">remember me</ion-label>\n              <ion-checkbox color="dark" checked="false"></ion-checkbox>\n            </ion-item> -->\n          </ion-list>\n          <a href="http://lmgtfy.com/?q=How+can+I+keep+better+track+of+my+passwords%3F" id="forgot"> forgot password?</a>\n          <button padding ion-button (click)="navigatetoProfile()" block outline>submit</button>\n\n      </ion-col>\n    </ion-row>\n\n  </ion-grid>\n\n\n  <!-- <ion-row>\n    <a href="nonexistent.com" id="forgot"> Forgot Password?</a>\n  </ion-row>\n  <br>\n  <ion-row>\n    <button padding ion-button (click)="navigatetoProfile()" block outline>submit</button>\n  </ion-row> -->\n\n</ion-content>'/*ion-inline-end:"/Users/Chris/Documents/whereismyclientfe/src/pages/login/login.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */],

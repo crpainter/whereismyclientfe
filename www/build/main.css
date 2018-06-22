@@ -26116,6 +26116,41 @@ page-register .toolbar.toolbar-ios {
   border-bottom: none;
 }
 
+page-settings ion-grid {
+  height: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+page-settings .ion-col {
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+page-settings #forgot {
+  color: black;
+  float: left;
+  padding-bottom: 16px;
+}
+
+page-settings .toolbar.toolbar-ios {
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-bottom: none;
+}
+
+page-settings .list-ios > .item-block:last-child, page-settings .list-ios > .item-wrapper:last-child .item-block {
+  border-bottom: 1px solid black;
+}
+
+page-settings .list-ios .item-block .item-inner {
+  border-bottom: 1px solid black;
+}
+
 page-stripe-java-script .form-row {
   padding: 10px;
 }
