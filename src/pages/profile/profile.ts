@@ -92,6 +92,42 @@ export class ProfilePage {
             );
 
     }
+    doRefresh(refresher) {
+        console.log('Begin async operation', refresher);
+
+        let callback = (err) => {
+            if (err) {
+                // TODO: display error
+                return;
+            }
+
+        }
+
+        this.http
+            .get(this.authService.getBaseUrl() +"/user?jwt=" + this.token)
+            .subscribe(
+                result => {
+                    this.user = new User();
+                    this.user = result.json();
+
+                    console.log("this user: " + this.user.username)
+                    console.log("result.json " + result.json())
+                },
+
+                error => {
+                }
+            );
+                
+
+                error => {
+                    callback(error);
+                }
+    
+        setTimeout(() => {
+          console.log('Async operation has ended');
+          refresher.complete();
+        }, 1000);
+      }
 
 
     logout() {
