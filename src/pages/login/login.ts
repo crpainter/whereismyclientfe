@@ -33,7 +33,7 @@ export class LoginPage {
             if (err) {
                 // TODO: display error
 
-                this.navCtrl.push(TabsPage);
+                
                 let alert = this.alertCtrl.create({
                     title: 'Whoops, try again',
                     buttons: ['Ok']
