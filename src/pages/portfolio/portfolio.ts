@@ -93,9 +93,9 @@ export class PortfolioPage {
                                     'rgba(255, 0, 123, .6)',
                                     'rgba(0, 204, 226, .8)',
                                     'rgba(191, 123, 33, .6)',
-                                    'rgba(0, 204, 226, .2)',
-                                    'rgba(0, 204, 226, .2)',
-                                    'rgba(0, 204, 226, .2)',
+                                    'rgba(0, 204, 226, .6)',
+                                    'rgba(139, 0, 225, .6)',
+                                    'rgba(244, 139, 0, .6)',
                                 ],
                                 hoverBorderColor: "#e1bf6a",
                                 borderColor: ["#e1bf6a", "#e1bf6a", "#e1bf6a", "#e1bf6a", "#e1bf6a"],
@@ -106,9 +106,9 @@ export class PortfolioPage {
                                     "#e1bf6a",
                                     "#e1bf6a",
                                     "#e1bf6a",
-                                    "#FF6384",
-                                    "#36A2EB",
-                                    "#FFCE56"
+                                    "#e1bf6a",
+                                    "#e1bf6a",
+                                    "#e1bf6a"
                                 ]
                             }], 
                         

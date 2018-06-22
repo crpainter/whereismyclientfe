@@ -24,24 +24,29 @@
         <ion-row>
             <ion-col text-center>
                 <br>
+                <h2>Your Info</h2>
+                <br>
                 <img src="../../assets/imgs/Asset 7@2x.png" center>
                 <ion-item-group>
-                    <ion-label>name : {{this.user.name}}</ion-label>
-                    <ion-label>username: {{this.user.username}}</ion-label>
+                    <br>
+                    <ion-label style="text-align: center">username: {{this.user.username}}</ion-label>
 
                     <br>
                     <br>
-                    <h1>your charities</h1>
+                    <h2>Your Charities</h2>
+                    <br>
                     <ion-list>
-                        <ion-item *ngFor="let charity of this.charitiesDonatedTo">
-                            <ion-thumbnail item-start>
-                                <img src={{charity.logourl}}>
-                            </ion-thumbnail>
-                            <h2>{{charity.name}}</h2>
-                            <p>${{charity.userDonationTotal}} Given • 167 Treatments Provided</p>
-                            <button ion-button clear item-end (click)="navigateToCharity(charity);">View</button>
-                        </ion-item>
-                    </ion-list>
+                            <ion-item *ngFor="let charity of this.charitiesDonatedTo">
+                                <ion-thumbnail item-start>
+                                    <img id="album" (click)="navigateToCharityInfo(charity)" src={{charity.featuredimage1}}>
+                                </ion-thumbnail>
+                                <div id="charityname">
+                                <h2 text-wrap>{{charity.name}}</h2>
+                                </div>  
+                                <br>
+                                <p>${{charity.userDonationTotal}} Given</p>
+                            </ion-item>
+                        </ion-list>
                 </ion-item-group>
             </ion-col>
         </ion-row>

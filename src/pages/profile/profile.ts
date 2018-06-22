@@ -145,7 +145,7 @@ export class ProfilePage {
     }
 
 
-    navigateToCharity(charity: Charity) {
+    navigateToCharityInfo(charity: Charity) {
 
         this.navCtrl.push(CharityPage, {
             charity: charity

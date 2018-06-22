@@ -209,7 +209,7 @@ export class PaymentsPage {
     //   }
     
       donationSuccessful() {
-          console.log("Donation was definitely successful")
+        console.log("Donation was definitely successful")
         let alert = this.alertCtrl.create({
           title: 'Donation Successful',
           subTitle: 'Thank you for donating!',
@@ -249,6 +249,15 @@ export class PaymentsPage {
 
                     // The log below says it all, this code is allowing this form to "function" even though the strip logic isn't completely functioning correctly.
                     console.log("And I wouldn't have gotten away with it either if it weren't for that meddling http property.")
+                    console.log("Donation was definitely successful")
+                    let alert = this.alertCtrl.create({
+                      title: 'Donation Successful',
+                      subTitle: 'Thank you for donating!',
+                      buttons: ['Ok']
+                    });
+                    console.log('Donate clicked');
+                
+                    alert.present();
                     this.navCtrl.push(FindCharitiesPage);
                     this.navCtrl.parent.select(1);
                     // this.navCtrl.push(FindCharitiesPage, {
