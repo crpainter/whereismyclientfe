@@ -130,8 +130,8 @@ export class PaymentsPage {
                         } else {
                             console.log(result.token);
                             this.stripeTokenHandler(result.token);
-                            this.navCtrl.push(FindCharitiesPage);
-                            this.navCtrl.parent.select(3);
+                            // this.navCtrl.push(FindCharitiesPage);
+                            // this.navCtrl.parent.select(3);
                             this.donationSuccessful();
                         }
                     })
@@ -260,8 +260,8 @@ export class PaymentsPage {
                     console.log('Donate clicked');
                 
                     alert.present();
-                    this.navCtrl.push(FindCharitiesPage);
-                    //this.navCtrl.parent.select(1);
+                    // this.navCtrl.push(FindCharitiesPage);
+                    this.navCtrl.parent.select(2);
                     // this.navCtrl.push(FindCharitiesPage, {
                     //     user: this.user
                     // });
