@@ -107,9 +107,10 @@ export class ProfilePage {
             .get(this.authService.getBaseUrl() +"/user?jwt=" + this.token)
             .subscribe(
                 result => {
+                    this.user = new User();
                     this.user = result.json();
 
-                    console.log("this user: " + this.user)
+                    console.log("this user: " + this.user.username)
                     console.log("result.json " + result.json())
                 },
 

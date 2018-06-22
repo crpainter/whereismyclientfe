@@ -788,8 +788,9 @@ var ProfilePage = /** @class */ (function () {
         this.http
             .get(this.authService.getBaseUrl() + "/user?jwt=" + this.token)
             .subscribe(function (result) {
+            _this.user = new __WEBPACK_IMPORTED_MODULE_4__models_ts_User__["a" /* User */]();
             _this.user = result.json();
-            console.log("this user: " + _this.user);
+            console.log("this user: " + _this.user.username);
             console.log("result.json " + result.json());
         }, function (error) {
         });
@@ -799,7 +800,7 @@ var ProfilePage = /** @class */ (function () {
         setTimeout(function () {
             console.log('Async operation has ended');
             refresher.complete();
-        }, 2000);
+        }, 1000);
     };
     ProfilePage.prototype.logout = function () {
         //this.authServ.navigatetoHome (); // this is a function to logout from the server
@@ -824,11 +825,10 @@ var ProfilePage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-profile',template:/*ion-inline-start:"/Users/Chris/Documents/whereismyclientfe/src/pages/profile/profile.html"*/'<ion-header>\n    <ion-navbar hideBackButton>\n        <ion-buttons start padding>\n            <button ion-button (click)="logout()" >\n                <ion-icon name="log-out"></ion-icon>\n            </button>            \n                \n        </ion-buttons>\n        <ion-title>Profile</ion-title>\n\n        <ion-buttons end padding>\n            <button ion-button clear (click)="navigateToSettings()">\n                <ion-icon name="settings"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n        <ion-refresher (ionRefresh)="doRefresh($event)">\n                <ion-refresher-content></ion-refresher-content>\n              </ion-refresher>\n    <ion-grid>\n        <ion-row>\n            <ion-col text-center>\n                <br>\n                <img src="../../assets/imgs/Asset 7@2x.png" center>\n                <ion-item-group>\n                    <ion-label>username: {{this.user.username}}</ion-label>\n                    <br>\n                    <br>\n                    <h1>your charities</h1>\n                    <ion-list>\n                        <ion-item *ngFor="let charity of this.charitiesDonatedTo">\n                            <ion-thumbnail item-start>\n                                <img src={{charity.logourl}}>\n                            </ion-thumbnail>\n                            <h2>{{charity.name}}</h2>\n                            <p>${{charity.userDonationTotal}} Given • 167 Treatments Provided</p>\n                            <button ion-button clear item-end (click)="navigateToCharity(charity);">View</button>\n                        </ion-item>\n                    </ion-list>\n                </ion-item-group>\n            </ion-col>\n        </ion-row>\n\n    </ion-grid>\n\n\n\n</ion-content>'/*ion-inline-end:"/Users/Chris/Documents/whereismyclientfe/src/pages/profile/profile.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_6__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */], __WEBPACK_IMPORTED_MODULE_8__auth_service__["a" /* AuthService */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__angular_http__["a" /* Http */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_8__auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__auth_service__["a" /* AuthService */]) === "function" && _e || Object])
     ], ProfilePage);
     return ProfilePage;
-    var ProfilePage_1;
+    var ProfilePage_1, _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=profile.js.map
@@ -1456,7 +1456,7 @@ var PortfolioPage = /** @class */ (function () {
         setTimeout(function () {
             console.log('Async operation has ended');
             refresher.complete();
-        }, 2000);
+        }, 1000);
     };
     PortfolioPage.prototype.ionViewDidLoad = function () {
         var _this = this;
